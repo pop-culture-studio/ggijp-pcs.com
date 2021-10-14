@@ -29,9 +29,7 @@
                 {{ $slot }}
             </main>
 
-            @if (isset($side))
-                @include('side')
-            @endif
+            @include('side')
         </div>
     </div>
 
