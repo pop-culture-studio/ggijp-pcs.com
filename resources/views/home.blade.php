@@ -1,23 +1,35 @@
-<x-guest-layout>
+<x-main-layout>
+    <x-slot name="side">
 
-    @if (Route::has('login'))
-        <div class="fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    </x-slot>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h1 class="text-4xl">{{ config('app.name', 'Laravel') }}</h1>
+            <h1 class="text-4xl hidden">{{ config('app.name', 'Laravel') }}</h1>
+
+            <div class="w-auto h-64 rounded shadow-lg my-10 p-10 bg-indigo-500 text-white">この辺にロゴ</div>
+
+            <h2 class="text-3xl">新着</h2>
+
+            <div class="m-1 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
+                <div class="w-auto h-40 bg-gray-100">1</div>
+                <div class="w-auto h-40 bg-gray-100">2</div>
+                <div class="w-auto h-40 bg-gray-100">3</div>
+                <div class="w-auto h-40 bg-gray-100">4</div>
+                <div class="w-auto h-40 bg-gray-100">5</div>
+                <div class="w-auto h-40 bg-gray-100">6</div>
+            </div>
+
+            <h2 class="text-3xl">カテゴリー</h2>
+
+            <div class="m-1 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
+                <div class="w-auto h-40 bg-gray-100">1</div>
+                <div class="w-auto h-40 bg-gray-100">2</div>
+                <div class="w-auto h-40 bg-gray-100">3</div>
+                <div class="w-auto h-40 bg-gray-100">4</div>
+                <div class="w-auto h-40 bg-gray-100">5</div>
+                <div class="w-auto h-40 bg-gray-100">6</div>
+            </div>
         </div>
     </div>
-</x-guest-layout>
+</x-main-layout>
