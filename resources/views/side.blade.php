@@ -8,11 +8,11 @@
     <h2 class="text-lg">カテゴリー</h2>
     <div class="flex flex-auto flex-wrap gap-1">
         <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500">カテゴリーA</span>
+            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーA</span>
         <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500">カテゴリーB</span>
+            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーB</span>
         <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500">カテゴリーC</span>
+            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーC</span>
     </div>
 
     @auth
