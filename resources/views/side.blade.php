@@ -5,8 +5,6 @@
         </a>
     </h2>
 
-    <div class="text-white bg-blue-500 bold my-5">サイドバー</div>
-
     <h2 class="text-lg">カテゴリー</h2>
     <div class="flex flex-auto flex-wrap gap-1">
         <span
