@@ -32,7 +32,7 @@
                         @foreach ($materials as $material)
                             <tr class="text-center">
                                 <td>
-                                    <img class="object-contain h-full sm:h-24 mx-auto" src="{{ route('file', $material) }}">
+                                    <img class="object-contain h-full sm:h-24 mx-auto" src="{{ route('file', $material) }}" loading="lazy">
                                 </td>
 
                                 <td>{{ $material->title }}</td>
