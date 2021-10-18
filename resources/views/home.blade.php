@@ -13,7 +13,7 @@
 
             <div class="m-1  flex flex-wrap gap-4">
 
-               <x-new-item :image="asset('images/01.png')" name="ああああああああああああああああああああああああああああ1"></x-new-item>
+               <x-new-item :image="asset('images/01.png')" name="1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></x-new-item>
                <x-new-item :image="asset('images/02.png')" name="2"></x-new-item>
                <x-new-item :image="asset('images/03.png')" name="3"></x-new-item>
                <x-new-item :image="asset('images/04.png')" name="4"></x-new-item>
