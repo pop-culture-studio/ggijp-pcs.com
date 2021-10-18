@@ -4,6 +4,7 @@
             <table class="table-auto w-full">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>ファイル</th>
                         <th>名前</th>
                         <th>説明</th>
@@ -13,7 +14,14 @@
                 </thead>
                 <tbody>
                     @foreach ($materials as $material)
-                        <tr class="text-center border-b border-indigo-500">
+                        <tr class="text-center border-b border-indigo-500 border-opacity-50">
+                            <td>
+                                <form action="{{ route('material.edit', $material) }}">
+                                    <x-jet-button>
+                                        {{ __('編集') }}
+                                    </x-jet-button>
+                                </form>
+                            </td>
                             <td>
                                 <img class="object-contain p-1 h-full sm:h-24 mx-auto" src="{{ route('file', $material) }}" loading="lazy">
                             </td>
