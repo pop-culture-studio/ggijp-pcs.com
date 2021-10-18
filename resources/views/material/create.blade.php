@@ -6,7 +6,9 @@
     <input type="file" name="file" required />
 
     <x-jet-button>
-        {{ __('Save') }}
+        {{ __('アップロード') }}
     </x-jet-button>
+
+    <x-jet-input-error for="file" />
 
 </form>

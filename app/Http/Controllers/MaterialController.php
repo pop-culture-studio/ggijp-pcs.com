@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MaterialStoreRequest;
 use App\Models\Material;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,13 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MaterialStoreRequest $request)
     {
-        $path = $request->file('file')->store('materials/'.today()->year.'/'.today()->month);
+        if (! $request->file('file')->isValid()) {
+            return back();
+        }
+
+        $path = $request->file('file')->store('materials/' . today()->year . '/' . today()->month);
         $name = $request->file('file')->getClientOriginalName();
 
         $request->user()->materials()->create([
