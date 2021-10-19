@@ -12,7 +12,7 @@
 
             <div>Name : {{ $material->user->name }}</div>
 
-            <div class="bg-indigo-500 text-white p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
+            <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
             <div class="flex justify-center rounded-lg">
                 <img class="object-contain h-full w-auto" src="{{ route('file', $material) }}"
