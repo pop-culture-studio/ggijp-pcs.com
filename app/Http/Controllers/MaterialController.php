@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class MaterialController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except('show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -67,7 +73,7 @@ class MaterialController extends Controller
      */
     public function show(Material $material)
     {
-       return view('material.show')->with(compact('material'));
+        return view('material.show')->with(compact('material'));
     }
 
     /**
@@ -97,7 +103,7 @@ class MaterialController extends Controller
             'description' => $request->input('description')
         ])->save();
 
-        return redirect()->route('dashboard')->banner($title.'を更新しました。');
+        return redirect()->route('dashboard')->banner($title . 'を更新しました。');
     }
 
     /**

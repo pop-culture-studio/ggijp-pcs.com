@@ -23,8 +23,9 @@ Route::get('/', HomeController::class)->name('home');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::resource('material', MaterialController::class);
 });
+
+Route::resource('material', MaterialController::class);
 
 Route::get('file/{material}', FileController::class)->name('file');
 
