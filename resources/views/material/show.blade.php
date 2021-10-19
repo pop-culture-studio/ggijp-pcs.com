@@ -19,6 +19,11 @@
                     alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
             </div>
 
+            <a href="{{ route('download', $material) }}">
+                <div class="text-center text-4xl p-6 m-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-lg">
+                    ダウンロード
+                </div>
+            </a>
 
         </div>
     </div>

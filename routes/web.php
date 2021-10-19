@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaterialController;
@@ -27,3 +28,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 Route::get('file/{material}', FileController::class)->name('file');
 
+Route::get('download/{material}', DownloadController::class)->name('download');

@@ -1105,6 +1105,9 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.m-6 {
+	margin: 1.5rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -2012,6 +2015,10 @@ select {
 .hover\:bg-red-400:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
+}
+.hover\:bg-indigo-400:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(251, 146, 60, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
