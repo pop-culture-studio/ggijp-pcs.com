@@ -39,4 +39,23 @@
             </div>
         </div>
     </div>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg border-2 border-red-500">
+                <h2 class="text-3xl mb-5">削除</h2>
+
+                <form action="{{ route('material.destroy', $material) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+
+                    <x-jet-button class="bg-red-500 hover:bg-red-400">
+                        {{ __('今すぐ削除') }}
+                    </x-jet-button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
 </x-app-layout>

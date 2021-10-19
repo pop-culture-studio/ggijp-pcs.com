@@ -16,7 +16,6 @@ class DashboardController extends Controller
     {
         $materials = $request->user()
             ->materials()
-            ->withTrashed()
             ->latest()
             ->cursorPaginate(5);
 
