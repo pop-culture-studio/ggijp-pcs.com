@@ -108,7 +108,7 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
-        Storage::delete($material->file);
+        //Storage::delete($material->file);
 
         $material->delete();
 
