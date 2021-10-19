@@ -6,6 +6,7 @@ use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MaterialController extends Controller
 {
@@ -107,6 +108,8 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
+        Storage::delete($material->file);
+
         $material->delete();
 
         return redirect()->route('dashboard');
