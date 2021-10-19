@@ -2216,6 +2216,10 @@ select {
 		height: 5rem;
 	}
 
+	.sm\:h-96 {
+		height: 24rem;
+	}
+
 	.sm\:min-h-screen {
 		min-height: 100vh;
 	}

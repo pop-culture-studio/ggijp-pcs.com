@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MaterialStoreRequest;
+use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Material;
 use Illuminate\Http\Request;
 
@@ -76,7 +77,7 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        //
+        return view('material.edit')->with(compact('material'));
     }
 
     /**
@@ -86,9 +87,16 @@ class MaterialController extends Controller
      * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Material $material)
+    public function update(MaterialUpdateRequest $request, Material $material)
     {
-        //
+        $title = $request->input('title');
+
+        $material->fill([
+            'title' => $title,
+            'description' => $request->input('description')
+        ])->save();
+
+        return redirect()->route('dashboard')->banner($title.'を更新しました。');
     }
 
     /**

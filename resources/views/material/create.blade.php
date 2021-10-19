@@ -1,11 +1,13 @@
 <h2 class="text-3xl mb-5">アップロード</h2>
 
-<form action="{{ route('material.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('material.store') }}" method="post" enctype="multipart/form-data">
     @csrf
 
     <x-jet-label for="file" value="{{ __('ファイル（必須。5MB以下）') }}" />
 
     <input type="file" name="file" required />
+
+    <x-jet-input-error for="file" />
 
     <div class="my-2">
     <x-jet-label for="title" value="{{ __('タイトル') }}" />
@@ -23,6 +25,6 @@
         {{ __('アップロード') }}
     </x-jet-button>
 
-    <x-jet-input-error for="file" />
+
 
 </form>

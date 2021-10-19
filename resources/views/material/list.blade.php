@@ -5,9 +5,9 @@
                 <thead>
                     <tr>
                         <th>ファイル</th>
-                        <th>名前</th>
+                        <th>タイトル</th>
                         <th>説明</th>
-                        <th></th>
+                        <th>編集</th>
                     </tr>
                 </thead>
                 <tbody>
