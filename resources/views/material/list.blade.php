@@ -15,7 +15,10 @@
                         <tr class="text-center border-b border-indigo-500 border-opacity-50">
 
                             <td>
-                                <img class="object-contain p-1 h-full sm:h-24 mx-auto" src="{{ route('file', $material) }}" loading="lazy">
+                                <a href="{{ route('material.show', $material) }}">
+                                    <img class="object-contain p-1 h-full sm:h-24 mx-auto"
+                                        src="{{ route('file', $material) }}" loading="lazy">
+                                </a>
                             </td>
 
                             <td>{{ $material->title }}</td>
