@@ -16,9 +16,9 @@ class MaterialPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -28,9 +28,9 @@ class MaterialPolicy
      * @param  \App\Models\Material  $material
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Material $material)
+    public function view(?User $user, Material $material)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class MaterialPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class MaterialPolicy
      */
     public function update(User $user, Material $material)
     {
-        //
+        return $user->id == $material->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class MaterialPolicy
      */
     public function delete(User $user, Material $material)
     {
-        //
+        return $user->id == $material->user_id;
     }
 
     /**

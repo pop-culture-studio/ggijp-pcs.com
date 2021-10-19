@@ -14,6 +14,8 @@ class MaterialController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum')->except('show');
+
+        $this->authorizeResource(Material::class,'material');
     }
 
     /**
