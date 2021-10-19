@@ -36,19 +36,25 @@ class MaterialController extends Controller
      */
     public function store(MaterialStoreRequest $request)
     {
-        if (! $request->file('file')->isValid()) {
+        if (!$request->file('file')->isValid()) {
             return back();
         }
 
         $path = $request->file('file')->store('materials/' . today()->year . '/' . today()->month);
-        $name = $request->file('file')->getClientOriginalName();
+
+        $title = $request->whenFilled('title', function ($input) {
+            return $input;
+        }, function () use ($request) {
+            return $request->file('file')->getClientOriginalName();
+        });
 
         $request->user()->materials()->create([
             'file' => $path,
-            'title' => $name
+            'title' => $title,
+            'description' => $request->input('description')
         ]);
 
-        return redirect()->route('dashboard')->banner($name . 'をアップロードしました。');
+        return redirect()->route('dashboard')->banner($title . 'をアップロードしました。');
     }
 
     /**
