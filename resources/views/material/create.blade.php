@@ -10,16 +10,17 @@
     <x-jet-input-error for="file" />
 
     <div class="my-2">
-    <x-jet-label for="title" value="{{ __('タイトル') }}" />
-    <x-jet-input name="title" type="text" class="mt-1 block w-1/2"/>
-    <x-jet-input-error for="title" class="mt-2" />
+        <x-jet-label for="title" value="{{ __('タイトル') }}" />
+        <x-jet-input name="title" type="text" class="mt-1 block w-1/2" />
+        <x-jet-input-error for="title" class="mt-2" />
     </div>
 
     <div class="my-2">
         <x-jet-label for="description" value="{{ __('説明') }}" />
-        <textarea name="description" rows="4" cols="40" class="mt-1 block w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
+        <textarea name="description" rows="4" cols="40"
+            class="mt-1 block w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
         <x-jet-input-error for="description" class="mt-2" />
-        </div>
+    </div>
 
     <x-jet-button>
         {{ __('アップロード') }}
