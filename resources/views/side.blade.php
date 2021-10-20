@@ -7,6 +7,10 @@
 
     <h2 class="text-lg">カテゴリー</h2>
     <div class="flex flex-auto flex-wrap gap-1">
+        @foreach (App\Models\Category::orderBy('name')->get() as $cat)
+            <span
+                class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">{{ $cat->name }}</span>
+        @endforeach
         <span
             class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーA</span>
         <span
@@ -26,5 +30,6 @@
         {{ $side }}
     @endif
 
-    <div class="text-xs mt-10 p-1 border-t">Copyright&copy; <a href="https://sds.fukuoka.jp/" target="_blank">ポップカルチャースタジオ未来図</a> All Rights Reserved.</div>
+    <div class="text-xs mt-10 p-1 border-t">Copyright&copy; <a href="https://sds.fukuoka.jp/"
+            target="_blank">ポップカルチャースタジオ未来図</a> All Rights Reserved.</div>
 </aside>

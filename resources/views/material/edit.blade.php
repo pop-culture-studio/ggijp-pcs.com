@@ -16,6 +16,12 @@
                         alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
 
                     <div class="my-2">
+                        <x-jet-label for="cat" value="{{ __('カテゴリー（必須）') }}" />
+                        <x-jet-input name="cat" type="text" value="{{ $material->categories->implode('name', ',') }}" class="mt-1 block w-1/2" required />
+                        <x-jet-input-error for="cat" class="mt-2" />
+                    </div>
+
+                    <div class="my-2">
                         <x-jet-label for="title" value="{{ __('タイトル') }}" />
                         <x-jet-input name="title" value="{{ $material->title }}" type="text" class="mt-1 block w-1/2"
                             required />

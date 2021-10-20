@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
+use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -58,11 +59,17 @@ class MaterialController extends Controller
             return $request->file('file')->getClientOriginalName();
         });
 
-        $request->user()->materials()->create([
+        $material = $request->user()->materials()->create([
             'file' => $path,
             'title' => $title,
             'description' => $request->input('description')
         ]);
+
+        $cat = Category::firstOrCreate([
+            'name'=>$request->input('cat'),
+        ]);
+
+        $material->categories()->sync($cat);
 
         return redirect()->route('dashboard')->banner($title . 'をアップロードしました。');
     }
@@ -104,6 +111,12 @@ class MaterialController extends Controller
             'title' => $title,
             'description' => $request->input('description')
         ])->save();
+
+        $cat = Category::firstOrCreate([
+            'name'=>$request->input('cat'),
+        ]);
+
+        $material->categories()->sync($cat);
 
         return redirect()->route('dashboard')->banner($title . 'を更新しました。');
     }

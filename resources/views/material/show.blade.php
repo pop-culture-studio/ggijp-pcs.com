@@ -10,7 +10,8 @@
 
             <h2 class="text-3xl my-6">{{ $material->title }}</h2>
 
-            <div>Name : {{ $material->user->name }}</div>
+            <div>名前 : {{ $material->user->name }}</div>
+            <div>カテゴリー : {{ $material->categories->implode('name', ', ') }}</div>
 
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 

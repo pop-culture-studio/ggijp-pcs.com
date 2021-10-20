@@ -5,6 +5,7 @@
                 <thead>
                     <tr>
                         <th>ファイル</th>
+                        <th>カテゴリー</th>
                         <th>タイトル</th>
                         <th>説明</th>
                         <th>編集</th>
@@ -21,6 +22,7 @@
                                 </a>
                             </td>
 
+                            <td>{{ $material->categories->implode('name', ', ') }}</td>
                             <td>{{ $material->title }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>
