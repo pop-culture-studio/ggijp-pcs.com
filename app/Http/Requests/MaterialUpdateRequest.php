@@ -25,6 +25,7 @@ class MaterialUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'cat' => 'required',
         ];
     }
 }

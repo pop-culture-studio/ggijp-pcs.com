@@ -25,6 +25,7 @@ class MaterialStoreRequest extends FormRequest
     {
         return [
             'file' => 'file|max:' . 1024 * 5,
+            'cat' => 'required',
         ];
     }
 }
