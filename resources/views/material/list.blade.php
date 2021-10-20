@@ -22,7 +22,7 @@
                                 </a>
                             </td>
 
-                            <td>{{ $material->categories->implode('name', ', ') }}</td>
+                            <td>{{ $material->categories->implode('name', ',') }}</td>
                             <td>{{ $material->title }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>

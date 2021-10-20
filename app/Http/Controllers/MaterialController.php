@@ -16,7 +16,7 @@ class MaterialController extends Controller
     {
         $this->middleware('auth:sanctum')->except('show');
 
-        $this->authorizeResource(Material::class,'material');
+        $this->authorizeResource(Material::class, 'material');
     }
 
     /**
@@ -59,17 +59,24 @@ class MaterialController extends Controller
             return $request->file('file')->getClientOriginalName();
         });
 
+        $cats = collect(explode(',', $request->input('cat')))
+        ->unique()
+        ->reject(function ($cat) {
+            return empty($cat);
+        })
+        ->map(function ($cat) {
+            return  Category::firstOrCreate([
+                'name' => $cat,
+            ]);
+        });
+
         $material = $request->user()->materials()->create([
             'file' => $path,
             'title' => $title,
             'description' => $request->input('description')
         ]);
 
-        $cat = Category::firstOrCreate([
-            'name'=>$request->input('cat'),
-        ]);
-
-        $material->categories()->sync($cat);
+        $material->categories()->sync($cats->pluck('id'));
 
         return redirect()->route('dashboard')->banner($title . 'をアップロードしました。');
     }
@@ -112,11 +119,18 @@ class MaterialController extends Controller
             'description' => $request->input('description')
         ])->save();
 
-        $cat = Category::firstOrCreate([
-            'name'=>$request->input('cat'),
-        ]);
+        $cats = collect(explode(',', $request->input('cat')))
+            ->unique()
+            ->reject(function ($cat) {
+                return empty($cat);
+            })
+            ->map(function ($cat) {
+                return Category::firstOrCreate([
+                    'name' => $cat,
+                ]);
+            });
 
-        $material->categories()->sync($cat);
+        $material->categories()->sync($cats->pluck('id'));
 
         return redirect()->route('dashboard')->banner($title . 'を更新しました。');
     }

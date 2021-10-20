@@ -10,7 +10,7 @@
     <x-jet-input-error for="file" />
 
     <div class="my-2">
-        <x-jet-label for="cat" value="{{ __('カテゴリー（必須）') }}" />
+        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには,で区切ってください。）') }}" />
         <x-jet-input name="cat" type="text" class="mt-1 block w-1/2" required />
         <x-jet-input-error for="cat" class="mt-2" />
     </div>
