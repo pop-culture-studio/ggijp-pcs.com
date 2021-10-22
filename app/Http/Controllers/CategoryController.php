@@ -46,7 +46,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $materials = $category->materials()->cursorPaginate(3);
+        $materials = $category->materials()->latest()->cursorPaginate(3);
 
         return view('category.show')->with(compact('category', 'materials'));
     }
