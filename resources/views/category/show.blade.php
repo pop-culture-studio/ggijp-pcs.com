@@ -8,11 +8,17 @@
 
             <span><a href="{{ url()->previous() }}" class="text-indigo-500 underline">戻る</a></span>
 
-            <div class="my-6 flex flex-wrap gap-4">
-                @foreach ($category->materials as $material)
-                    <x-new-item :material="$material" :image="route('file', $material)" :name="$material->title">
-                    </x-new-item>
-                @endforeach
+            <h2 class="text-3xl my-6">{{ $category->name }}</h2>
+
+            <div>
+                <div class="my-6 flex flex-wrap gap-4">
+                    @foreach ($materials as $material)
+                        <x-new-item :material="$material" :image="route('file', $material)" :name="$material->title">
+                        </x-new-item>
+                    @endforeach
+                </div>
+
+                {{ $materials->links() }}
             </div>
 
         </div>

@@ -26,7 +26,10 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('side', function ($view) {
-            $cats = Category::has('materials')->orderBy('name')->get();
+            $cats = Category::has('materials')
+                ->withCount('materials')
+                ->orderBy('name')
+                ->get();
 
             $view->with(compact('cats'));
         });
