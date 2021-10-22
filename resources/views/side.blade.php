@@ -7,9 +7,8 @@
 
     <h2 class="text-lg">カテゴリー</h2>
     <div class="flex flex-auto flex-wrap gap-1">
-        @foreach (App\Models\Category::orderBy('name')->get() as $cat)
-            <span
-                class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">{{ $cat->name }}</span>
+        @foreach ($cats as $cat)
+            <x-category :url="route('category.show', $cat)" :name="$cat->name" />
         @endforeach
     </div>
 

@@ -15,6 +15,10 @@ class Material extends Model
         'file', 'title', 'description',
     ];
 
+    protected $hidden = [
+        'file',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

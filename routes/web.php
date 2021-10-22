@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FileController;
@@ -30,3 +31,5 @@ Route::resource('material', MaterialController::class);
 Route::get('file/{material}', FileController::class)->name('file');
 
 Route::get('download/{material}', DownloadController::class)->name('download');
+
+Route::resource('category', CategoryController::class);

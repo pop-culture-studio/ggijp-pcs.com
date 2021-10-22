@@ -11,7 +11,11 @@
             <h2 class="text-3xl my-6">{{ $material->title }}</h2>
 
             <div>名前 : {{ $material->user->name }}</div>
-            <div>カテゴリー : {{ $material->categories->implode('name', ', ') }}</div>
+            <div class="flex flex-auto flex-wrap gap-1">カテゴリー :
+                @foreach ($material->categories as $cat)
+                <x-category :url="route('category.show', $cat)" :name="$cat->name" />
+                @endforeach
+            </div>
 
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
