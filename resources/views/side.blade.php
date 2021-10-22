@@ -11,12 +11,6 @@
             <span
                 class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">{{ $cat->name }}</span>
         @endforeach
-        <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーA</span>
-        <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーB</span>
-        <span
-            class="text-sm text-black bg-white border border-indigo-500 shadow-md py-1 px-2 rounded-lg hover:bg-indigo-500 hover:text-white">カテゴリーC</span>
     </div>
 
     @auth
