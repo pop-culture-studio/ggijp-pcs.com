@@ -15,9 +15,12 @@ class CreateCategoryMaterialTable extends Migration
     {
         Schema::create('category_material', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('material_id');
-            $table->timestamps();
+            $table->foreignId('category_id')
+                ->constrained()
+                ->onDelete('cascade');
+            $table->foreignId('material_id')
+                ->constrained()
+                ->onDelete('cascade');
         });
     }
 
