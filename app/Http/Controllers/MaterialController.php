@@ -26,7 +26,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
+        $materials = Material::latest()->cursorPaginate();
+
+        return view('material.index')->with(compact('materials'));
     }
 
     /**
@@ -60,15 +62,15 @@ class MaterialController extends Controller
         });
 
         $cats = collect(explode(',', $request->input('cat')))
-        ->unique()
-        ->reject(function ($cat) {
-            return empty($cat);
-        })
-        ->map(function ($cat) {
-            return  Category::firstOrCreate([
-                'name' => $cat,
-            ]);
-        });
+            ->unique()
+            ->reject(function ($cat) {
+                return empty($cat);
+            })
+            ->map(function ($cat) {
+                return  Category::firstOrCreate([
+                    'name' => $cat,
+                ]);
+            });
 
         $material = $request->user()->materials()->create([
             'file' => $path,
