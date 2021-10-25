@@ -3,7 +3,7 @@
 <form action="{{ route('material.store') }}" method="post" enctype="multipart/form-data">
     @csrf
 
-    <x-jet-label for="file" value="{{ __('ファイル（必須。5MB以下）') }}" />
+    <x-jet-label for="file" value="{{ __('ファイル（必須。5MB以下。対応フォーマット：jpg,jpeg,png）') }}" />
 
     <input type="file" name="file" required />
 

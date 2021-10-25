@@ -24,7 +24,7 @@ class MaterialStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'file|max:' . 1024 * 5,
+            'file' => ['file', 'max:' . 1024 * 5, 'mimes:jpg,jpeg,png'],
             'cat' => 'required',
         ];
     }
