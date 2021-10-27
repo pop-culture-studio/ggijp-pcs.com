@@ -22,7 +22,8 @@ class MaterialFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'file' => $this->faker->url(),
+            'title'=> $this->faker->name(),
         ];
     }
 }

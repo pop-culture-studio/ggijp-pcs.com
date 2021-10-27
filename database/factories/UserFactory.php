@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Material;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -65,5 +66,14 @@ class UserFactory extends Factory
                 }),
             'ownedTeams'
         );
+    }
+
+    /**
+     *
+     * @return $this
+     */
+    public function withMaterials()
+    {
+        return $this->hasMaterials(10);
     }
 }

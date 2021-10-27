@@ -17,7 +17,7 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-        $user = User::factory()->withPersonalTeam()->create();
+        $user = User::factory()->withPersonalTeam()->withMaterials()->create();
 
         $response = $this->get('/');
 
