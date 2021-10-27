@@ -6,6 +6,7 @@ use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,7 +27,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $materials = Material::latest()->cursorPaginate();
+        $materials = Team::find(config('pcs.team_id'))->materials()
+            ->latest()
+            ->cursorPaginate();
 
         return view('material.index')->with(compact('materials'));
     }
