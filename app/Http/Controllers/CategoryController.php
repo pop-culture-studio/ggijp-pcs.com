@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -46,7 +47,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $materials = $category->materials()->latest()->cursorPaginate(3);
+        $users = Team::find(config('pcs.team_id'))->allUsers()->pluck('id');
+
+        $materials = $category->materials()->whereIn('user_id', $users)->latest()->cursorPaginate(3);
 
         return view('category.show')->with(compact('category', 'materials'));
     }

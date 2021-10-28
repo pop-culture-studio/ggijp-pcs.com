@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Material;
 use App\Models\User;
+use App\Models\Team;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class MaterialPolicy
@@ -30,7 +31,8 @@ class MaterialPolicy
      */
     public function view(?User $user, Material $material)
     {
-        return true;
+        return $material->user->is($user)
+            || $material->user->belongsToTeam(Team::find(config('pcs.team_id')));
     }
 
     /**
@@ -41,7 +43,7 @@ class MaterialPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->belongsToTeam(Team::find(config('pcs.team_id')));
     }
 
     /**
@@ -53,7 +55,7 @@ class MaterialPolicy
      */
     public function update(User $user, Material $material)
     {
-        return $user->id == $material->user_id;
+        return $material->user->is($user);
     }
 
     /**
@@ -65,7 +67,7 @@ class MaterialPolicy
      */
     public function delete(User $user, Material $material)
     {
-        return $user->id == $material->user_id;
+        return $material->user->is($user);
     }
 
     /**

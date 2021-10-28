@@ -1,22 +1,16 @@
 <x-app-layout>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
-                @include('material.create')
+                @can('create', App\Models\Material::class)
+                    @include('material.create')
+                @else
+                    素材のアップロードはPCS未来図のチームメンバーのみ可能です。
+                @endcan
             </div>
         </div>
     </div>
 
     @include('material.list')
 
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div> --}}
 </x-app-layout>
