@@ -12,7 +12,7 @@
 
                     <x-jet-label for="file" value="{{ __('ファイルを変更するには削除してアップロードし直してください。') }}" />
 
-                    <img class="object-contain h-full sm:h-56" src="{{ route('file', $material) }}"
+                    <img class="object-contain h-full sm:h-56" src="{{ route('thumbnail', $material) }}"
                         alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
 
                     <div class="my-2">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Material;
 use Illuminate\Support\Facades\Storage;
 
-class FileController extends Controller
+class ThumbnailController extends Controller
 {
     /**
      * Handle the incoming request.
