@@ -19,7 +19,7 @@
 
             <div class="text-xs mt-3">
                 <ul>
-                    <li>登録ユーザー数：{{ App\Models\User::count() }}</li>
+                    <li>ユーザー数：{{ App\Models\User::count() }}</li>
                     <li>素材数：{{ App\Models\Material::count() }}</li>
                 </ul>
             </div>
