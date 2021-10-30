@@ -26,7 +26,7 @@
 
             <a href="{{ route('download', $material) }}">
                 <div class="text-center text-4xl p-6 m-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-lg">
-                    ダウンロード
+                    ダウンロード({{ cache('download:' . $material->id, 0) }})
                 </div>
             </a>
 
