@@ -1,4 +1,24 @@
 <x-main-layout>
+    <x-slot name="title">
+        {{ $material->title }}
+    </x-slot>
+
+    <x-slot name="ogp">
+        <x-ogp>
+            <x-slot name="title">
+                {{ $material->title }}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ $material->description ?? config('app.name') }}
+            </x-slot>
+
+            <x-slot name="image">
+                {{ route('thumbnail', $material) }}
+            </x-slot>
+        </x-ogp>
+    </x-slot>
+
     <x-slot name="side">
 
     </x-slot>
@@ -13,7 +33,7 @@
             <div>名前 : {{ $material->user->name }}</div>
             <div class="flex flex-auto flex-wrap gap-1">カテゴリー :
                 @foreach ($material->categories as $cat)
-                <x-category :url="route('category.show', $cat)" :name="$cat->name" />
+                    <x-category :url="route('category.show', $cat)" :name="$cat->name" />
                 @endforeach
             </div>
 

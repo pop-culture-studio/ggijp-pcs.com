@@ -1,4 +1,8 @@
 <x-main-layout>
+    <x-slot name="title">
+        カテゴリー {{ $category->name }}
+    </x-slot>
+
     <x-slot name="side">
 
     </x-slot>

@@ -1,4 +1,8 @@
 <x-main-layout>
+    <x-slot name="title">
+        すべての素材
+    </x-slot>
+
     <x-slot name="side">
 
     </x-slot>
