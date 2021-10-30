@@ -36,7 +36,8 @@
                     <x-category :url="route('category.show', $cat)" :name="$cat->name" />
                 @endforeach
             </div>
-
+            <div>ダウンロード : {{ cache('download:' . $material->id, 0) }}</div>
+        
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
             <div class="flex justify-center rounded-lg">
