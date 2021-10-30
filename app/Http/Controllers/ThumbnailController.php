@@ -16,6 +16,6 @@ class ThumbnailController extends Controller
      */
     public function __invoke(Request $request, Material $material)
     {
-        return Storage::get($material->file);
+        return response()->file(Storage::path($material->file));
     }
 }
