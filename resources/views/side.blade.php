@@ -16,6 +16,13 @@
         <div class="border-4 border-indigo-500 my-6 p-1">
             <h2 class="bg-indigo-500 text-lg text-white font-bold">管理者＆メンバー用</h2>
             <a href="{{ route('dashboard') }}" class="text-indigo-500 hover:underline">ダッシュボード</a>
+
+            <div class="text-xs mt-3">
+                <ul>
+                    <li>登録ユーザー数：{{ App\Models\User::count() }}</li>
+                    <li>素材数：{{ App\Models\Material::count() }}</li>
+                </ul>
+            </div>
         </div>
     @endauth
 
