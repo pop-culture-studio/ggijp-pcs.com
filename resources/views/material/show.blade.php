@@ -36,8 +36,7 @@
                     <x-category :url="route('category.show', $cat)" :name="$cat->name" />
                 @endforeach
             </div>
-            <div>ダウンロード : {{ cache('download:' . $material->id, 0) }}</div>
-        
+
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
             <div class="flex justify-center rounded-lg">
@@ -47,7 +46,7 @@
 
             <a href="{{ route('download', $material) }}">
                 <div class="text-center text-4xl p-6 m-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-lg">
-                    ダウンロード({{ cache('download:' . $material->id, 0) }})
+                    ダウンロード
                 </div>
             </a>
 

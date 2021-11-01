@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
@@ -24,6 +25,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
+    Route::get('dashboard/materials', MaterialsController::class)->name('dashboard.materials');
 });
 
 Route::resource('material', MaterialController::class);
