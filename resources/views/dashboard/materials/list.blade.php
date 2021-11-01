@@ -4,6 +4,7 @@
             <table class="table-auto w-full">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>ファイル</th>
                         <th>カテゴリー</th>
                         <th>タイトル</th>
@@ -14,7 +15,9 @@
                 <tbody>
                     @foreach ($materials as $material)
                         <tr class="text-center border-b border-indigo-500 border-opacity-50">
-
+                            <td>
+                                {{ $material->id }}
+                            </td>
                             <td>
                                 <a href="{{ route('material.show', $material) }}">
                                     <img class="object-contain p-1 h-full sm:h-24 mx-auto"
@@ -26,7 +29,7 @@
                             <td>{{ $material->title }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>
-                               {{ cache('download:'.$material->id, 0) }}
+                                {{ cache('download:' . $material->id, 0) }}
                             </td>
 
                         </tr>
