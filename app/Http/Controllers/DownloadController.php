@@ -16,9 +16,7 @@ class DownloadController extends Controller
      */
     public function __invoke(Request $request, Material $material)
     {
-        $key = 'download:' . $material->id;
-
-        cache()->forever($key, cache()->increment($key));
+        $material->increment('download');
 
         return Storage::download($material->file);
     }

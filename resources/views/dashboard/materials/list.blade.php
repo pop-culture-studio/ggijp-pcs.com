@@ -28,9 +28,7 @@
                             <td>{{ $material->categories->implode('name', ',') }}</td>
                             <td>{{ $material->title }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
-                            <td>
-                                {{ cache('download:' . $material->id, 0) }}
-                            </td>
+                            <td>{{ $material->download }}</td>
 
                         </tr>
                     @endforeach
