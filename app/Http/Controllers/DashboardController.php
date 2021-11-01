@@ -18,7 +18,7 @@ class DashboardController extends Controller
             ->materials()
             ->with('categories')
             ->latest()
-            ->cursorPaginate(5);
+            ->paginate(5);
 
         return view('dashboard')->with(compact('materials'));
     }
