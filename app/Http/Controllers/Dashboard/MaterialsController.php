@@ -23,7 +23,7 @@ class MaterialsController extends Controller
         $materials = $team
             ->materials()
             ->with('categories')
-            ->latest()
+            ->latest('download')
             ->paginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
