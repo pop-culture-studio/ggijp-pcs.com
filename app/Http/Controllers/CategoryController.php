@@ -49,7 +49,10 @@ class CategoryController extends Controller
     {
         $users = Team::find(config('pcs.team_id'))->allUsers()->pluck('id');
 
-        $materials = $category->materials()->whereIn('user_id', $users)->latest()->cursorPaginate(3);
+        $materials = $category->materials()
+            ->whereIn('user_id', $users)
+            ->latest()
+            ->cursorPaginate(5);
 
         return view('category.show')->with(compact('category', 'materials'));
     }
