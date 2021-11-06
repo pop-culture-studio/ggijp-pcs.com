@@ -23,9 +23,9 @@
                 <x-admin-message text="この辺に大きいロゴ" />
             </div>
 
-            @isset($materials)
+            @if($materials)
                 @include('home.new')
-            @endisset
+            @endif
 
             @include('home.category')
 
