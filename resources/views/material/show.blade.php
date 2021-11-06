@@ -14,7 +14,7 @@
             </x-slot>
 
             <x-slot name="image">
-                {{ route('thumbnail', $material) }}
+                {{ $material->thumbnail }}
             </x-slot>
         </x-ogp>
     </x-slot>
@@ -40,7 +40,7 @@
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
             <div class="flex justify-center rounded-lg">
-                <img class="object-contain h-full w-auto" src="{{ route('thumbnail', $material) }}"
+                <img class="object-contain h-full w-auto" src="{{ $material->thumbnail }}"
                     alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
             </div>
 

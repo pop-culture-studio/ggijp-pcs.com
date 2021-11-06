@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Material extends Model
 {
@@ -27,5 +28,10 @@ class Material extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function getThumbnailAttribute()
+    {
+        return Storage::temporaryUrl($this->file, now()->addMinutes(10));
     }
 }
