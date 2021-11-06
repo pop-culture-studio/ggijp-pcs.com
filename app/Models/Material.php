@@ -32,6 +32,10 @@ class Material extends Model
 
     public function getThumbnailAttribute()
     {
-        return Storage::temporaryUrl($this->file, now()->addMinutes(10));
+        if (app()->runningUnitTests()) {
+            return Storage::url($this->file);
+        } else {
+            return Storage::temporaryUrl($this->file, now()->addMinutes(10));
+        }
     }
 }
