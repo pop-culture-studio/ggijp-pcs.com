@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $materials = Team::find(config('pcs.team_id'))
-            ->materials()
+            ?->materials()
             ->latest()
             ->limit(9)
             ->get();
