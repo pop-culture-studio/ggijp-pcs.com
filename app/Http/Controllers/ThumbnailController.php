@@ -16,8 +16,6 @@ class ThumbnailController extends Controller
      */
     public function __invoke(Request $request, Material $material)
     {
-        return response()->withHeaders([
-            'X-Vapor-Base64-Encode' => 'True',
-        ])->file(Storage::path($material->file));
+        return redirect()->away(Storage::temporaryUrl($material->file, now()->addMinutes(10)));
     }
 }
