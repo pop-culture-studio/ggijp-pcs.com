@@ -26,7 +26,6 @@ environments:
         domain: staging.ggijp-pcs.com
         storage: storage-staging.ggijp-pcs.com
         database: ggijp-pcs-com-production
-        cache: ggijp-pcs-com
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
             - 'php artisan event:cache'
