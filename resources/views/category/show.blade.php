@@ -10,7 +10,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <span><a href="{{ url()->previous() }}" class="text-indigo-500 underline">戻る</a></span>
+            <x-breadcrumbs-back />
 
             <h2 class="text-3xl my-6">{{ $category->name }}</h2>
 
