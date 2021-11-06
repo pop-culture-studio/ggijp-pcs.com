@@ -26,9 +26,6 @@ jobs:
           php artisan key:generate
       - name: Test
         run: vendor/bin/phpunit
-      - name: deploy
-        if: success() && (github.event_name != 'pull_request')
-        run: curl -s ${{ secrets.FORGE }}
       - name: Deploy Environment
         if: success() && (github.event_name != 'pull_request')
         run: ./vendor/bin/vapor deploy production
