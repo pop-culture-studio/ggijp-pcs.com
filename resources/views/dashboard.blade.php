@@ -9,7 +9,7 @@
                 @can('create', App\Models\Material::class)
                     @include('material.create')
                 @else
-                    素材のアップロードはPCS未来図のチームメンバーのみ可能です。
+                    素材のアップロードは未来図倉庫チームメンバーのみ可能です。
                 @endcan
             </div>
         </div>
