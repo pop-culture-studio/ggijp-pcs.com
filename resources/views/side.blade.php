@@ -12,7 +12,7 @@
         @endforeach
     </div>
 
-    @auth
+    @can('create', App\Models\Material::class)
         <div class="border-4 border-indigo-500 my-6 p-1">
             <h2 class="bg-indigo-500 text-lg text-white font-bold">スタッフ＆メンバー用</h2>
             <a href="{{ route('dashboard') }}" class="text-indigo-500 hover:underline">ダッシュボード</a>
@@ -24,7 +24,7 @@
                 </ul>
             </div>
         </div>
-    @endauth
+    @endcan
 
     @if (isset($side))
         {{ $side }}
