@@ -58,7 +58,7 @@ class JetstreamServiceProvider extends ServiceProvider
             'delete',
         ])->description('管理者ユーザーは任意のアクションを実行できます。');
 
-        Jetstream::role('editor', 'メンバー', [
+        Jetstream::role('member', 'メンバー', [
             'read',
             'create',
             'update',
