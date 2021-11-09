@@ -27,15 +27,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <x-breadcrumbs-back />
-            
-            <h2 class="text-3xl my-6">{{ $material->title }}</h2>
 
-            <div>名前 : {{ $material->user->name }}</div>
-            <div class="flex flex-auto flex-wrap gap-1">カテゴリー :
+            <div class="flex flex-auto flex-wrap gap-1 mt-3">カテゴリー :
                 @foreach ($material->categories as $cat)
                     <x-category :url="route('category.show', $cat)" :name="$cat->name" />
                 @endforeach
             </div>
+
+            <h2 class="text-3xl mb-6">{{ $material->title }}</h2>
+
+            <div>名前 : {{ $material->user->name }}</div>
 
             <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
 
