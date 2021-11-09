@@ -29,7 +29,7 @@ class ViewServiceProvider extends ServiceProvider
         View::composer('side', function ($view) {
             $cats = Category::has('materials')
                 ->withCount(['materials' => function ($query) {
-                    $query->whereIn('user_id', Team::find(config('pcs.team_id')));
+                    $query->whereIn('user_id', Team::find(config('pcs.team_id'))->allUsers()->pluck('id'));
                 }])
                 ->orderBy('name')
                 ->get();
