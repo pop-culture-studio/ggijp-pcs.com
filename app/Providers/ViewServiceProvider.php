@@ -4,8 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use App\Models\Category;
-use App\Models\Team;
+use App\View\Composers\SideComposer;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -26,15 +25,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('side', function ($view) {
-            $cats = Category::has('materials')
-                ->withCount(['materials' => function ($query) {
-                    $query->whereIn('user_id', Team::find(config('pcs.team_id'))->allUsers()->pluck('id'));
-                }])
-                ->orderBy('name')
-                ->get();
-
-            $view->with(compact('cats'));
-        });
+        View::composer('side', SideComposer::class);
     }
 }
