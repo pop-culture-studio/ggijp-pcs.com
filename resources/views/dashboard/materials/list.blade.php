@@ -9,6 +9,7 @@
                         <th>カテゴリー</th>
                         <th>タイトル</th>
                         <th>説明</th>
+                        <th>作者</th>
                         <th>ダウンロード数</th>
                     </tr>
                 </thead>
@@ -28,6 +29,9 @@
                             <td>{{ $material->categories->implode('name', ',') }}</td>
                             <td>{{ $material->title }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
+                            <td>
+                                {{ $material->user->name }}
+                            </td>
                             <td>{{ $material->download }}</td>
 
                         </tr>

@@ -21,7 +21,7 @@ class MaterialsController extends Controller
         abort_unless($request->user()->belongsToTeam($team), 403);
 
         $materials = $team->materials()
-            ->with('categories')
+            ->with(['categories', 'user'])
             ->latest('download')
             ->paginate();
 
