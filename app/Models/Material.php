@@ -35,7 +35,7 @@ class Material extends Model
         if (app()->runningUnitTests()) {
             return Storage::url($this->file);
         } else {
-            return Storage::temporaryUrl($this->file, now()->addMinutes(10));
+            return Storage::temporaryUrl($this->file, now()->addMinutes(60));
         }
     }
 }
