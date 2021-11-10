@@ -34,4 +34,4 @@ Route::get('thumbnail/{material}', ThumbnailController::class)->name('thumbnail'
 
 Route::get('download/{material}', DownloadController::class)->name('download');
 
-Route::resource('category', CategoryController::class);
+Route::resource('category', CategoryController::class)->only(['index', 'show']);
