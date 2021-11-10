@@ -1,6 +1,6 @@
 <h2 class="text-3xl">カテゴリー</h2>
 
-<x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。カテゴリーの画像が必要。"/>
+<x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。"/>
 
 <div class="my-6 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
     <div class="w-auto h-40 bg-gray-100">1</div>
