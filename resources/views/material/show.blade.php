@@ -52,11 +52,16 @@
                     alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
             </div>
 
-            <a href="{{ URL::temporarySignedRoute('download', now()->addMinutes(60), $material) }}">
-                <div class="text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
-                    ダウンロード
-                </div>
-            </a>
+            <form action="{{ URL::temporarySignedRoute('download', now()->addMinutes(60), $material) }}"
+                method="post">
+                @csrf
+
+                <button type="submit"
+                    class="w-full text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
+                    {{ __('ダウンロード') }}
+                </button>
+
+            </form>
 
         </div>
     </div>
