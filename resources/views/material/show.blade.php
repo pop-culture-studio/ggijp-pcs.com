@@ -52,8 +52,8 @@
                     alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
             </div>
 
-            <a href="{{ route('download', $material) }}">
-                <div class="text-center text-4xl p-6 m-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-lg">
+            <a href="{{ URL::temporarySignedRoute('download', now()->addMinutes(60), $material) }}">
+                <div class="text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
                     ダウンロード
                 </div>
             </a>
