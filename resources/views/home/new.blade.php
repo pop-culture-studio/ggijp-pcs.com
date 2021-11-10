@@ -7,6 +7,6 @@
 </div>
 
 <a href="{{ route('material.index') }}"
-    class="block text-center text-xl p-3 m-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-lg">
+    class="block text-center text-xl p-3 m-6 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
     すべての素材
 </a>
