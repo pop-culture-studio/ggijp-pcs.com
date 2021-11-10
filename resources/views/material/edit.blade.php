@@ -49,14 +49,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg border-2 border-red-500">
-                <h2 class="text-3xl mb-5">削除</h2>
+                <h2 class="text-3xl mb-2">ファイルを非公開にする</h2>
+
+                <div class="text-red-500 mb-5">公開に戻せません。どうしても戻したい場合はスタッフに連絡してください。</div>
 
                 <form action="{{ route('material.destroy', $material) }}" method="post">
                     @csrf
                     @method('DELETE')
 
                     <x-jet-button class="bg-red-500 hover:bg-red-400">
-                        {{ __('今すぐ削除') }}
+                        {{ __('今すぐ非公開') }}
                     </x-jet-button>
 
                 </form>

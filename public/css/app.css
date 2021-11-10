@@ -1105,6 +1105,9 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.m-1 {
+	margin: 0.25rem;
+}
 .m-6 {
 	margin: 1.5rem;
 }
@@ -1195,6 +1198,9 @@ select {
 }
 .mb-5 {
 	margin-bottom: 1.25rem;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .-mt-px {
 	margin-top: -1px;
@@ -1621,11 +1627,11 @@ select {
 .p-3 {
 	padding: 0.75rem;
 }
-.p-5 {
-	padding: 1.25rem;
-}
 .p-1 {
 	padding: 0.25rem;
+}
+.p-5 {
+	padding: 1.25rem;
 }
 .px-4 {
 	padding-left: 1rem;
