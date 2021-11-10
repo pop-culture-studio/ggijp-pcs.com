@@ -36,9 +36,16 @@
 
             <h2 class="text-3xl mb-6">{{ $material->title }}</h2>
 
-            <div>名前 : {{ $material->user->name }}</div>
+            <div>作者 : {{ $material->user->name }}</div>
 
-            <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
+            @if ($material->description)
+                <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
+            @endif
+
+            @can('update', $material)
+                <div class="p-1 m-1 text-right"><a href="{{ route('material.edit', $material) }}"
+                        class="text-red-500 hover:underline">編集</a></div>
+            @endcan
 
             <div class="flex justify-center rounded-lg">
                 <img class="object-contain h-full w-auto" src="{{ $material->thumbnail }}"

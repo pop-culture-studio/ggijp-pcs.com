@@ -136,7 +136,7 @@ class MaterialController extends Controller
 
         $material->categories()->sync($cats->pluck('id'));
 
-        return redirect()->route('dashboard')->banner($title . 'を更新しました。');
+        return redirect()->route('material.show', $material)->banner($title . 'を更新しました。');
     }
 
     /**
