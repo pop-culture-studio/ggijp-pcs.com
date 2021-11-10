@@ -13,16 +13,20 @@
     </div>
 
     @can('create', App\Models\Material::class)
-        <div class="border-4 border-indigo-500 my-6 p-1">
-            <h2 class="bg-indigo-500 text-lg text-white font-bold">スタッフ＆メンバー用</h2>
-            <a href="{{ route('dashboard') }}" class="text-indigo-500 hover:underline">ダッシュボード</a>
+        <div class="border-4 border-indigo-500 my-6 rounded">
+            <h2 class="bg-indigo-500 text-lg text-white font-bold px-1">スタッフ＆メンバー用</h2>
 
-            <div class="text-xs mt-3">
-                <ul>
-                    <li>ユーザー数：{{ App\Models\User::count() }}</li>
-                    <li>素材数：{{ App\Models\Material::count() }}</li>
-                </ul>
+            <div class="p-2">
+                <a href="{{ route('dashboard') }}" class="font-bold text-indigo-500 hover:underline">ダッシュボード</a>
+
+                <div class="text-sm mt-3">
+                    <ul>
+                        <li>ユーザー数：{{ App\Models\User::count() }}</li>
+                        <li>素材数：{{ App\Models\Material::count() }}</li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     @endcan
 
