@@ -1114,6 +1114,9 @@ select {
 .m-6 {
 	margin: 1.5rem;
 }
+.m-3 {
+	margin: 0.75rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1125,6 +1128,10 @@ select {
 .my-6 {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+}
+.mx-3 {
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
 }
 .my-10 {
 	margin-top: 2.5rem;
@@ -1255,9 +1262,6 @@ select {
 }
 .h-full {
 	height: 100%;
-}
-.h-40 {
-	height: 10rem;
 }
 .h-64 {
 	height: 16rem;
