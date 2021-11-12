@@ -48,9 +48,10 @@ class Material extends Model
                 default => 'その他'
             };
 
-            return 'https://placehold.jp/ffffff/333333/350x350.png?text=' .
-                urlencode($type) .
-                '&css=%7B%22background%22%3A%22%20-webkit-gradient(linear%2C%20left%20top%2C%20left%20bottom%2C%20from(%236366F1)%2C%20to(%23ffffff))%22%7D';
+            return 'https://placehold.jp/ffffff/6366F1/350x350.png?text=' .
+                urlencode($type)
+                //.'&css=%7B%22background%22%3A%22%20-webkit-gradient(linear%2C%20left%20top%2C%20left%20bottom%2C%20from(%236366F1)%2C%20to(%23ffffff))%22%7D'
+            ;
         }
 
         return Storage::temporaryUrl($this->file, now()->addMinutes(60));

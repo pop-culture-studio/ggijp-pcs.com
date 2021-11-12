@@ -14,8 +14,8 @@
 
             <h2 class="text-3xl my-6">{{ $category->name }}</h2>
 
-            <div>
-                <div class="my-6 flex flex-wrap gap-4">
+            <div class="my-6 mx-3">
+                <div class="flex flex-wrap gap-4">
                     @foreach ($materials as $material)
                         <x-item :material="$material" :image="$material->thumbnail" :name="$material->title">
                         </x-item>
