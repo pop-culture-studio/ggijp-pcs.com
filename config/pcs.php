@@ -3,6 +3,8 @@
 return [
     'team_id' => env('PCS_TEAM_ID', 1),
 
+    'mimes' => 'jpg,jpeg,png,mp4,zip',
+
     'category' => [
         [
             'id' => 10,
