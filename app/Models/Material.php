@@ -44,6 +44,7 @@ class Material extends Model
             $type = match (true) {
                 str_contains($mime, 'image/') => 'イラスト',
                 str_contains($mime, 'video/') => '動画',
+                str_contains($mime, 'audio/') => '音声',
                 str_contains($mime, '/zip') => 'ZIP',
                 default => 'その他'
             };
