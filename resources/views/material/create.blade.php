@@ -28,7 +28,7 @@
         <x-jet-input-error for="description" class="mt-2" />
     </div>
 
-    <x-jet-button>
+    <x-jet-button class="mt-2">
         {{ __('アップロード') }}
     </x-jet-button>
 
