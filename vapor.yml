@@ -9,9 +9,9 @@ environments:
         storage: storage.ggijp-pcs.com
         database: ggijp-pcs-com-production
         cache: ggijp-pcs-com
-        # octane: true
-        # octane-database-session-persist: true
-        # octane-database-session-ttl: 10
+        octane: true
+        octane-database-session-persist: true
+        octane-database-session-ttl: 10
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan event:cache'
