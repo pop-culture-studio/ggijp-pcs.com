@@ -8,65 +8,13 @@
     <div class="w-auto"><img src="https://placehold.jp/f71b1b/ffffff/350x180.png?text={{ urlencode('正月') }}">
     </div>
 
-    <div class="w-auto">
-        <a href="{{ route('category.show', 10) }}" title="2Dモデル">
-            <img src="{{ asset('images/cat/2d.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 11) }}" title="3Dモデル">
-            <img src="{{ asset('images/cat/3d.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 12) }}" title="BGM">
-            <img src="{{ asset('images/cat/BGM.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 13) }}" title="たべもの">
-            <img src="{{ asset('images/cat/food.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 14) }}" title="のりもの">
-            <img src="{{ asset('images/cat/vehicle.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 15) }}" title="音声素材">
-            <img src="{{ asset('images/cat/voice.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 16) }}" title="行事・イベント">
-            <img src="{{ asset('images/cat/event.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 17) }}" title="写真・背景">
-            <img src="{{ asset('images/cat/photo.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 18) }}" title="職業・仕事">
-            <img src="{{ asset('images/cat/work.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', 19) }}" title="動物・植物">
-            <img src="{{ asset('images/cat/animal.png') }}">
-        </a>
-    </div>
+    @foreach (config('pcs.category') as $cat)
+        <div class="w-auto">
+            <a href="{{ route('category.show', Arr::get($cat, 'id')) }}" title="{{ Arr::get($cat, 'title') }}">
+                <img src="{{ asset('images/cat/' . Arr::get($cat, 'image')) }}" alt="{{ Arr::get($cat, 'title') }}">
+            </a>
+        </div>
+    @endforeach
 
     {{-- <div class="w-auto"><img src="https://placehold.jp/9697a3/ffffff/350x180.png?text=%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%83%BC1"></div>
     <div class="w-auto"><img src="https://placehold.jp/9697a3/ffffff/350x180.png?text=%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%83%BC2"></div>
