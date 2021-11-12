@@ -38,14 +38,19 @@ class Material extends Model
 
         $mime = Storage::mimeType($this->file);
 
+        logger($mime);
+
         if (!str_contains($mime, 'image')) {
             $type = match (true) {
                 str_contains($mime, 'image/') => 'イラスト',
                 str_contains($mime, 'video/') => '動画',
+                str_contains($mime, '/zip') => 'ZIP',
                 default => 'その他'
             };
 
-            return 'https://placehold.jp/ffffff/333333/350x350.png?text=' . urlencode($type);
+            return 'https://placehold.jp/ffffff/333333/350x350.png?text=' .
+                urlencode($type) .
+                '&css=%7B%22background%22%3A%22%20-webkit-gradient(linear%2C%20left%20top%2C%20left%20bottom%2C%20from(%236366F1)%2C%20to(%23ffffff))%22%7D';
         }
 
         return Storage::temporaryUrl($this->file, now()->addMinutes(60));
