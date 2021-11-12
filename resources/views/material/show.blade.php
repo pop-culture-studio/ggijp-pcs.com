@@ -28,7 +28,7 @@
 
             <x-breadcrumbs-back />
 
-            <div class="flex flex-auto flex-wrap gap-1 mt-3">カテゴリー :
+            <div class="flex flex-auto flex-wrap gap-2 mt-3">カテゴリー :
                 @foreach ($material->categories as $cat)
                     <x-category :url="route('category.show', $cat)" :name="$cat->name" />
                 @endforeach
