@@ -13,6 +13,13 @@
         <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには,で区切ってください。）') }}" />
         <x-jet-input name="cat" type="text" class="mt-1 block w-1/2" required />
         <x-jet-input-error for="cat" class="mt-2" />
+
+        <div class="my-2 text-md">基本カテゴリー
+            @foreach (config('pcs.category') as $cat)
+                {{ Arr::get($cat, 'title') }}@if (!$loop->last),@endif
+            @endforeach
+        </div>
+
     </div>
 
     <div class="my-2">
