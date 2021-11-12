@@ -1,6 +1,6 @@
 <h2 class="text-3xl">カテゴリー</h2>
 
-<x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。" />
+{{-- <x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。" /> --}}
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
     <div class="w-auto"><img
@@ -13,7 +13,6 @@
             <img src="{{ asset('images/cat/2d.png') }}">
         </a>
     </div>
-
 
     <div class="w-auto">
         <a href="{{ route('category.show', 11) }}" title="3Dモデル">
