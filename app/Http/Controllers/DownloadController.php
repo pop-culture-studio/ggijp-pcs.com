@@ -18,8 +18,6 @@ class DownloadController extends Controller
     {
         $material->increment('download');
 
-        return Storage::download($material->file, null, [
-            'X-Vapor-Base64-Encode' => 'True',
-        ]);
+        return Storage::download($material->file);
     }
 }
