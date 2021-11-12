@@ -34,8 +34,20 @@ class Material extends Model
     {
         if (app()->runningUnitTests()) {
             return Storage::url($this->file);
-        } else {
-            return Storage::temporaryUrl($this->file, now()->addMinutes(60));
         }
+
+        $mime = Storage::mimeType($this->file);
+
+        if (!str_contains($mime, 'image')) {
+            $type = match (true) {
+                str_contains($mime, 'image/') => 'イラスト',
+                str_contains($mime, 'video/') => '動画',
+                default => 'その他'
+            };
+
+            return 'https://placehold.jp/ffffff/333333/350x350.png?text=' . urlencode($type);
+        }
+
+        return Storage::temporaryUrl($this->file, now()->addMinutes(60));
     }
 }
