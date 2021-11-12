@@ -5,13 +5,6 @@
         </a>
     </h2>
 
-    <h2 class="text-lg">カテゴリー</h2>
-    <div class="flex flex-auto flex-wrap gap-2">
-        @foreach ($cats as $cat)
-            <x-category :url="route('category.show', $cat)" :name="$cat->name" :count="$cat->materials_count" />
-        @endforeach
-    </div>
-
     @can('create', App\Models\Material::class)
         <div class="border-4 border-indigo-500 my-6 rounded">
             <h2 class="bg-indigo-500 text-lg text-white font-bold px-1">スタッフ＆メンバー用</h2>
@@ -29,6 +22,13 @@
 
         </div>
     @endcan
+
+    <h2 class="text-lg">カテゴリー</h2>
+    <div class="flex flex-auto flex-wrap gap-2">
+        @foreach ($cats as $cat)
+            <x-category :url="route('category.show', $cat)" :name="$cat->name" :count="$cat->materials_count" />
+        @endforeach
+    </div>
 
     @if (isset($side))
         {{ $side }}
