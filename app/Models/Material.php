@@ -38,8 +38,6 @@ class Material extends Model
 
         $mime = Storage::mimeType($this->file);
 
-        logger($mime);
-
         if (!str_contains($mime, 'image')) {
             $type = match (true) {
                 str_contains($mime, 'image/') => 'イラスト',
