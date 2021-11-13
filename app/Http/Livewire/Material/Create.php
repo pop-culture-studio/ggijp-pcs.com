@@ -22,7 +22,15 @@ class Create extends Component
     {
         $this->validate([
             'file' => ['file', 'max:' . 1024 * config('pcs.max_upload'), 'mimes:' . config('pcs.mimes')],
+        ]);
+    }
+
+    public function updatedCat()
+    {
+        $this->validate([
             'cat' => 'required',
+        ], [
+            'cat.required' => 'カテゴリーは必須です。'
         ]);
     }
 

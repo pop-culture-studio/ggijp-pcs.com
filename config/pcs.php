@@ -1,12 +1,25 @@
 <?php
 
 return [
+    /**
+     * 未来図倉庫チームのID。
+     */
     'team_id' => env('PCS_TEAM_ID', 1),
 
+    /**
+     * アップロードできる最大ファイルサイズ。MB。
+     * S3に直接アップロードされるのでphp.iniやLambdaの制限とは無関係。
+     */
     'max_upload' => 100,
 
+    /**
+     * アップロードできるファイルタイプ。
+     */
     'mimes' => 'jpg,jpeg,png,mp3,mp4,zip',
 
+    /**
+     * 基本カテゴリー。
+     */
     'category' => [
         [
             'id' => 10,
