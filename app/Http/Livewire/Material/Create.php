@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Material;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Category;
+use App\Models\Material;
 
 class Create extends Component
 {
     use WithFileUploads;
+    use AuthorizesRequests;
 
     public $file;
 
@@ -36,6 +39,8 @@ class Create extends Component
 
     public function create()
     {
+        $this->authorize('create', Material::class);
+
         $path = $this->file->store('materials/' . today()->year . '/' . today()->month);
 
         $title = $this->title ?? $this->file->getClientOriginalName();
