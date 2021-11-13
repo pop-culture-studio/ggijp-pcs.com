@@ -18,6 +18,13 @@ class DownloadController extends Controller
     {
         $material->increment('download');
 
-        return Storage::download($material->file);
+        return redirect(Storage::temporaryUrl(
+            $material->file,
+            now()->addMinutes(10),
+            [
+                'ResponseContentType' => 'application/octet-stream',
+                'ResponseContentDisposition' => 'attachment; filename=' . basename($material->file),
+            ]
+        ));
     }
 }

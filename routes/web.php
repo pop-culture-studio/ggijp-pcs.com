@@ -30,6 +30,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 Route::resource('material', MaterialController::class);
 
-Route::post('download/{material}', DownloadController::class)->name('download')->middleware('signed');
+Route::get('download/{material}', DownloadController::class)->name('download')->middleware('signed');
 
 Route::resource('category', CategoryController::class)->only(['index', 'show']);
