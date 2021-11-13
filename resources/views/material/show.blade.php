@@ -47,13 +47,10 @@
                         class="text-red-500 hover:underline">編集</a></div>
             @endcan
 
-            <div class="flex justify-center rounded-lg">
-                <img class="object-contain h-full w-auto" src="{{ $material->thumbnail }}"
-                    alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
-            </div>
+            <x-preview :material="$material" />
 
             <a href="{{ URL::temporarySignedRoute('download', now()->addMinutes(60), $material) }}">
-                <div class="w-full text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
+                <div class="w-auto text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
                     {{ __('ダウンロード') }}
                 </div>
             </a>
