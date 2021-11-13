@@ -1,5 +1,5 @@
 id: 25776
-name: ggijp-pcscom
+name: ggijp-pcs-com
 environments:
     production:
         memory: 1024
