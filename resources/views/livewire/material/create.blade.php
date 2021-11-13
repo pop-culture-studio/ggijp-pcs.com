@@ -8,8 +8,12 @@
     <div class="p-3">
         <div wire:loading wire:target="file" class="text-indigo-500 font-bold">アップロードしています...</div>
 
-        @if ($file && str_contains($file->getMimeType(), 'image'))
-            <img class="object-contain h-full sm:h-56" src="{{ $file->temporaryUrl() }}">
+        @if ($file)
+            @if (str_contains($file->getMimeType(), 'image'))
+                <img class="object-contain h-full sm:h-56" src="{{ $file->temporaryUrl() }}">
+            @else
+                <div class="text-indigo-500 font-bold">アップロードしました。画像のみプレビューされます。</div>
+            @endif
         @endif
 
         <x-jet-input-error for="file" />
@@ -29,7 +33,7 @@
     </div>
 
     <div class="my-2">
-        <x-jet-label for="title" value="{{ __('タイトル') }}" />
+        <x-jet-label for="title" value="{{ __('タイトル（省略時はファイル名）') }}" />
         <x-jet-input name="title" type="text" class="mt-1 block w-full sm:w-1/2" wire:model="title" />
         <x-jet-input-error for="title" class="mt-2" />
     </div>
