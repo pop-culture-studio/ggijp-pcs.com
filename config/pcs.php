@@ -3,6 +3,8 @@
 return [
     'team_id' => env('PCS_TEAM_ID', 1),
 
+    'max_upload' => 10,
+
     'mimes' => 'jpg,jpeg,png,mp3,mp4,zip',
 
     'category' => [
