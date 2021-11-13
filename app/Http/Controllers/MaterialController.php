@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MaterialStoreRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
@@ -49,40 +49,9 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MaterialStoreRequest $request)
+    public function store(Request $request)
     {
-        if (!$request->file('file')->isValid()) {
-            return back();
-        }
-
-        $path = $request->file('file')->store('materials/' . today()->year . '/' . today()->month);
-
-        $title = $request->whenFilled('title', function ($input) {
-            return $input;
-        }, function () use ($request) {
-            return $request->file('file')->getClientOriginalName();
-        });
-
-        $cats = collect(explode(',', $request->input('cat')))
-            ->unique()
-            ->reject(function ($cat) {
-                return empty($cat);
-            })
-            ->map(function ($cat) {
-                return  Category::firstOrCreate([
-                    'name' => $cat,
-                ]);
-            });
-
-        $material = $request->user()->materials()->create([
-            'file' => $path,
-            'title' => $title,
-            'description' => $request->input('description')
-        ]);
-
-        $material->categories()->sync($cats->pluck('id'));
-
-        return redirect()->route('dashboard')->banner($title . 'をアップロードしました。');
+        //
     }
 
     /**
@@ -124,6 +93,9 @@ class MaterialController extends Controller
         ])->save();
 
         $cats = collect(explode(',', $request->input('cat')))
+            ->map(function ($cat) {
+                return trim($cat);
+            })
             ->unique()
             ->reject(function ($cat) {
                 return empty($cat);
