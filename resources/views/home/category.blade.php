@@ -4,10 +4,10 @@
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
     <div class="w-auto">
-        <img src="https://placehold.jp/9697a3/ffffff/350x180.png?text={{ urlencode('クリスマス') }}">
+        <img src="https://placehold.jp/6366F1/ffffff/350x180.png?text={{ urlencode('クリスマス') }}">
     </div>
     <div class="w-auto">
-        <img src="https://placehold.jp/9697a3/ffffff/350x180.png?text={{ urlencode('正月') }}">
+        <img src="https://placehold.jp/6366F1/ffffff/350x180.png?text={{ urlencode('正月') }}">
     </div>
 
     @foreach (config('pcs.category') as $cat)
