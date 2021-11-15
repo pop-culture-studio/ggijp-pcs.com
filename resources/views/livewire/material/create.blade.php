@@ -3,29 +3,41 @@
     <x-jet-label for="file"
         value="{{ 'ファイル（必須。' . config('pcs.max_upload') . 'MB以下。対応フォーマット：' . config('pcs.mimes') . '）' }}" />
 
-    <input type="file" wire:model="file" required />
+    <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true, progress = 0"
+        x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"
+        x-on:livewire-upload-progress="progress = $event.detail.progress">
 
-    <div class="p-3">
-        <div wire:loading wire:target="file" class="text-indigo-500 font-bold">アップロードしています...</div>
+        <input type="file" wire:model="file" required />
 
-        @if ($file)
-            @if (str_contains($file->getMimeType(), 'image'))
-                <img class="object-contain h-full sm:h-56" src="{{ $file->temporaryUrl() }}">
-            @elseif (str_contains($file->getMimeType(), 'audio'))
-                <audio controls src="{{ $file->temporaryUrl() }}">
-                    このブラウザでは表示できません。
-                </audio>
-            @elseif (str_contains($file->getMimeType(), 'video'))
-                <video controls width="250">
-                    <source src="{{ $file->temporaryUrl() }}" type="{{ $file->getMimeType() }}">
-                    このブラウザでは表示できません。
-                </video>
-            @else
-                <div class="text-indigo-500 font-bold">アップロードしました。このファイルはプレビューできません。</div>
-            @endif
-        @endif
+        <div class="p-3">
 
-        <x-jet-input-error for="file" />
+            <div x-show="isUploading">
+                <div class="text-indigo-500 font-bold">アップロードしています...</div>
+
+                <progress max="100" x-bind:value="progress"></progress>
+            </div>
+
+            <div x-show="!isUploading">
+                @if ($file)
+                    @if (str_contains($file->getMimeType(), 'image'))
+                        <img class="object-contain h-full sm:h-56" src="{{ $file->temporaryUrl() }}">
+                    @elseif (str_contains($file->getMimeType(), 'audio'))
+                        <audio controls src="{{ $file->temporaryUrl() }}">
+                            このブラウザでは表示できません。
+                        </audio>
+                    @elseif (str_contains($file->getMimeType(), 'video'))
+                        <video controls width="250">
+                            <source src="{{ $file->temporaryUrl() }}" type="{{ $file->getMimeType() }}">
+                            このブラウザでは表示できません。
+                        </video>
+                    @else
+                        <div class="text-indigo-500 font-bold">アップロードしました。このファイルはプレビューできません。</div>
+                    @endif
+                @endif
+            </div>
+
+            <x-jet-input-error for="file" />
+        </div>
     </div>
 
     <div class="my-2">
