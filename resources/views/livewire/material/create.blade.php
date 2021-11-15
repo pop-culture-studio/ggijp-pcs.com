@@ -13,12 +13,12 @@
                 <img class="object-contain h-full sm:h-56" src="{{ $file->temporaryUrl() }}">
             @elseif (str_contains($file->getMimeType(), 'audio'))
                 <audio controls src="{{ $file->temporaryUrl() }}">
-                    プレビュー
+                    このブラウザでは表示できません。
                 </audio>
             @elseif (str_contains($file->getMimeType(), 'video'))
                 <video controls width="250">
                     <source src="{{ $file->temporaryUrl() }}" type="{{ $file->getMimeType() }}">
-                    プレビュー
+                    このブラウザでは表示できません。
                 </video>
             @else
                 <div class="text-indigo-500 font-bold">アップロードしました。このファイルはプレビューできません。</div>
