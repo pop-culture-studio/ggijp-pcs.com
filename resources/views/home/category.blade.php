@@ -4,10 +4,10 @@
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
     <div class="w-auto">
-        <img src="https://placehold.jp/6366F1/ffffff/350x150.png?text={{ urlencode('クリスマス') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
+        <img src="https://placehold.jp/f50e0e/ffffff/350x150.png?text={{ urlencode('クリスマス') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
     </div>
     <div class="w-auto">
-        <img src="https://placehold.jp/6366F1/ffffff/350x150.png?text={{ urlencode('正月') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
+        <img src="https://placehold.jp/0dbd4e/ffffff/350x150.png?text={{ urlencode('正月') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
     </div>
 
     @foreach (config('pcs.category') as $cat)
