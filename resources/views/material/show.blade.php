@@ -39,7 +39,7 @@
             </x-badge>
 
             @if ($material->description)
-                <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
+                <div class="bg-indigo-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
             @endif
 
             @can('update', $material)
