@@ -1,5 +1,5 @@
 <div class="py-12">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <h2 class="text-2xl mb-5">自分の素材</h2>
 
@@ -30,7 +30,7 @@
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>
                                 <form action="{{ route('material.edit', $material) }}">
-                                    <x-jet-button>
+                                    <x-jet-button class="min-w-max">
                                         {{ __('編集') }}
                                     </x-jet-button>
                                 </form>
