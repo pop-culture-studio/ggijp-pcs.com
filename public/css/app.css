@@ -1335,6 +1335,11 @@ select {
 .min-w-0 {
 	min-width: 0px;
 }
+.min-w-max {
+	min-width: -webkit-max-content;
+	min-width: -moz-max-content;
+	min-width: max-content;
+}
 .max-w-screen-xl {
 	max-width: 1280px;
 }
