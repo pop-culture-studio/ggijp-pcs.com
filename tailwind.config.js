@@ -18,7 +18,7 @@ module.exports = {
         },
         colors: {
             ...defaultTheme.colors,
-            //indigo: colors.blue,
+            //indigo: colors.orange,
           }
     },
 

@@ -34,7 +34,7 @@
 
             <x-badge title="カテゴリー">
                 @foreach ($material->categories as $cat)
-                    <a href="{{ route('category.show', $cat) }}" class="hover:underline mx-1">{{ $cat->name }}</a>
+                    <a href="{{ route('category.show', $cat) }}" class="text-indigo-500 hover:underline mx-1">{{ $cat->name }}</a>
                 @endforeach
             </x-badge>
 
