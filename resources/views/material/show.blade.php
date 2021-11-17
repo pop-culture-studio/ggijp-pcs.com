@@ -28,15 +28,15 @@
 
             <x-breadcrumbs-back />
 
-            <div class="flex flex-auto flex-wrap gap-2 mt-3">カテゴリー :
+            <x-badge title="作者">{{ $material->user->name }}</x-badge>
+
+            <h2 class="text-3xl font-extrabold my-6">{{ $material->title }}</h2>
+
+            <x-badge title="カテゴリー">
                 @foreach ($material->categories as $cat)
-                    <x-category :url="route('category.show', $cat)" :name="$cat->name" />
+                    <a href="{{ route('category.show', $cat) }}" class="hover:underline mx-1">{{ $cat->name }}</a>
                 @endforeach
-            </div>
-
-            <h2 class="text-3xl mb-6">{{ $material->title }}</h2>
-
-            <div>作者 : {{ $material->user->name }}</div>
+            </x-badge>
 
             @if ($material->description)
                 <div class="bg-gray-100 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
