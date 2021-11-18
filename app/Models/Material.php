@@ -13,7 +13,7 @@ class Material extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'file', 'title', 'description',
+        'file', 'title', 'description', 'thumbnail',
     ];
 
     protected $hidden = [
@@ -39,6 +39,10 @@ class Material extends Model
         if (Storage::missing($this->file)) {
             return 'https://placehold.jp/ffffff/666666/350x350.png?text=' .
                 urlencode('Not Found');
+        }
+
+        if (!empty($this->thumbnail) && Storage::exists($this->thumbnail)) {
+            return Storage::temporaryUrl($this->thumbnail, now()->addMinutes(60));
         }
 
         $mime = Storage::mimeType($this->file);

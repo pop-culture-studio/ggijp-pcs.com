@@ -30,8 +30,8 @@
 
                     <div class="my-2">
                         <x-jet-label for="title" value="{{ __('タイトル（必須）') }}" />
-                        <x-jet-input name="title" value="{{ $material->title }}" type="text" class="mt-1 block w-full sm:w-1/2"
-                            required />
+                        <x-jet-input name="title" value="{{ $material->title }}" type="text"
+                            class="mt-1 block w-full sm:w-1/2" required />
                         <x-jet-input-error for="title" class="mt-2" />
                     </div>
 
@@ -52,6 +52,19 @@
             </div>
         </div>
     </div>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
+                <h2 class="text-3xl mb-5">サムネイル画像の登録</h2>
+
+                <livewire:material.thumbnail.edit :material="$material" />
+
+            </div>
+        </div>
+    </div>
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
