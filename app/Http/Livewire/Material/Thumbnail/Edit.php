@@ -18,7 +18,7 @@ class Edit extends Component
     public function updatedThumbnail()
     {
         $this->validate([
-            'thumbnail' => ['nullable', 'image', 'mimes:jpg,jpeg,png'],
+            'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,png'],
         ]);
     }
 
@@ -27,7 +27,7 @@ class Edit extends Component
         $this->authorize('update', $this->material);
 
         $this->validate([
-            'thumbnail' => ['nullable', 'image', 'mimes:jpg,jpeg,png'],
+            'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,png'],
         ]);
 
         $thumbnail_path = 'thumbnails/' . today()->year . '/' . today()->month;
