@@ -25,7 +25,7 @@
                             <td>
                                 <a href="{{ route('material.show', $material) }}">
                                     <img class="object-contain p-1 h-full sm:h-24 mx-auto"
-                                        src="{{ $material->thumbnail }}" loading="lazy">
+                                        src="{{ $material->image }}" loading="lazy">
                                 </a>
                             </td>
 
