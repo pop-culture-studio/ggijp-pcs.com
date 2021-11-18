@@ -57,7 +57,9 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                <h2 class="text-3xl mb-5">サムネイル画像の登録</h2>
+                <h2 class="text-3xl mb-3">サムネイル画像の登録</h2>
+
+                <div class="mb-5">画像以外の素材にサムネイル用の画像を設定したい時はここで登録してください。</div>
 
                 <livewire:material.thumbnail.edit :material="$material" />
 
