@@ -14,7 +14,7 @@
             </x-slot>
 
             <x-slot name="image">
-                {{ $material->thumbnail }}
+                {{ $material->image }}
             </x-slot>
         </x-ogp>
     </x-slot>
