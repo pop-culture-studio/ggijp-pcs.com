@@ -12,7 +12,7 @@
 
                     <x-jet-label for="file" value="{{ __('ファイルを変更するには非公開にしてからアップロードし直してください。') }}" />
 
-                    <img class="object-contain h-full sm:h-56" src="{{ $material->thumbnail }}"
+                    <img class="object-contain h-full sm:h-56" src="{{ $material->image }}"
                         alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
 
                     <div class="my-2">

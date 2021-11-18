@@ -12,7 +12,7 @@
             このブラウザでは表示できません。
         </video>
     @else
-        <img class="object-contain h-full w-auto" src="{{ $material->thumbnail }}" title="{{ $material->title }}"
+        <img class="object-contain h-full w-auto" src="{{ $material->image }}" title="{{ $material->title }}"
             alt="{{ $material->title }}">
     @endif
 </div>

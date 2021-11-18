@@ -15,7 +15,7 @@ return [
     /**
      * アップロードできるファイルタイプ。
      */
-    'mimes' => 'jpg,jpeg,png,mp3,mp4,zip',
+    'mimes' => 'jpg,jpeg,png,mp3,mp4,zip,vrm,glb,wrl',
 
     /**
      * 基本カテゴリー。

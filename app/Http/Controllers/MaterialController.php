@@ -7,6 +7,7 @@ use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
 use App\Models\Team;
+use Illuminate\Support\Facades\Storage;
 
 class MaterialController extends Controller
 {
@@ -62,6 +63,8 @@ class MaterialController extends Controller
      */
     public function show(Material $material)
     {
+        abort_if(Storage::missing($material->file), 404);
+
         return view('material.show')->with(compact('material'));
     }
 

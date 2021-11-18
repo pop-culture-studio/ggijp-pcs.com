@@ -30,10 +30,15 @@ class Material extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function getThumbnailAttribute()
+    public function getImageAttribute()
     {
         if (app()->runningUnitTests()) {
             return Storage::url($this->file);
+        }
+
+        if (Storage::missing($this->file)) {
+            return 'https://placehold.jp/ffffff/666666/350x350.png?text=' .
+                urlencode('Not Found');
         }
 
         $mime = Storage::mimeType($this->file);
@@ -47,6 +52,7 @@ class Material extends Model
             str_contains($mime, 'video/') => '動画',
             str_contains($mime, 'audio/') => '音声',
             str_contains($mime, '/zip') => 'ZIP',
+            str_contains($this->file, '.vrm') => 'VRM',
             default => 'その他'
         };
 

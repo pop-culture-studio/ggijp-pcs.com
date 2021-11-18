@@ -29,7 +29,7 @@
             <div>
                 <div class="my-6 flex flex-wrap gap-4">
                     @foreach ($materials as $material)
-                        <x-item :material="$material" :image="$material->thumbnail" :name="$material->title">
+                        <x-item :material="$material" :image="$material->image" :name="$material->title">
                         </x-item>
                     @endforeach
                 </div>

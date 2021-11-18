@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Category;
 use App\Models\Material;
+use Illuminate\Support\Str;
 
 class Create extends Component
 {
@@ -41,7 +42,14 @@ class Create extends Component
     {
         $this->authorize('create', Material::class);
 
-        $path = $this->file->store('materials/' . today()->year . '/' . today()->month);
+        $store_path = 'materials/' . today()->year . '/' . today()->month;
+
+        $path = match (true) {
+            // vrmファイルは正しく認識されないので拡張子を指定して保存。
+            $this->file->getMimeType() === 'model/vrml' => $this->file->storeAs($store_path, Str::random(40) . '.vrm'),
+
+            default => $this->file->store($store_path),
+        };
 
         $title = $this->title ?? $this->file->getClientOriginalName();
 
