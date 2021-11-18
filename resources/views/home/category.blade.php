@@ -2,23 +2,13 @@
 
 <div class="my-6 mx-3 grid grid-flow-col grid-cols-3 gap-4">
     {{-- 3ヵ月分の季節カテゴリーを表示 --}}
-    <div class="w-auto">
-        <a href="{{ route('category.show', config('pcs.months')[today()->month - 1]['id']) }}">
-            <img src="{{ asset('images/month/' . today()->month . '.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', config('pcs.months')[today()->addMonth()->month - 1]['id']) }}">
-            <img src="{{ asset('images/month/' . today()->addMonth()->month . '.png') }}">
-        </a>
-    </div>
-
-    <div class="w-auto">
-        <a href="{{ route('category.show', config('pcs.months')[today()->addMonths(2)->month - 1]['id']) }}">
-            <img src="{{ asset('images/month/' . today()->addMonths(2)->month . '.png') }}">
-        </a>
-    </div>
+    @foreach ([0, 1, 2] as $index)
+        <div class="w-auto">
+            <a href="{{ route('category.show', config('pcs.months')[today()->addMonths($index)->month - 1]['id']) }}">
+                <img src="{{ asset('images/month/' . today()->addMonths($index)->month . '.png') }}">
+            </a>
+        </div>
+    @endforeach
 </div>
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
