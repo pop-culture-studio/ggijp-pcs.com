@@ -25,7 +25,7 @@ class Create extends Component
     public function updatedFile()
     {
         $this->validate([
-            'file' => ['file', 'max:' . 1024 * config('pcs.max_upload'), 'mimes:' . config('pcs.mimes')],
+            'file' => ['file', 'max:' . 1024 * config('pcs.max_upload')],
         ]);
     }
 
