@@ -2,6 +2,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+
+            <h1 class="text-3xl"><a href="{{ route('material.show', $material) }}">{{ $material->title }}</a></h1>
+
             <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
                 <h2 class="text-3xl mb-5">ファイル情報の編集</h2>
