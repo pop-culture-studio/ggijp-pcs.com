@@ -3,13 +3,26 @@
 {{-- <x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。" /> --}}
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
+    {{-- 3ヵ月分の季節カテゴリーを表示 --}}
     <div class="w-auto">
-        <img src="https://placehold.jp/f50e0e/ffffff/350x150.png?text={{ urlencode('クリスマス') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
-    </div>
-    <div class="w-auto">
-        <img src="https://placehold.jp/0dbd4e/ffffff/350x150.png?text={{ urlencode('正月') }}&css=%7B%22border-radius%22%3A%225px%22%7D">
+        <a href="{{ route('category.show', config('pcs.months')[today()->month - 1]['id']) }}">
+            <img src="{{ asset('images/month/' . today()->month . '.png') }}">
+        </a>
     </div>
 
+    <div class="w-auto">
+        <a href="{{ route('category.show', config('pcs.months')[today()->addMonth()->month - 1]['id']) }}">
+            <img src="{{ asset('images/month/' . today()->addMonth()->month . '.png') }}">
+        </a>
+    </div>
+
+    <div class="w-auto">
+        <a href="{{ route('category.show', config('pcs.months')[today()->addMonths(2)->month - 1]['id']) }}">
+            <img src="{{ asset('images/month/' . today()->addMonths(2)->month . '.png') }}">
+        </a>
+    </div>
+
+    {{-- 基本カテゴリーを表示 --}}
     @foreach (config('pcs.category') as $cat)
         <div class="w-auto">
             <a href="{{ route('category.show', Arr::get($cat, 'id')) }}" title="{{ Arr::get($cat, 'title') }}">
