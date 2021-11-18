@@ -4,8 +4,10 @@
     {{-- 3ヵ月分の季節カテゴリーを表示 --}}
     @foreach ([0, 1, 2] as $index)
         <div class="w-auto">
-            <a href="{{ route('category.show', config('pcs.months')[today()->addMonths($index)->month - 1]['id']) }}">
-                <img src="{{ asset('images/month/' . today()->addMonths($index)->month . '.png') }}" alt="{{ today()->addMonths($index)->month }}月" title="{{ today()->addMonths($index)->month }}月">
+            <a href="{{ route('category.show', config('pcs.months')[today()->addMonths($index)->month - 1]['id']) }}"
+                title="{{ today()->addMonths($index)->month }}月">
+                <img src="{{ asset('images/month/' . today()->addMonths($index)->month . '.png') }}"
+                    alt="{{ today()->addMonths($index)->month }}月">
             </a>
         </div>
     @endforeach
