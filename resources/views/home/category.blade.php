@@ -1,8 +1,6 @@
 <h2 class="text-3xl">カテゴリー</h2>
 
-{{-- <x-admin-message text="ここのカテゴリーは固定カテゴリーと季節ごとの特集カテゴリーなどを配置。" /> --}}
-
-<div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
+<div class="my-6 mx-3 grid grid-flow-col grid-cols-3 gap-4">
     {{-- 3ヵ月分の季節カテゴリーを表示 --}}
     <div class="w-auto">
         <a href="{{ route('category.show', config('pcs.months')[today()->month - 1]['id']) }}">
@@ -21,6 +19,9 @@
             <img src="{{ asset('images/month/' . today()->addMonths(2)->month . '.png') }}">
         </a>
     </div>
+</div>
+
+<div class="my-6 mx-3 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4">
 
     {{-- 基本カテゴリーを表示 --}}
     @foreach (config('pcs.category') as $cat)
