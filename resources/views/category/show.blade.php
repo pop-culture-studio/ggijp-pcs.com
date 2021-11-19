@@ -12,7 +12,7 @@
 
             <x-breadcrumbs-back />
 
-            <h2 class="text-9xl text-white bg-gradient-to-r from-indigo-500 to-white p-6 my-6 rounded-lg">{{ $category->name }}</h2>
+            <h2 class="text-3xl sm:text-9xl text-white bg-gradient-to-r from-indigo-500 to-white p-6 my-6 rounded-lg">{{ $category->name }}</h2>
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4">
