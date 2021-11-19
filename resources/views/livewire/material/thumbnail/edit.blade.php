@@ -41,7 +41,7 @@
     </form>
 
     <form wire:submit.prevent="delete">
-        <x-jet-button class="mt-10 bg-red-500">
+        <x-jet-button class="mt-10 bg-red-500 hover:bg-red-400">
             {{ __('サムネイル画像を削除') }}
         </x-jet-button>
     </form>
