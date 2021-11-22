@@ -30,11 +30,11 @@ class Edit extends Component
             'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,png'],
         ]);
 
-        $thumbnail_path = 'thumbnails/' . today()->year . '/' . today()->month;
+        $thumbnail_path = 'thumbnails/'.today()->year.'/'.today()->month;
         $thumbnail = $this->thumbnail ? $this->thumbnail->store($thumbnail_path) : null;
 
         $this->material->fill([
-            'thumbnail' => $thumbnail
+            'thumbnail' => $thumbnail,
         ])->save();
 
         $this->reset('thumbnail');
@@ -43,7 +43,7 @@ class Edit extends Component
     function delete()
     {
         $this->material->fill([
-            'thumbnail' => null
+            'thumbnail' => null,
         ])->save();
     }
 
