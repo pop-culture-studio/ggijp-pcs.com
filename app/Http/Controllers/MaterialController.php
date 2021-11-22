@@ -100,18 +100,12 @@ class MaterialController extends Controller
         ])->save();
 
         $cats = collect(explode(',', $request->input('cat')))
-            ->map(function ($cat) {
-                return trim($cat);
-            })
+            ->map(fn ($cat) => trim($cat))
             ->unique()
-            ->reject(function ($cat) {
-                return empty($cat);
-            })
-            ->map(function ($cat) {
-                return Category::firstOrCreate([
-                    'name' => $cat,
-                ]);
-            });
+            ->reject(fn ($cat) => empty($cat))
+            ->map(fn ($cat) => Category::firstOrCreate([
+                'name' => $cat,
+            ]));
 
         $material->categories()->sync($cats->pluck('id'));
 
