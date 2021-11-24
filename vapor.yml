@@ -12,6 +12,18 @@ environments:
         octane: true
         octane-database-session-persist: true
         octane-database-session-ttl: 10
+        firewall:
+          rate-limit: 1000
+          bot-control:
+            - CategorySearchEngine
+            - CategorySocialMedia
+            - CategoryScrapingFramework
+            - CategoryArchiver
+            - CategoryContentFetcher
+            - CategoryHttpLibrary
+            - CategoryLinkChecker
+            - SignalAutomatedBrowser
+            - SignalKnownBotDataCenter
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan event:cache'
