@@ -54,22 +54,16 @@ class Create extends Component
         $title = $this->title ?? $this->file->getClientOriginalName();
 
         $cats = collect(explode(',', $this->cat))
-            ->map(function ($cat) {
-                return trim($cat);
-            })
+            ->map(fn($cat) => trim($cat))
             ->unique()
-            ->reject(function ($cat) {
-                return empty($cat);
-            })
-            ->map(function ($cat) {
-                return Category::firstOrCreate([
-                    'name' => $cat,
-                ]);
-            });
+            ->reject(fn($cat) => empty($cat))
+            ->map(fn($cat) => Category::firstOrCreate([
+                'name' => $cat,
+            ]));
 
         $material = request()->user()->materials()->create([
-            'file'        => $path,
-            'title'       => $title,
+            'file' => $path,
+            'title' => $title,
             'description' => $this->description,
         ]);
 

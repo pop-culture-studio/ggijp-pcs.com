@@ -31,7 +31,7 @@ class Edit extends Component
         ]);
 
         $thumbnail_path = 'thumbnails/'.today()->year.'/'.today()->month;
-        $thumbnail = $this->thumbnail ? $this->thumbnail->store($thumbnail_path) : null;
+        $thumbnail = $this->thumbnail?->store($thumbnail_path);
 
         $this->material->fill([
             'thumbnail' => $thumbnail,
