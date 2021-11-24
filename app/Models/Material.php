@@ -67,7 +67,7 @@ class Material extends Model
                 urlencode('Not Found');
         }
 
-        if (!empty($this->thumbnail) && Storage::exists($this->thumbnail)) {
+        if (filled($this->thumbnail) && Storage::exists($this->thumbnail)) {
             return Storage::temporaryUrl($this->thumbnail, now()->addMinutes(60));
         }
 
