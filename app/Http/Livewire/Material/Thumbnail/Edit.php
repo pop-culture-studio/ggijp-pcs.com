@@ -40,7 +40,7 @@ class Edit extends Component
         $this->reset('thumbnail');
     }
 
-    function delete()
+    public function delete()
     {
         $this->material->fill([
             'thumbnail' => null,
