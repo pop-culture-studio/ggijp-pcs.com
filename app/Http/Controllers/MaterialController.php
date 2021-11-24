@@ -26,9 +26,9 @@ class MaterialController extends Controller
     public function index()
     {
         $materials = Team::findOrFail(config('pcs.team_id'))
-                         ->materials()
-                         ->latest()
-                         ->cursorPaginate();
+            ->materials()
+            ->latest()
+            ->cursorPaginate();
 
         return view('material.index')->with(compact('materials'));
     }
@@ -94,7 +94,7 @@ class MaterialController extends Controller
         $title = $request->input('title');
 
         $material->fill([
-            'title'       => $title,
+            'title' => $title,
             'description' => $request->input('description'),
         ])->save();
 
