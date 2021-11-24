@@ -47,7 +47,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $users = Team::find(config('pcs.team_id'))->allUsers()->pluck('id');
+        $users = Team::findOrFail(config('pcs.team_id'))->allUsers()->pluck('id');
 
         $materials = $category->materials()
             ->whereIn('user_id', $users)

@@ -25,7 +25,7 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $materials = Team::find(config('pcs.team_id'))
+        $materials = Team::findOrFail(config('pcs.team_id'))
                          ->materials()
                          ->latest()
                          ->cursorPaginate();

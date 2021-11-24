@@ -19,7 +19,7 @@ class MaterialsController extends Controller
     {
         $this->authorize('create', Material::class);
 
-        $materials = Team::find(config('pcs.team_id'))
+        $materials = Team::findOrFail(config('pcs.team_id'))
             ->materials()
             ->with(['categories', 'user'])
             ->latest('download')
