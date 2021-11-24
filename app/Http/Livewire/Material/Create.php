@@ -53,6 +53,12 @@ class Create extends Component
 
         $title = $this->title ?? $this->file->getClientOriginalName();
 
+        $material = request()->user()->materials()->create([
+            'file' => $path,
+            'title' => $title,
+            'description' => $this->description,
+        ]);
+
         $cats = collect(explode(',', $this->cat))
             ->map(fn($cat) => trim($cat))
             ->unique()
@@ -60,12 +66,6 @@ class Create extends Component
             ->map(fn($cat) => Category::firstOrCreate([
                 'name' => $cat,
             ]));
-
-        $material = request()->user()->materials()->create([
-            'file' => $path,
-            'title' => $title,
-            'description' => $this->description,
-        ]);
 
         $material->categories()->sync($cats->pluck('id'));
 
