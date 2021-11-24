@@ -15,11 +15,13 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $materials = Team::findOrFail(config('pcs.team_id'))
-            ->materials()
-            ->latest()
-            ->limit(9)
-            ->get();
+        $materials = cache()->remember('home.materials', now()->addDay(), function () {
+            return Team::findOrFail(config('pcs.team_id'))
+                ->materials()
+                ->latest()
+                ->limit(9)
+                ->get();
+        });
 
         return view('home')->with(compact('materials'));
     }

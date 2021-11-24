@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
+use function Illuminate\Events\queueable;
+
 class Material extends Model
 {
     use HasFactory;
@@ -21,6 +23,19 @@ class Material extends Model
     protected $hidden = [
         'file',
     ];
+
+    protected static function booted()
+    {
+        static::saved(queueable(function ($material) {
+            cache()->delete('home.materials');
+            cache()->delete('side.cats');
+        }));
+
+        static::deleted(queueable(function ($material) {
+            cache()->delete('home.materials');
+            cache()->delete('side.cats');
+        }));
+    }
 
     /**
      * @return BelongsTo
@@ -52,7 +67,7 @@ class Material extends Model
                 urlencode('Not Found');
         }
 
-        if (! empty($this->thumbnail) && Storage::exists($this->thumbnail)) {
+        if (!empty($this->thumbnail) && Storage::exists($this->thumbnail)) {
             return Storage::temporaryUrl($this->thumbnail, now()->addMinutes(60));
         }
 
