@@ -27,12 +27,10 @@ class Material extends Model
     protected static function booted()
     {
         static::saved(queueable(function ($material) {
-            cache()->delete('home.materials');
             cache()->delete('side.cats');
         }));
 
         static::deleted(queueable(function ($material) {
-            cache()->delete('home.materials');
             cache()->delete('side.cats');
         }));
     }
