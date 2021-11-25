@@ -15,17 +15,13 @@ class SideComposer
      */
     public function compose(View $view)
     {
-        $cats = cache()->remember('side.cats', now()->addDay(), function () {
-            return Category::has('materials')
-                ->withCount([
-                    'materials' => function ($query) {
-                        $query->whereIn('user_id',
-                            Team::find(config('pcs.team_id'))?->allUsers()->pluck('id') ?? []);
-                    },
-                ])
+        $cats = cache()->remember('side.cats',
+            now()->addDay(),
+            fn () => Category::has('materials')
+                ->withCount('materials')
                 ->orderBy('name')
-                ->get();
-        });
+                ->get()
+        );
 
         $view->with(compact('cats'));
     }

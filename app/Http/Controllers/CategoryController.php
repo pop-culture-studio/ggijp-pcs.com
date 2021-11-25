@@ -47,10 +47,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $users = Team::findOrFail(config('pcs.team_id'))->allUsers()->pluck('id');
-
         $materials = $category->materials()
-            ->whereIn('user_id', $users)
             ->latest()
             ->cursorPaginate(5);
 
