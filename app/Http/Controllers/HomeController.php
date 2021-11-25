@@ -15,12 +15,9 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $materials = cache()->remember('home.materials',
-            now()->addDay(),
-            fn () => Material::latest()
-                ->limit(10)
-                ->get()
-        );
+        $materials = Material::latest()
+            ->limit(10)
+            ->get();
 
         return view('home')->with(compact('materials'));
     }
