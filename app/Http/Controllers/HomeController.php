@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $materials = Material::latest()
+        $materials = Material::latest('id')
             ->limit(10)
             ->get();
 
