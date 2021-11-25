@@ -18,7 +18,7 @@ class HomeController extends Controller
         $materials = cache()->remember('home.materials',
             now()->addDay(),
             fn () => Material::latest()
-                ->limit(9)
+                ->limit(10)
                 ->get()
         );
 
