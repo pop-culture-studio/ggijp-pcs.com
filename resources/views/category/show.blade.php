@@ -10,9 +10,9 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 
-            <x-breadcrumbs-back />
+            <x-breadcrumbs-back/>
 
-            <h2 class="text-3xl sm:text-9xl text-white bg-gradient-to-r from-indigo-500 to-white p-6 my-6 rounded-lg">{{ $category->name }}</h2>
+            <x-gradient-h2>{{ $category->name }}</x-gradient-h2>
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4">

@@ -22,9 +22,9 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 
-            <x-breadcrumbs-back />
+            <x-breadcrumbs-back/>
 
-            <h2 class="text-3xl my-6">すべての素材</h2>
+            <x-gradient-h2>すべての素材</x-gradient-h2>
 
             <div>
                 <div class="my-6 flex flex-wrap gap-4">
