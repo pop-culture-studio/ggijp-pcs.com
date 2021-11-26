@@ -1471,6 +1471,30 @@ select {
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.divide-x > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-x-reverse: 0;
+	border-right-width: calc(1px * var(--tw-divide-x-reverse));
+	border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+}
+.divide-solid > :not([hidden]) ~ :not([hidden]) {
+	border-style: solid;
+}
+.divide-indigo-500 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 1;
+	border-color: rgba(16, 185, 129, var(--tw-divide-opacity));
+}
+.divide-opacity-50 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 0.5;
+}
+.divide-opacity-10 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 0.1;
+}
+.divide-opacity-20 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 0.2;
+}
+.divide-opacity-30 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 0.3;
+}
 .overflow-hidden {
 	overflow: hidden;
 }
@@ -1578,6 +1602,21 @@ select {
 }
 .border-opacity-50 {
 	--tw-border-opacity: 0.5;
+}
+.border-opacity-5 {
+	--tw-border-opacity: 0.05;
+}
+.border-opacity-20 {
+	--tw-border-opacity: 0.2;
+}
+.border-opacity-80 {
+	--tw-border-opacity: 0.8;
+}
+.border-opacity-90 {
+	--tw-border-opacity: 0.9;
+}
+.border-opacity-95 {
+	--tw-border-opacity: 0.95;
 }
 .bg-white {
 	--tw-bg-opacity: 1;

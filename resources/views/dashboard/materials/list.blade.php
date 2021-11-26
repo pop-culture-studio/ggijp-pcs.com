@@ -6,7 +6,7 @@
         <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <table class="table-auto w-full">
                 <thead>
-                    <tr>
+                    <tr class="border-b-2 border-indigo-500">
                         <th>ID</th>
                         <th>ファイル</th>
                         <th>カテゴリー</th>
@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     @foreach ($materials as $material)
-                        <tr class="text-center border-b border-indigo-500 border-opacity-50">
+                        <tr class="text-center border-b border-indigo-500 border-opacity-95 divide-x divide-solid divide-indigo-500 divide-opacity-30">
                             <td>
                                 {{ $material->id }}
                             </td>
@@ -29,9 +29,9 @@
                                 </a>
                             </td>
 
-                            <td>{{ $material->categories->implode('name', ',') }}</td>
-                            <td>{{ $material->title }}</td>
-                            <td>{{ Str::limit($material->description, 50) }}</td>
+                            <td>{{ Str::limit($material->categories->implode('name', ','), 20) }}</td>
+                            <td>{{ Str::limit($material->title, 30) }}</td>
+                            <td>{{ Str::limit($material->description, 20) }}</td>
                             <td>
                                 {{ $material->user->name }}
                             </td>
