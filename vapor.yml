@@ -19,7 +19,7 @@ environments:
             - CategorySocialMedia
             - CategoryScrapingFramework
             - CategoryArchiver
-            - CategoryContentFetcher
+#            - CategoryContentFetcher
             - CategoryHttpLibrary
             - CategoryLinkChecker
             - SignalAutomatedBrowser
