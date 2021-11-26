@@ -17,7 +17,7 @@ class Material extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'file', 'title', 'description', 'mime', 'thumbnail',
+        'file', 'title', 'description', 'thumbnail',
     ];
 
     protected $hidden = [
@@ -65,19 +65,17 @@ class Material extends Model
                 return Storage::temporaryUrl($this->thumbnail, now()->addMinutes(60));
             }
 
-            if (empty($this->mime)) {
-                $this->fill(['mime' => Storage::mimeType($this->file)])->saveQuietly();
-            }
+            $mime = cache()->rememberForever('mimetype:'.$this->id, fn () => Storage::mimeType($this->file));
 
-            if (str_contains($this->mime, 'image/')) {
+            if (str_contains($mime, 'image/')) {
                 return Storage::temporaryUrl($this->file, now()->addMinutes(60));
             }
 
             $type = match (true) {
-                str_contains($this->mime, 'image/') => 'イラスト',
-                str_contains($this->mime, 'video/') => '動画',
-                str_contains($this->mime, 'audio/') => '音声',
-                str_contains($this->mime, '/zip') => 'ZIP',
+                str_contains($mime, 'image/') => 'イラスト',
+                str_contains($mime, 'video/') => '動画',
+                str_contains($mime, 'audio/') => '音声',
+                str_contains($mime, '/zip') => 'ZIP',
                 str_contains($this->file, '.vrm') => 'VRM',
                 default => 'その他'
             };
