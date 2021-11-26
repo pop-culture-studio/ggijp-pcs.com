@@ -16,7 +16,7 @@ environments:
           rate-limit: 1000
           bot-control:
             - CategorySearchEngine
-            - CategorySocialMedia
+#            - CategorySocialMedia
             - CategoryScrapingFramework
             - CategoryArchiver
 #            - CategoryContentFetcher
