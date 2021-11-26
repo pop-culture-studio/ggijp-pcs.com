@@ -28,7 +28,7 @@ class VaporUiServiceProvider extends ServiceProvider
     protected function gate()
     {
         Gate::define('viewVaporUI', function ($user = null) {
-            return $user?->belongsToTeam(Team::find(config('pcs.team_id')));
+            return $user?->hasTeamPermission(Team::find(config('pcs.team_id')), 'admin');
         });
     }
 

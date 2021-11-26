@@ -56,6 +56,7 @@ class JetstreamServiceProvider extends ServiceProvider
             'read',
             'update',
             'delete',
+            'admin',
             'admin:update',
             'admin:delete',
         ])->description('管理者ユーザーは任意のアクションを実行できます。');
