@@ -55,7 +55,8 @@ class MaterialPolicy
      */
     public function update(User $user, Material $material)
     {
-        return $material->user->is($user);
+        return $material->user->is($user) ||
+            $user->hasTeamPermission(Team::find(config('pcs.team_id')), 'admin:update');
     }
 
     /**
