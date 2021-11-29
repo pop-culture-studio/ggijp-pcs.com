@@ -13,6 +13,7 @@
                         <th>タイトル</th>
                         <th>説明</th>
                         <th>作者</th>
+                        <th>作成日</th>
                         <th>ダウンロード数</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                             <td>
                                 {{ $material->user->name }}
                             </td>
+                            <td>{{ $material->created_at->toDateString() }}</td>
                             <td>{{ $material->download }}</td>
 
                         </tr>
