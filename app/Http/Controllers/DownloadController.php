@@ -12,8 +12,8 @@ class DownloadController extends Controller
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     *
-     * @return \Illuminate\Http\Response
+     * @param  Material  $material
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function __invoke(Request $request, Material $material)
     {
@@ -25,7 +25,7 @@ class DownloadController extends Controller
                 now()->addMinutes(10),
                 [
                     'ResponseContentType' => 'application/octet-stream',
-                    'ResponseContentDisposition' => 'attachment; filename=' . basename($material->file),
+                    'ResponseContentDisposition' => 'attachment; filename='.basename($material->file),
                 ]
             )
         );
