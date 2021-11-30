@@ -35,5 +35,5 @@
     @endif
 
     <div class="text-xs mt-10 p-1 border-t">Copyright&copy; <a href="https://sds.fukuoka.jp/"
-            target="_blank">ポップカルチャースタジオ未来図</a> All Rights Reserved.</div>
+            target="_blank" rel="noopener">ポップカルチャースタジオ未来図</a> All Rights Reserved.</div>
 </aside>
