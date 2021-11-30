@@ -1,4 +1,4 @@
-<h2 class="text-3xl">カテゴリー</h2>
+<h2 class="text-3xl mt-6">カテゴリー</h2>
 
 <div class="my-6 mx-3 grid grid-flow-row grid-cols-3 gap-4">
     {{-- 3ヵ月分の季節カテゴリーを表示 --}}
