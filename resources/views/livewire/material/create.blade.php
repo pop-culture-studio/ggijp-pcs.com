@@ -11,7 +11,7 @@
 
         <div class="p-3">
 
-            <div x-show="isUploading">
+            <div x-show="isUploading" x-cloak>
                 <div class="text-indigo-500 font-bold">アップロードしています...</div>
 
                 <progress max="100" x-bind:value="progress"></progress>
