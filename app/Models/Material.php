@@ -17,11 +17,11 @@ class Material extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'file', 'title', 'description', 'thumbnail',
+        'file', 'title', 'description',
     ];
 
     protected $hidden = [
-        'file',
+        'file', 'thumbnail',
     ];
 
     protected static function booted()

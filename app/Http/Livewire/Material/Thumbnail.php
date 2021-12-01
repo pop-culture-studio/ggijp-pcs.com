@@ -33,7 +33,7 @@ class Thumbnail extends Component
         $thumbnail_path = 'thumbnails/'.today()->year.'/'.today()->month;
         $thumbnail = $this->thumbnail?->store($thumbnail_path);
 
-        $this->material->fill([
+        $this->material->forceFill([
             'thumbnail' => $thumbnail,
         ])->save();
 
@@ -42,7 +42,7 @@ class Thumbnail extends Component
 
     public function delete()
     {
-        $this->material->fill([
+        $this->material->forceFill([
             'thumbnail' => null,
         ])->save();
     }
