@@ -64,7 +64,7 @@
 
                 <div class="mb-5">画像以外の素材にサムネイル用の画像を設定したい時はここで登録してください。</div>
 
-                <livewire:material.thumbnail.edit :material="$material"/>
+                <livewire:material.thumbnail :material="$material"/>
 
             </div>
         </div>

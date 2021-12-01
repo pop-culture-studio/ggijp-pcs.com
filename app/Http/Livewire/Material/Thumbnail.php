@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Material\Thumbnail;
+namespace App\Http\Livewire\Material;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Edit extends Component
+class Thumbnail extends Component
 {
     use WithFileUploads;
     use AuthorizesRequests;
@@ -15,20 +15,20 @@ class Edit extends Component
 
     public $thumbnail;
 
-    public function updatedThumbnail()
+    protected $rules = [
+        'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,gif,png,webp'],
+    ];
+
+    public function updated($propertyName)
     {
-        $this->validate([
-            'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,png'],
-        ]);
+        $this->validateOnly($propertyName);
     }
 
     public function update()
     {
         $this->authorize('update', $this->material);
 
-        $this->validate([
-            'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,png'],
-        ]);
+        $this->validate();
 
         $thumbnail_path = 'thumbnails/'.today()->year.'/'.today()->month;
         $thumbnail = $this->thumbnail?->store($thumbnail_path);
@@ -49,6 +49,6 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.material.thumbnail.edit');
+        return view('livewire.material.thumbnail');
     }
 }
