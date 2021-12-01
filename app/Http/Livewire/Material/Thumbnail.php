@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire\Material;
 
+use App\Models\Material;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
+use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class Thumbnail extends Component
@@ -11,9 +13,9 @@ class Thumbnail extends Component
     use WithFileUploads;
     use AuthorizesRequests;
 
-    public $material;
+    public Material $material;
 
-    public $thumbnail;
+    public string|TemporaryUploadedFile|null $thumbnail = null;
 
     protected $rules = [
         'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,gif,png,webp'],

@@ -7,6 +7,7 @@ use App\Models\Material;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class Create extends Component
@@ -14,13 +15,13 @@ class Create extends Component
     use WithFileUploads;
     use AuthorizesRequests;
 
-    public $file;
+    public string|TemporaryUploadedFile|null $file = null;
 
-    public $cat;
+    public ?string $cat = null;
 
-    public $title;
+    public ?string $title = null;
 
-    public $description;
+    public ?string $description = null;
 
     public function updatedFile()
     {
