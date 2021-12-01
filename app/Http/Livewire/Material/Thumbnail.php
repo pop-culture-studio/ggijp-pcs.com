@@ -17,7 +17,7 @@ class Thumbnail extends Component
 
     public string|TemporaryUploadedFile|null $thumbnail = null;
 
-    protected $rules = [
+    protected array $rules = [
         'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,gif,png,webp'],
     ];
 
