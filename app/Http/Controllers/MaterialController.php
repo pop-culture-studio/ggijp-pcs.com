@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class MaterialController extends Controller
 {
@@ -95,7 +96,8 @@ class MaterialController extends Controller
             'description' => $request->input('description'),
         ])->save();
 
-        $cats = collect(explode(',', $request->input('cat')))
+        $cats = Str::of($request->input('cat'))
+            ->explode(',')
             ->map(fn ($cat) => trim($cat))
             ->unique()
             ->reject(fn ($cat) => empty($cat))

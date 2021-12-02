@@ -60,11 +60,12 @@ class Create extends Component
             'description' => $this->description,
         ]);
 
-        $cats = collect(explode(',', $this->cat))
-            ->map(fn($cat) => trim($cat))
+        $cats = Str::of($this->cat)
+            ->explode(',')
+            ->map(fn ($cat) => trim($cat))
             ->unique()
-            ->reject(fn($cat) => empty($cat))
-            ->map(fn($cat) => Category::firstOrCreate([
+            ->reject(fn ($cat) => empty($cat))
+            ->map(fn ($cat) => Category::firstOrCreate([
                 'name' => $cat,
             ]));
 
