@@ -7,6 +7,13 @@ return [
     'team_id' => env('PCS_TEAM_ID', 1),
 
     /**
+     * お問い合わせメールの送信先。
+     */
+    'contact' => [
+        'mail' => env('CONTACT_MAIL'),
+    ],
+
+    /**
      * アップロードできる最大ファイルサイズ。MB。
      * S3に直接アップロードされるのでphp.iniやLambdaの制限とは無関係。
      */
