@@ -24,25 +24,31 @@ class Create extends Component
 
     public ?string $description = null;
 
-    public function updatedFile()
+    protected function rules()
     {
-        $this->validate([
-            'file' => ['file', 'max:'. 1024 * config('pcs.max_upload')],
-        ]);
+        return [
+            'file' => ['file', 'required', 'max:'. 1024 * config('pcs.max_upload')],
+            'cat' => 'required',
+        ];
     }
 
-    public function updatedCat()
+    protected function messages()
     {
-        $this->validate([
-            'cat' => 'required',
-        ], [
+        return [
             'cat.required' => 'カテゴリーは必須です。',
-        ]);
+        ];
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function create()
     {
         $this->authorize('create', Material::class);
+
+        $this->validate();
 
         DB::transaction(function () {
             $store_path = 'materials/'.today()->year.'/'.today()->month;
