@@ -6,6 +6,7 @@ use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -21,7 +22,7 @@ class MaterialController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -58,7 +59,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Material $material)
     {
@@ -72,7 +73,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Material $material)
     {
@@ -85,29 +86,31 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(MaterialUpdateRequest $request, Material $material)
     {
-        $title = $request->input('title');
+        DB::transaction(function () use ($request, $material) {
+            $title = $request->input('title');
 
-        $material->fill([
-            'title' => $title,
-            'description' => $request->input('description'),
-        ])->save();
+            $material->fill([
+                'title' => $title,
+                'description' => $request->input('description'),
+            ])->save();
 
-        $cats = Str::of($request->input('cat'))
-            ->explode(',')
-            ->map(fn ($cat) => trim($cat))
-            ->unique()
-            ->reject(fn ($cat) => empty($cat))
-            ->map(fn ($cat) => Category::firstOrCreate([
-                'name' => $cat,
-            ]));
+            $cats = Str::of($request->input('cat'))
+                ->explode(',')
+                ->map(fn ($cat) => trim($cat))
+                ->unique()
+                ->reject(fn ($cat) => empty($cat))
+                ->map(fn ($cat) => Category::firstOrCreate([
+                    'name' => $cat,
+                ]));
 
-        $material->categories()->sync($cats->pluck('id'));
+            $material->categories()->sync($cats->pluck('id'));
+        });
 
-        return redirect()->route('material.show', $material)->banner($title.'を更新しました。');
+        return redirect()->route('material.show', $material);
     }
 
     /**
@@ -115,7 +118,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Material $material)
     {
