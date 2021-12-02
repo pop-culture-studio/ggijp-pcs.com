@@ -5,6 +5,10 @@
         </a>
     </h2>
 
+    <div>
+        <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
+    </div>
+
     @can('create', App\Models\Material::class)
         <div class="border-4 border-indigo-500 my-6 rounded">
             <h2 class="bg-indigo-500 text-lg text-white font-bold px-1">スタッフ＆メンバー用</h2>

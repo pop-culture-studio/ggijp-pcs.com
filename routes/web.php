@@ -33,3 +33,5 @@ Route::resource('material', MaterialController::class);
 Route::get('download/{material}', DownloadController::class)->name('download')->middleware('signed');
 
 Route::resource('category', CategoryController::class)->only(['index', 'show']);
+
+Route::view('contact', 'contact')->name('contact');
