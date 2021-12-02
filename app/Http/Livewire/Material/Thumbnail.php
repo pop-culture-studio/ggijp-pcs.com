@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Material;
 
 use App\Models\Material;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -21,11 +23,17 @@ class Thumbnail extends Component
         'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,gif,png,webp'],
     ];
 
+    /**
+     * @throws ValidationException
+     */
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function update()
     {
         $this->authorize('update', $this->material);

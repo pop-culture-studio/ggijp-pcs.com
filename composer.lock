@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4e31f19a31232d67cf5702909588f48",
+    "content-hash": "39072c474448fcc8ad147edf30ddb18d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2733,16 +2733,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "fc8c315babf8d42c2a25f207b3931b1bc8eb5e70"
+                "reference": "0f846a93369109e445f0e5009741b1e19e6fa6f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/fc8c315babf8d42c2a25f207b3931b1bc8eb5e70",
-                "reference": "fc8c315babf8d42c2a25f207b3931b1bc8eb5e70",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/0f846a93369109e445f0e5009741b1e19e6fa6f6",
+                "reference": "0f846a93369109e445f0e5009741b1e19e6fa6f6",
                 "shasum": ""
             },
             "require": {
@@ -2793,7 +2793,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.8.0"
+                "source": "https://github.com/livewire/livewire/tree/v2.8.1"
             },
             "funding": [
                 {
@@ -2801,7 +2801,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-24T04:33:15+00:00"
+            "time": "2021-12-02T01:31:26+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -11587,7 +11587,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

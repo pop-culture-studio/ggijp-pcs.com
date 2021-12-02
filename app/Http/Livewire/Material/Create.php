@@ -4,8 +4,11 @@ namespace App\Http\Livewire\Material;
 
 use App\Models\Category;
 use App\Models\Material;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+use JetBrains\PhpStorm\ArrayShape;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -24,7 +27,8 @@ class Create extends Component
 
     public ?string $description = null;
 
-    protected function rules()
+    #[ArrayShape(['file' => "string[]", 'cat' => "string"])]
+    protected function rules(): array
     {
         return [
             'file' => ['file', 'required', 'max:'. 1024 * config('pcs.max_upload')],
@@ -32,18 +36,26 @@ class Create extends Component
         ];
     }
 
-    protected function messages()
+    #[ArrayShape(['cat.required' => "string"])]
+    protected function messages(): array
     {
         return [
             'cat.required' => 'カテゴリーは必須です。',
         ];
     }
 
-    public function updated($propertyName)
+    /**
+     * @throws ValidationException
+     */
+    public function updated(string $propertyName)
     {
         $this->validateOnly($propertyName);
     }
 
+    /**
+     * @throws AuthorizationException
+     * @throws \Throwable
+     */
     public function create()
     {
         $this->authorize('create', Material::class);
