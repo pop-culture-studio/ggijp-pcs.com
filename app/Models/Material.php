@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -87,5 +88,25 @@ class Material extends Model
             return 'https://placehold.jp/ffffff/999999/350x350.png?text='.
                 urlencode('Not Found');
         }
+    }
+
+    /**
+     * @param  Builder  $query
+     * @param  string|null  $search
+     * @return Builder
+     */
+    public function scopeSearch(Builder $query, ?string $search): Builder
+    {
+        return $query->when($search, function (Builder $query, $search) {
+            return $query->where(function (Builder $query) use ($search) {
+                $query->where('title', 'LIKE', "%$search%")
+                    ->orWhere('description', 'LIKE', "%$search%")
+                    ->orWhereHas('categories', function (Builder $query) use ($search) {
+                        $query->where('name', 'like', "%$search%");
+                    })->orWhereHas('user', function (Builder $query) use ($search) {
+                        $query->where('name', 'like', "%$search%");
+                    });
+            });
+        });
     }
 }

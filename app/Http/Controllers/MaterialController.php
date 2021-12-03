@@ -32,29 +32,11 @@ class MaterialController extends Controller
     public function index(Request $request)
     {
         $materials = Material::latest('id')
-            ->when($request->query('search'), $this->search(...))
+            ->search($request->query('search'))
             ->cursorPaginate()
             ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
-    }
-
-    /**
-     * @param  Builder  $query
-     * @param $search
-     * @return Builder
-     */
-    protected function search(Builder $query, $search): Builder
-    {
-        return $query->where(function (Builder $query) use ($search) {
-            $query->where('title', 'LIKE', "%$search%")
-                ->orWhere('description', 'LIKE', "%$search%")
-                ->orWhereHas('categories', function (Builder $query) use ($search) {
-                    $query->where('name', 'like', "%$search%");
-                })->orWhereHas('user', function (Builder $query) use ($search) {
-                    $query->where('name', 'like', "%$search%");
-                });
-        });
     }
 
     /**
