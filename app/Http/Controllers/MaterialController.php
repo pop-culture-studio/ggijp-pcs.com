@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -27,10 +28,15 @@ class MaterialController extends Controller
     public function index(Request $request)
     {
         $materials = Material::latest('id')
-            ->when($request->query('search'), function ($query, $search) {
-                return $query->where(function ($query) use ($search) {
+            ->when($request->query('search'), function (Builder $query, $search) {
+                return $query->where(function (Builder $query) use ($search) {
                     $query->where('title', 'LIKE', "%$search%")
-                        ->orWhere('description', 'LIKE', "%$search%");
+                        ->orWhere('description', 'LIKE', "%$search%")
+                        ->orWhereHas('categories', function (Builder $query) use ($search) {
+                            $query->where('name', 'like', "%$search%");
+                        })->orWhereHas('user', function (Builder $query) use ($search) {
+                            $query->where('name', 'like', "%$search%");
+                        });
                 });
             })
             ->cursorPaginate()

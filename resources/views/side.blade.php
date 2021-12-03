@@ -9,7 +9,7 @@
         <form action="{{ route('material.index') }}" method="get" class="flex">
             <x-jet-label for="search" value="{{ __('検索') }}" class="hidden"/>
             <x-jet-input name="search" type="search" class="flex-auto sm:w-1/2 rounded-r-none" value="{{ request('search') }}"/>
-            <x-jet-button class="rounded-l-none" title="素材のタイトルと説明から検索">検索</x-jet-button>
+            <x-jet-button class="rounded-l-none" title="素材のタイトル・説明・作者名・カテゴリーから検索">検索</x-jet-button>
         </form>
     </div>
 
