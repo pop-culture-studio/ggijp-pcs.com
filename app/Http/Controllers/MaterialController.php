@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -23,26 +27,34 @@ class MaterialController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
         $materials = Material::latest('id')
-            ->when($request->query('search'), function (Builder $query, $search) {
-                return $query->where(function (Builder $query) use ($search) {
-                    $query->where('title', 'LIKE', "%$search%")
-                        ->orWhere('description', 'LIKE', "%$search%")
-                        ->orWhereHas('categories', function (Builder $query) use ($search) {
-                            $query->where('name', 'like', "%$search%");
-                        })->orWhereHas('user', function (Builder $query) use ($search) {
-                            $query->where('name', 'like', "%$search%");
-                        });
-                });
-            })
+            ->when($request->query('search'), $this->search(...))
             ->cursorPaginate()
             ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
+    }
+
+    /**
+     * @param  Builder  $query
+     * @param $search
+     * @return Builder
+     */
+    protected function search(Builder $query, $search): Builder
+    {
+        return $query->where(function (Builder $query) use ($search) {
+            $query->where('title', 'LIKE', "%$search%")
+                ->orWhere('description', 'LIKE', "%$search%")
+                ->orWhereHas('categories', function (Builder $query) use ($search) {
+                    $query->where('name', 'like', "%$search%");
+                })->orWhereHas('user', function (Builder $query) use ($search) {
+                    $query->where('name', 'like', "%$search%");
+                });
+        });
     }
 
     /**
@@ -72,7 +84,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function show(Material $material)
     {
@@ -86,7 +98,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function edit(Material $material)
     {
@@ -99,7 +111,7 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(MaterialUpdateRequest $request, Material $material)
     {
@@ -131,7 +143,7 @@ class MaterialController extends Controller
      *
      * @param  \App\Models\Material  $material
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(Material $material)
     {
