@@ -13,7 +13,7 @@
         </form>
     </div>
 
-    <div>
+    <div class="my-6">
         <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
     </div>
 
