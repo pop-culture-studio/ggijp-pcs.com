@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\CategoryController;
@@ -27,6 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('dashboard/materials', MaterialsController::class)->name('dashboard.materials');
 });
+
+Route::get('creator/{user}', CreatorController::class)->name('creator');
 
 Route::resource('material', MaterialController::class);
 

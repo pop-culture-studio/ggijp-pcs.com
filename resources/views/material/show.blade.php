@@ -28,7 +28,9 @@
 
             <x-breadcrumbs-back />
 
-            <x-badge title="作者" class="my-3">{{ $material->user->name }}</x-badge>
+            <x-badge title="作者" class="my-3">
+                <a href="{{ route('creator', $material->user) }}" class="text-indigo-500 hover:underline">{{ $material->user->name }}</a>
+            </x-badge>
 
             <h2 class="text-3xl font-extrabold my-6">{{ $material->title }}</h2>
 
