@@ -24,7 +24,7 @@
 
             <x-breadcrumbs-back/>
 
-            <x-gradient-h2>すべての素材</x-gradient-h2>
+            <x-gradient-h2 class="my-6">すべての素材</x-gradient-h2>
 
             <div>
                 <div class="my-6 flex flex-wrap gap-4">

@@ -12,7 +12,7 @@
 
             <x-breadcrumbs-back/>
 
-            <x-gradient-h2>{{ $category->name }}</x-gradient-h2>
+            <x-gradient-h2 class="my-6">{{ $category->name }}</x-gradient-h2>
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4">
