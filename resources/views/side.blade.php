@@ -5,6 +5,14 @@
         </a>
     </h2>
 
+    <div class="my-6">
+        <form action="{{ route('material.index') }}" method="get" class="flex">
+            <x-jet-label for="search" value="{{ __('検索') }}" class="hidden"/>
+            <x-jet-input name="search" type="search" class="flex-auto sm:w-1/2 rounded-r-none" required value="{{ request('search') }}"/>
+            <x-jet-button class="rounded-l-none">検索</x-jet-button>
+        </form>
+    </div>
+
     <div>
         <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
     </div>

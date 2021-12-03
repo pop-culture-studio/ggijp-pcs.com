@@ -24,10 +24,17 @@ class MaterialController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $materials = Material::latest('id')
-            ->cursorPaginate();
+            ->when($request->query('search'), function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('title', 'LIKE', "%$search%")
+                        ->orWhere('description', 'LIKE', "%$search%");
+                });
+            })
+            ->cursorPaginate()
+            ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
     }

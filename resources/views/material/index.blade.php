@@ -1,16 +1,16 @@
 <x-main-layout>
     <x-slot name="title">
-        すべての素材
+        {{ request('search', 'すべての素材') }}
     </x-slot>
 
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">
-                すべての素材
+                {{ request('search', 'すべての素材') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ config('app.name') }}
+                {{ request('search', config('app.name')) }}
             </x-slot>
         </x-ogp>
     </x-slot>
@@ -24,7 +24,7 @@
 
             <x-breadcrumbs-back/>
 
-            <x-gradient-h2 class="my-6">すべての素材</x-gradient-h2>
+            <x-gradient-h2 class="my-6">{{ request('search', 'すべての素材') }}</x-gradient-h2>
 
             <div>
                 <div class="my-6 flex flex-wrap gap-4">
