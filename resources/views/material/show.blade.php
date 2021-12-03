@@ -28,11 +28,11 @@
 
             <x-breadcrumbs-back />
 
-            <x-badge title="作者">{{ $material->user->name }}</x-badge>
+            <x-badge title="作者" class="my-3">{{ $material->user->name }}</x-badge>
 
             <h2 class="text-3xl font-extrabold my-6">{{ $material->title }}</h2>
 
-            <x-badge title="カテゴリー">
+            <x-badge title="カテゴリー" class="my-3">
                 @foreach ($material->categories as $cat)
                     <a href="{{ route('category.show', $cat) }}" class="text-indigo-500 hover:underline mx-1">{{ $cat->name }}</a>
                 @endforeach
