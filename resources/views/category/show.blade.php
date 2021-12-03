@@ -3,10 +3,6 @@
         カテゴリー {{ $category->name }}
     </x-slot>
 
-    <x-slot name="side">
-
-    </x-slot>
-
     <div class="py-6">
         <div class="px-3 sm:px-6 lg:px-8">
 
