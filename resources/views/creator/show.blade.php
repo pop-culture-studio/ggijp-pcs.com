@@ -1,10 +1,6 @@
 <x-main-layout>
     <x-slot name="title">
-        作者 {{ $user->name }}
-    </x-slot>
-
-    <x-slot name="side">
-
+        {{ $user->name }}
     </x-slot>
 
     <div class="py-6">
