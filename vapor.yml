@@ -9,9 +9,9 @@ environments:
         domain: ggijp-pcs.com
         storage: storage.ggijp-pcs.com
         database: ggijp-pcs-com-production
-        octane: true
-        octane-database-session-persist: true
-        octane-database-session-ttl: 10
+#        octane: true
+#        octane-database-session-persist: true
+#        octane-database-session-ttl: 10
         firewall:
           rate-limit: 1000
           bot-control:
