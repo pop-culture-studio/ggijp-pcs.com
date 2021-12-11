@@ -42,5 +42,8 @@
         @stack('modals')
 
         @livewireScripts
+
+        <!-- Laravel {{ app() ->version() }} -->
+        <!-- PHP {{ phpversion() }} -->
     </body>
 </html>
