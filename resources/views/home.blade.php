@@ -19,8 +19,12 @@
         <div class="sm:px-6 lg:px-8">
             <h1 class="text-4xl hidden">{{ config('app.name', 'Laravel') }}</h1>
 
-            <div class="w-auto h-64 rounded shadow-lg my-10 p-3 bg-indigo-500 text-white">
-                <x-admin-message text="この辺に大きいロゴ" />
+            <div class="w-auto h-auto my-10 bg-white">
+                <a href="{{ route('home') }}" target="_top">
+                    <img src="{{ asset('images/logo/top.png') }}"
+                         alt="{{ config('app.name', 'Laravel') }}"
+                         title="{{ config('app.name', 'Laravel') }}">
+                </a>
             </div>
 
             @if($materials)
