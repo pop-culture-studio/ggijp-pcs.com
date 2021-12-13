@@ -52,14 +52,14 @@ return [
             'image' => 'photo.png'
         ],
         [
-            'id' => 18,
-            'title' => '職業・仕事',
-            'image' => 'work.png'
-        ],
-        [
             'id' => 19,
             'title' => '動物・植物',
             'image' => 'animal.png'
+        ],
+        [
+            'id' => 18,
+            'title' => '職業・仕事',
+            'image' => 'work.png'
         ],
         [
             'id' => 15,
