@@ -32,21 +32,6 @@ return [
      */
     'category' => [
         [
-            'id' => 10,
-            'title' => '2Dモデル',
-            'image' => '2d.png'
-        ],
-        [
-            'id' => 11,
-            'title' => '3Dモデル',
-            'image' => '3d.png'
-        ],
-        [
-            'id' => 12,
-            'title' => 'BGM',
-            'image' => 'BGM.png'
-        ],
-        [
             'id' => 13,
             'title' => 'たべもの',
             'image' => 'food.png'
@@ -55,11 +40,6 @@ return [
             'id' => 14,
             'title' => 'のりもの',
             'image' => 'vehicle.png'
-        ],
-        [
-            'id' => 15,
-            'title' => '音声素材',
-            'image' => 'voice.png'
         ],
         [
             'id' => 16,
@@ -80,6 +60,26 @@ return [
             'id' => 19,
             'title' => '動物・植物',
             'image' => 'animal.png'
+        ],
+        [
+            'id' => 15,
+            'title' => '音声素材',
+            'image' => 'voice.png'
+        ],
+        [
+            'id' => 12,
+            'title' => 'BGM',
+            'image' => 'BGM.png'
+        ],
+        [
+            'id' => 10,
+            'title' => '2Dモデル',
+            'image' => '2d.png'
+        ],
+        [
+            'id' => 11,
+            'title' => '3Dモデル',
+            'image' => '3d.png'
         ],
     ],
 
