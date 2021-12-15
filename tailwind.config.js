@@ -14,11 +14,10 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                indigo: colors.emerald,
+            }
         },
-        colors: {
-            ...defaultTheme.colors,
-            indigo: colors.emerald,
-          }
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
