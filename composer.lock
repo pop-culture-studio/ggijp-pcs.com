@@ -1630,16 +1630,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.76.1",
+            "version": "v8.76.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "83fe447ae964dc5f1f829d25fa2f6042d9099834"
+                "reference": "c67acfdc968f487b6235435080eef62a7e2ed055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/83fe447ae964dc5f1f829d25fa2f6042d9099834",
-                "reference": "83fe447ae964dc5f1f829d25fa2f6042d9099834",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c67acfdc968f487b6235435080eef62a7e2ed055",
+                "reference": "c67acfdc968f487b6235435080eef62a7e2ed055",
                 "shasum": ""
             },
             "require": {
@@ -1798,7 +1798,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-12-14T16:21:19+00:00"
+            "time": "2021-12-15T14:02:14+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -4477,16 +4477,16 @@
         },
         {
             "name": "spiral/roadrunner",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spiral/roadrunner.git",
-                "reference": "634c3535856fb58eee5416f425a10e1c0bf46178"
+                "reference": "31112495808ae37f38f7b514de1f40b8b8a75238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spiral/roadrunner/zipball/634c3535856fb58eee5416f425a10e1c0bf46178",
-                "reference": "634c3535856fb58eee5416f425a10e1c0bf46178",
+                "url": "https://api.github.com/repos/spiral/roadrunner/zipball/31112495808ae37f38f7b514de1f40b8b8a75238",
+                "reference": "31112495808ae37f38f7b514de1f40b8b8a75238",
                 "shasum": ""
             },
             "require": {
@@ -4512,9 +4512,9 @@
             "description": "RoadRunner: High-performance PHP application server, load-balancer and process manager written in Golang",
             "support": {
                 "issues": "https://github.com/spiral/roadrunner/issues",
-                "source": "https://github.com/spiral/roadrunner/tree/v2.6.1"
+                "source": "https://github.com/spiral/roadrunner/tree/v2.6.2"
             },
-            "time": "2021-12-14T11:15:45+00:00"
+            "time": "2021-12-14T22:13:32+00:00"
         },
         {
             "name": "spiral/roadrunner-cli",
