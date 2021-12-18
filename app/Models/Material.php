@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
-
 use function Illuminate\Events\queueable;
 
 class Material extends Model
@@ -81,12 +80,9 @@ class Material extends Model
                 default => 'その他'
             };
 
-            return 'https://placehold.jp/ffffff/333333/350x350.png?text='.
-                urlencode($type)//.'&css=%7B%22background%22%3A%22%20-webkit-gradient(linear%2C%20left%20top%2C%20left%20bottom%2C%20from(%236366F1)%2C%20to(%23ffffff))%22%7D'
-                ;
+            return 'https://placehold.jp/ffffff/333333/350x350.png?text='.urlencode($type);
         } catch (\Exception $e) {
-            return 'https://placehold.jp/ffffff/999999/350x350.png?text='.
-                urlencode('Not Found');
+            return 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found');
         }
     }
 
@@ -100,10 +96,10 @@ class Material extends Model
         return $query->when($search, function (Builder $query, $search) {
             return $query->where(function (Builder $query) use ($search) {
                 $query->where('title', 'LIKE', "%$search%")
-                    ->orWhere('description', 'LIKE', "%$search%")
-                    ->orWhereHas('categories', function (Builder $query) use ($search) {
-                        $query->where('name', 'like', "%$search%");
-                    })->orWhereHas('user', function (Builder $query) use ($search) {
+                      ->orWhere('description', 'LIKE', "%$search%")
+                      ->orWhereHas('categories', function (Builder $query) use ($search) {
+                          $query->where('name', 'like', "%$search%");
+                      })->orWhereHas('user', function (Builder $query) use ($search) {
                         $query->where('name', 'like', "%$search%");
                     });
             });
