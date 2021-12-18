@@ -9,6 +9,11 @@
 
             <div class="prose prose-indigo prose-a:text-indigo-500">
                 {!! Str::markdown(File::get(resource_path('markdown/terms.md'))) !!}
+
+                <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank">
+                    <img src="{{ asset('images/cc-by.png') }}" alt="CC BY 4.0">
+                </a>
+
             </div>
         </div>
 
