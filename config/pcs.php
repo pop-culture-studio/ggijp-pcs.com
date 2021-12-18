@@ -10,7 +10,8 @@ return [
      * お問い合わせメールの送信先。
      */
     'contact' => [
-        'mail' => env('CONTACT_MAIL'),
+        'mail' => env('CONTACT_MAIL', env('MAIL_FROM_ADDRESS')),
+        'subject' => env('CONTACT_SUBJECT', '未来図倉庫へのお問い合わせ'),
     ],
 
     /**
@@ -34,52 +35,52 @@ return [
         [
             'id' => 13,
             'title' => 'たべもの',
-            'image' => 'food.png'
+            'image' => 'food.png',
         ],
         [
             'id' => 14,
             'title' => 'のりもの',
-            'image' => 'vehicle.png'
+            'image' => 'vehicle.png',
         ],
         [
             'id' => 16,
             'title' => '行事・イベント',
-            'image' => 'event.png'
+            'image' => 'event.png',
         ],
         [
             'id' => 17,
             'title' => '写真・背景',
-            'image' => 'photo.png'
+            'image' => 'photo.png',
         ],
         [
             'id' => 19,
             'title' => '動物・植物',
-            'image' => 'animal.png'
+            'image' => 'animal.png',
         ],
         [
             'id' => 18,
             'title' => '職業・仕事',
-            'image' => 'work.png'
+            'image' => 'work.png',
         ],
         [
             'id' => 15,
             'title' => '音声素材',
-            'image' => 'voice.png'
+            'image' => 'voice.png',
         ],
         [
             'id' => 12,
             'title' => 'BGM',
-            'image' => 'BGM.png'
+            'image' => 'BGM.png',
         ],
         [
             'id' => 10,
             'title' => '2Dモデル',
-            'image' => '2d.png'
+            'image' => '2d.png',
         ],
         [
             'id' => 11,
             'title' => '3Dモデル',
-            'image' => '3d.png'
+            'image' => '3d.png',
         ],
     ],
 
