@@ -26,6 +26,8 @@ class ContactForm extends Component
             ->send(new ContactMail($this->name, $this->email, $this->body));
 
         $this->reset();
+
+        session()->flash('mail_success', true);
     }
 
     public function render()
