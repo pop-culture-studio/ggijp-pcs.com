@@ -37,3 +37,4 @@ Route::get('download/{material}', DownloadController::class)->name('download')->
 Route::resource('category', CategoryController::class)->only(['index', 'show']);
 
 Route::view('contact', 'contact')->name('contact');
+Route::view('license', 'license')->name('license');

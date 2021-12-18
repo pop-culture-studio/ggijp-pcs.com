@@ -14,7 +14,14 @@
     </div>
 
     <div class="my-6">
-        <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
+        <ul>
+            <li>
+                <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
+            </li>
+            <li>
+                <a href="{{ route('license') }}" class="font-bold text-indigo-500 hover:underline">{{ __('利用規約・ライセンス') }}</a>
+            </li>
+        </ul>
     </div>
 
     @can('create', App\Models\Material::class)
