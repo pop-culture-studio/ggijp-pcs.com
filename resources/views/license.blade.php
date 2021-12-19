@@ -8,7 +8,7 @@
             <h1 class="text-4xl my-10">{{ config('app.name') }} {{ __('利用規約・ライセンス') }}</h1>
 
             <div class="prose prose-indigo prose-a:text-indigo-500 max-w-none">
-                {!! Str::markdown(File::get(resource_path('markdown/terms.md'))) !!}
+                {!! Str::markdown(File::get(resource_path('markdown/license.md'))) !!}
 
                 <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank">
                     <img src="{{ asset('images/cc-by.png') }}" alt="CC BY 4.0">
