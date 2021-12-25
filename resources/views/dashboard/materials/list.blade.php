@@ -19,14 +19,14 @@
                 </thead>
                 <tbody>
                     @foreach ($materials as $material)
-                        <tr class="text-center border-b border-indigo-500 border-opacity-95 divide-x divide-solid divide-indigo-500 divide-opacity-30">
+                        <tr class="text-center odd:bg-white even:bg-gray-100 divide-x divide-solid divide-indigo-500 divide-opacity-30">
                             <td>
                                 {{ $material->id }}
                             </td>
                             <td>
                                 <a href="{{ route('material.show', $material) }}">
                                     <img class="object-contain p-1 h-full sm:h-24 mx-auto"
-                                        src="{{ $material->image }}" loading="lazy">
+                                        src="{{ $material->image }}" loading="lazy" alt="{{ $material->title }}" title="{{ $material->title }}">
                                 </a>
                             </td>
 
