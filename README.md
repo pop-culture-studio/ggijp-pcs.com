@@ -12,5 +12,5 @@ https://ggijp-pcs.com/
 ## LICENSE
 Copyright ポップカルチャースタジオ未来図
 
-- GitHubのコードはAGPL
-- 素材ファイルはクリエイティブ・コモンズ・ライセンス
+- GitHubのコードはAGPL [LICENSE](./LICENSE)
+- 素材ファイルはクリエイティブ・コモンズ・ライセンス https://ggijp-pcs.com/license
