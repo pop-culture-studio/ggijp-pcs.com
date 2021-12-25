@@ -1,4 +1,4 @@
-<aside class="w-full sm:w-56 flex-none sm:min-h-screen sm:order-first order-last p-5 sm:border-r bg-indigo-50">
+<aside class="w-full sm:w-60 flex-none sm:min-h-screen sm:order-first order-last p-5 sm:border-r bg-indigo-50">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-5">
         <a href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -8,7 +8,7 @@
     <div class="my-6">
         <form action="{{ route('material.index') }}" method="get" class="flex">
             <x-jet-label for="search" value="{{ __('検索') }}" class="hidden"/>
-            <x-jet-input name="search" type="search" class="flex-auto sm:w-1/2 rounded-r-none" value="{{ request('search') }}"/>
+            <x-jet-input name="search" type="search" class="flex-auto sm:w-1/2 rounded-r-none" value="{{ request('search') }}" placeholder="{{ __('キーワード検索') }}"/>
             <x-jet-button class="rounded-l-none" title="素材のタイトル・説明・作者名・カテゴリーから検索">検索</x-jet-button>
         </form>
     </div>
