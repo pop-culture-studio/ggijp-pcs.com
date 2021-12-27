@@ -29,6 +29,11 @@
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            <div class="mt-4">
+                <x-jet-label for="team" value="{{ __('合言葉') }}" />
+                <x-jet-input id="team" class="block mt-1 w-full" type="text" name="team" />
+            </div>
+
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-jet-label for="terms">

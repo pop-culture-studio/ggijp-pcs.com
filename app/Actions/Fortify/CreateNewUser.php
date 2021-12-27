@@ -7,7 +7,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Jetstream\Contracts\AddsTeamMembers;
+use Laravel\Jetstream\Contracts\InvitesTeamMembers;
+use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Jetstream;
 
 class CreateNewUser implements CreatesNewUsers
@@ -34,8 +38,12 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
-            ]), function (User $user) {
+            ]), function (User $user) use ($input) {
                 $this->createTeam($user);
+
+                if (Str::is($input['team'], config('pcs.team'))) {
+                    $this->invite($user);
+                }
             });
         });
     }
@@ -53,5 +61,30 @@ class CreateNewUser implements CreatesNewUsers
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
         ]));
+    }
+
+    /**
+     * @param  User  $user
+     * @return void
+     */
+    protected function invite(User $user)
+    {
+        $team = Team::find(config('pcs.team_id'));
+
+        if (Features::sendsTeamInvitations()) {
+            app(InvitesTeamMembers::class)->invite(
+                $team->owner,
+                $team,
+                $user->email,
+                'member'
+            );
+        } else {
+            app(AddsTeamMembers::class)->add(
+                $team->owner,
+                $team,
+                $user->email,
+                'member'
+            );
+        }
     }
 }
