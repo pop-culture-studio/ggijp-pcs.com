@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+            'team' => ['nullable', 'string'],
         ])->validate();
 
         return DB::transaction(function () use ($input) {
@@ -41,7 +43,7 @@ class CreateNewUser implements CreatesNewUsers
             ]), function (User $user) use ($input) {
                 $this->createTeam($user);
 
-                if (Str::is($input['team'], config('pcs.team'))) {
+                if (config('pcs.team') === Arr::get($input, 'team')) {
                     $this->invite($user);
                 }
             });
