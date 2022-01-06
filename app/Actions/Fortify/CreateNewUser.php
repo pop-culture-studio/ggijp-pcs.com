@@ -4,11 +4,10 @@ namespace App\Actions\Fortify;
 
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Contracts\AddsTeamMembers;
 use Laravel\Jetstream\Contracts\InvitesTeamMembers;
@@ -32,7 +31,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
-            'team' => ['nullable', 'string'],
+            'team' => ['required', 'string', Rule::in([config('pcs.team')])],
         ])->validate();
 
         return DB::transaction(function () use ($input) {
@@ -43,9 +42,7 @@ class CreateNewUser implements CreatesNewUsers
             ]), function (User $user) use ($input) {
                 $this->createTeam($user);
 
-                if (config('pcs.team') === Arr::get($input, 'team')) {
-                    $this->invite($user);
-                }
+                $this->invite($user);
             });
         });
     }
