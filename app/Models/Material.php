@@ -81,7 +81,7 @@ class Material extends Model
             };
 
             return 'https://placehold.jp/ffffff/333333/350x350.png?text='.urlencode($type);
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found');
         }
     }
