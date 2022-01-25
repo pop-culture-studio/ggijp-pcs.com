@@ -1,16 +1,16 @@
 <x-main-layout>
     <x-slot name="title">
-        {{ request('search', 'すべての素材') }}
+        {{ request('q', 'すべての素材') }}
     </x-slot>
 
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">
-                {{ request('search', 'すべての素材') }}
+                {{ request('q', 'すべての素材') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ request('search', config('app.name')) }}
+                {{ request('q', config('app.name')) }}
             </x-slot>
         </x-ogp>
     </x-slot>
