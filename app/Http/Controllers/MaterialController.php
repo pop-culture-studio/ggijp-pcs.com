@@ -32,7 +32,7 @@ class MaterialController extends Controller
     public function index(Request $request)
     {
         $materials = Material::latest('id')
-            ->search($request->query('search'))
+            ->keywordSearch($request->query('q'))
             ->cursorPaginate()
             ->withQueryString();
 

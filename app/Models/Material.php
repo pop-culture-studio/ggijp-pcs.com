@@ -91,7 +91,7 @@ class Material extends Model
      * @param  string|null  $search
      * @return Builder
      */
-    public function scopeSearch(Builder $query, ?string $search): Builder
+    public function scopeKeywordSearch(Builder $query, ?string $search): Builder
     {
         return $query->when($search, function (Builder $query, $search) {
             return $query->where(function (Builder $query) use ($search) {
