@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.209.21",
+            "version": "3.209.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f5b867920f422d605c38aad95f5c334183b39bb"
+                "reference": "2f8a8c885daf45fe9f919312a66a68115d6733b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f5b867920f422d605c38aad95f5c334183b39bb",
-                "reference": "3f5b867920f422d605c38aad95f5c334183b39bb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2f8a8c885daf45fe9f919312a66a68115d6733b5",
+                "reference": "2f8a8c885daf45fe9f919312a66a68115d6733b5",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.21"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.22"
             },
-            "time": "2022-02-09T19:17:07+00:00"
+            "time": "2022-02-10T19:14:07+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -4418,16 +4418,16 @@
         },
         {
             "name": "spiral/goridge",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spiral/goridge-php.git",
-                "reference": "85ad54ae5f3a194330a459b8bd30324764536c2a"
+                "reference": "2c50b649b4296a3733f2ff5de339f41b9db57b04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spiral/goridge-php/zipball/85ad54ae5f3a194330a459b8bd30324764536c2a",
-                "reference": "85ad54ae5f3a194330a459b8bd30324764536c2a",
+                "url": "https://api.github.com/repos/spiral/goridge-php/zipball/2c50b649b4296a3733f2ff5de339f41b9db57b04",
+                "reference": "2c50b649b4296a3733f2ff5de339f41b9db57b04",
                 "shasum": ""
             },
             "require": {
@@ -4438,11 +4438,11 @@
             },
             "require-dev": {
                 "google/protobuf": "^3.17",
+                "infection/infection": "^0.26.1",
                 "jetbrains/phpstorm-attributes": "^1.0",
-                "phpunit/phpunit": "^8.0",
+                "phpunit/phpunit": "^9.5",
                 "rybakit/msgpack": "^0.7",
-                "spiral/code-style": "^1.0",
-                "vimeo/psalm": "^4.6"
+                "vimeo/psalm": "^4.18.1"
             },
             "suggest": {
                 "ext-msgpack": "MessagePack codec support",
@@ -4474,22 +4474,22 @@
             "description": "High-performance PHP-to-Golang RPC bridge",
             "support": {
                 "issues": "https://github.com/spiral/goridge-php/issues",
-                "source": "https://github.com/spiral/goridge-php/tree/v3.1.1"
+                "source": "https://github.com/spiral/goridge-php/tree/v3.1.2"
             },
-            "time": "2021-06-10T12:31:44+00:00"
+            "time": "2022-01-13T08:13:33+00:00"
         },
         {
             "name": "spiral/roadrunner",
-            "version": "v2.7.6",
+            "version": "v2.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roadrunner-server/roadrunner.git",
-                "reference": "340c47126a75228fbe38105b8fb7894430495963"
+                "reference": "7a4338b218e0cc0c417497145ee74cbed1377a8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-server/roadrunner/zipball/340c47126a75228fbe38105b8fb7894430495963",
-                "reference": "340c47126a75228fbe38105b8fb7894430495963",
+                "url": "https://api.github.com/repos/roadrunner-server/roadrunner/zipball/7a4338b218e0cc0c417497145ee74cbed1377a8b",
+                "reference": "7a4338b218e0cc0c417497145ee74cbed1377a8b",
                 "shasum": ""
             },
             "require": {
@@ -4515,9 +4515,9 @@
             "description": "RoadRunner: High-performance PHP application server, load-balancer and process manager written in Golang",
             "support": {
                 "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-server/roadrunner/tree/v2.7.6"
+                "source": "https://github.com/roadrunner-server/roadrunner/tree/v2.7.7"
             },
-            "time": "2022-02-06T10:01:07+00:00"
+            "time": "2022-02-10T17:47:29+00:00"
         },
         {
             "name": "spiral/roadrunner-cli",
@@ -10244,16 +10244,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49"
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/23bd5951f7ff26f12d4e3242864df3e08dec4e49",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
                 "shasum": ""
             },
             "require": {
@@ -10296,7 +10296,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.3"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.4"
             },
             "funding": [
                 {
@@ -10304,7 +10304,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-11T13:31:12+00:00"
+            "time": "2022-02-10T07:01:19+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
