@@ -2991,12 +2991,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "JmesPath\\": "src/"
-                },
                 "files": [
                     "src/JmesPath.php"
-                ]
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4480,16 +4480,16 @@
         },
         {
             "name": "spiral/roadrunner",
-            "version": "v2.7.7",
+            "version": "v2.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roadrunner-server/roadrunner.git",
-                "reference": "7a4338b218e0cc0c417497145ee74cbed1377a8b"
+                "reference": "58b80d16560228d818d0a9e22c195f1ea81ebc27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-server/roadrunner/zipball/7a4338b218e0cc0c417497145ee74cbed1377a8b",
-                "reference": "7a4338b218e0cc0c417497145ee74cbed1377a8b",
+                "url": "https://api.github.com/repos/roadrunner-server/roadrunner/zipball/58b80d16560228d818d0a9e22c195f1ea81ebc27",
+                "reference": "58b80d16560228d818d0a9e22c195f1ea81ebc27",
                 "shasum": ""
             },
             "require": {
@@ -4515,9 +4515,9 @@
             "description": "RoadRunner: High-performance PHP application server, load-balancer and process manager written in Golang",
             "support": {
                 "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-server/roadrunner/tree/v2.7.7"
+                "source": "https://github.com/roadrunner-server/roadrunner/tree/v2.7.8"
             },
-            "time": "2022-02-10T17:47:29+00:00"
+            "time": "2022-02-12T09:39:24+00:00"
         },
         {
             "name": "spiral/roadrunner-cli",
@@ -6193,12 +6193,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
