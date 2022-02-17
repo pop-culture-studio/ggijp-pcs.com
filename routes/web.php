@@ -29,7 +29,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard/materials', MaterialsController::class)->name('dashboard.materials');
 
     Route::get('dashboard/contacts', ContactController::class)->name('dashboard.contacts')->can('admin');
-
 });
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');
