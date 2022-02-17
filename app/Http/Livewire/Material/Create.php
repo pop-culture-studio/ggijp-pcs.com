@@ -6,13 +6,13 @@ use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use JetBrains\PhpStorm\ArrayShape;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\DB;
 
 class Create extends Component
 {
@@ -27,7 +27,7 @@ class Create extends Component
 
     public ?string $description = null;
 
-    #[ArrayShape(['file' => "string[]", 'cat' => "string"])]
+    #[ArrayShape(['file' => 'string[]', 'cat' => 'string'])]
     protected function rules(): array
     {
         return [
@@ -36,7 +36,7 @@ class Create extends Component
         ];
     }
 
-    #[ArrayShape(['cat.required' => "string"])]
+    #[ArrayShape(['cat.required' => 'string'])]
     protected function messages(): array
     {
         return [
