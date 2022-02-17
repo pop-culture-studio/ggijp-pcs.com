@@ -1,8 +1,6 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-        <h2 class="text-2xl mb-5">未来図倉庫チームの素材一覧</h2>
-
         <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <table class="table-auto w-full">
                 <thead>
@@ -13,7 +11,7 @@
                         <th>タイトル</th>
                         <th>説明</th>
                         <th>作者</th>
-                        <th>作成日</th>
+                        <th>アップロード日</th>
                         <th>ダウンロード数</th>
                     </tr>
                 </thead>
