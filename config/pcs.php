@@ -16,7 +16,7 @@ return [
      */
     'contact' => [
         'mail' => env('CONTACT_MAIL', env('MAIL_FROM_ADDRESS')),
-        'subject' => env('CONTACT_SUBJECT', '未来図倉庫へのお問い合わせ'),
+        'subject' => env('CONTACT_SUBJECT', '【'.config('app.name').'】お問い合わせ'),
     ],
 
     /**
