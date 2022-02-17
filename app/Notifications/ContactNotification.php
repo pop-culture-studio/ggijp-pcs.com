@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use App\Mail\ContactMail;
-use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
@@ -25,11 +24,7 @@ class ContactNotification extends Notification implements ShouldQueue
         public string $email = '',
         public string $body = ''
     ) {
-        Contact::forceCreate([
-            'name' => $this->name,
-            'email' => $this->email,
-            'body' => trim($this->body),
-        ]);
+        //
     }
 
     /**

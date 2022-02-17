@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use App\Notifications\ContactNotification;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -33,9 +32,11 @@ class ContactForm extends Component
         Cookie::queue('name', $this->name, 60 * 24 * 30);
         Cookie::queue('email', $this->email, 60 * 24 * 30);
 
-        Notification::route('mail', config('pcs.contact.mail'))
-                    ->route('line-notify', config('line.notify.personal_access_token'))
-                    ->notify(new ContactNotification($this->name, $this->email, $this->body));
+        Contact::forceCreate([
+            'name' => $this->name,
+            'email' => $this->email,
+            'body' => trim($this->body),
+        ]);
 
         $this->reset();
 
