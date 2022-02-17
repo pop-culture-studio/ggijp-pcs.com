@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
-use function Illuminate\Events\queueable;
-
 class Material extends Model
 {
     use HasFactory;
@@ -27,13 +25,13 @@ class Material extends Model
 
     protected static function booted()
     {
-        static::saved(queueable(function ($material) {
+        static::saved(function ($material) {
             cache()->delete('side.cats');
-        }));
+        });
 
-        static::deleted(queueable(function ($material) {
+        static::deleted(function ($material) {
             cache()->delete('side.cats');
-        }));
+        });
     }
 
     /**
