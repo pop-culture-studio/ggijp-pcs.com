@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 use function Illuminate\Events\queueable;
+use Illuminate\Support\Facades\Storage;
 
 class Material extends Model
 {
@@ -100,8 +100,8 @@ class Material extends Model
                       ->orWhereHas('categories', function (Builder $query) use ($search) {
                           $query->where('name', 'like', "%$search%");
                       })->orWhereHas('user', function (Builder $query) use ($search) {
-                        $query->where('name', 'like', "%$search%");
-                    });
+                          $query->where('name', 'like', "%$search%");
+                      });
             });
         });
     }
