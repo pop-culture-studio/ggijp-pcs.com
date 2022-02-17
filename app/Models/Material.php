@@ -99,9 +99,10 @@ class Material extends Model
                       ->orWhere('description', 'like', "%$search%")
                       ->orWhereHas('categories', function (Builder $query) use ($search) {
                           $query->where('name', 'like', "%$search%");
-                      })->orWhereHas('user', function (Builder $query) use ($search) {
-                        $query->where('name', 'like', "%$search%");
-                    });
+                      })
+                      ->orWhereHas('user', function (Builder $query) use ($search) {
+                          $query->where('name', 'like', "%$search%");
+                      });
             });
         });
     }
