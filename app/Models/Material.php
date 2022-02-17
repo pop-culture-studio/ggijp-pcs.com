@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use function Illuminate\Events\queueable;
 use Illuminate\Support\Facades\Storage;
+use function Illuminate\Events\queueable;
 
 class Material extends Model
 {
@@ -93,15 +93,15 @@ class Material extends Model
      */
     public function scopeKeywordSearch(Builder $query, ?string $search): Builder
     {
-        return $query->when($search, function (Builder $query, $search) {
+        return $query->when(filled($search), function (Builder $query, $b) use ($search) {
             return $query->where(function (Builder $query) use ($search) {
-                $query->where('title', 'LIKE', "%$search%")
-                      ->orWhere('description', 'LIKE', "%$search%")
+                $query->where('title', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%")
                       ->orWhereHas('categories', function (Builder $query) use ($search) {
                           $query->where('name', 'like', "%$search%");
                       })->orWhereHas('user', function (Builder $query) use ($search) {
-                          $query->where('name', 'like', "%$search%");
-                      });
+                        $query->where('name', 'like', "%$search%");
+                    });
             });
         });
     }
