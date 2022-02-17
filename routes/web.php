@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreatorController;
+use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\DownloadController;
@@ -26,6 +27,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('dashboard/materials', MaterialsController::class)->name('dashboard.materials');
+
+    Route::get('dashboard/contacts', ContactController::class)->name('dashboard.contacts')->can('admin');
+
 });
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');

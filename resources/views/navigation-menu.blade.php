@@ -24,6 +24,12 @@
                             {{ __('チーム素材') }}
                         </x-jet-nav-link>
                     @endcan
+                    @can('admin')
+                        <x-jet-nav-link href="{{ route('dashboard.contacts') }}"
+                                        :active="request()->routeIs('dashboard.contacts')">
+                            {{ __('お問い合わせ一覧') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -172,6 +178,12 @@
                 <x-jet-responsive-nav-link href="{{ route('dashboard.materials') }}"
                                            :active="request()->routeIs('dashboard.materials')">
                     {{ __('チーム素材') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('admin')
+                <x-jet-responsive-nav-link href="{{ route('dashboard.contacts') }}"
+                                           :active="request()->routeIs('dashboard.contacts')">
+                    {{ __('お問い合わせ一覧') }}
                 </x-jet-responsive-nav-link>
             @endcan
         </div>
