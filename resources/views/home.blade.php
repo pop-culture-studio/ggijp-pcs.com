@@ -27,6 +27,8 @@
                 </a>
             </div>
 
+            @includeIf('news')
+
             @if($materials)
                 @include('home.new')
             @endif
