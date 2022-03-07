@@ -30,7 +30,6 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
-            recaptchaFieldName() => recaptchaRuleName(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
             'team' => ['required', 'string', Rule::in([config('pcs.team')])],
         ])->validate();
