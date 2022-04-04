@@ -135,12 +135,11 @@
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                                     @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </x-jet-dropdown-link>
                             </form>
@@ -219,12 +218,11 @@
                 @endif
 
             <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                    this.closest('form').submit();">
+                                               @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>
