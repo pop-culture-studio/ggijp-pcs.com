@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\ContactPreviewController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\DownloadController;
@@ -30,6 +31,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::get('dashboard/contacts', ContactController::class)->name('dashboard.contacts')->can('admin');
 });
+
+Route::get('contact/preview/{contact}', ContactPreviewController::class)
+     ->name('contact.preview')
+     ->middleware('signed');
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');
 
