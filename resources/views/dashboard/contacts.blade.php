@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <th></th>
-                            <td><a href="{{ URL::temporarySignedRoute('contact.preview', now()->addDay(), $contact) }}" class="text-indigo-500 dark:text-white hover:underline">プレビュー</a></td>
+                            <td><a href="{{ URL::temporarySignedRoute('contact.preview', now()->addDay(), $contact) }}" class="text-indigo-500 hover:underline">プレビュー</a></td>
                         </tr>
                     </table>
                 </div>

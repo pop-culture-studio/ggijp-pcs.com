@@ -10,7 +10,7 @@
                 {{ __('お問い合わせプレビュー') }}
             </h2>
 
-            <div class="bg-white dark:bg-gray-900 overflow-hidden shadow-md sm:rounded-lg p-3">
+            <div class="bg-white overflow-hidden p-3 prose prose-xl prose-a:text-indigo-500">
                 <table class="table-auto">
                     <tr>
                         <th>日時</th>
@@ -22,8 +22,7 @@
                     </tr>
                     <tr>
                         <th>メール</th>
-                        <td><a href="mailto:{{ $contact->email }}"
-                               class="text-indigo-500 dark:text-white hover:underline">{{ $contact->email }}</a></td>
+                        <td><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></td>
                     </tr>
                     <tr>
                         <th>本文</th>
