@@ -51,7 +51,7 @@ class ContactNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('【'.config('app.name').'】お問い合わせ')
+            ->subject(config('pcs.contact.subject'))
             ->from($this->contact->email, $this->contact->name)
             ->greeting(__('名前：').$this->contact->name)
             ->line($this->contact->body)
