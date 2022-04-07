@@ -2,11 +2,13 @@
 
 namespace App\Notifications;
 
-use App\Mail\ContactMail;
+use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\URL;
 use Revolution\Line\Notifications\LineNotifyChannel;
 use Revolution\Line\Notifications\LineNotifyMessage;
 
@@ -20,9 +22,7 @@ class ContactNotification extends Notification implements ShouldQueue
      * @return void
      */
     public function __construct(
-        public string $name = '',
-        public string $email = '',
-        public string $body = ''
+        protected Contact $contact
     ) {
         //
     }
@@ -46,12 +46,18 @@ class ContactNotification extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return ContactMail
+     * @return MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new ContactMail($this->name, $this->email, $this->body))
-            ->to($notifiable->routeNotificationFor('mail'));
+        return (new MailMessage)
+            ->subject(config('pcs.contact.subject'))
+            ->from($this->contact->email, $this->contact->name)
+            ->greeting(__('名前：').$this->contact->name)
+            ->line($this->contact->body)
+            ->action(__('問い合わせを確認'), route('dashboard.contacts'))
+            ->line($this->contact->email)
+            ->salutation(__('このメールに返信はできないので問い合わせへの対応は新規メールを送信してください。'));
     }
 
     /**
@@ -60,7 +66,8 @@ class ContactNotification extends Notification implements ShouldQueue
      */
     public function toLineNotify($notifiable)
     {
-        return LineNotifyMessage::create('問い合わせがありました。');
+        return LineNotifyMessage::create('問い合わせがありました。'.PHP_EOL.
+            URL::temporarySignedRoute('contact.preview', now()->addDay(), $this->contact));
     }
 
     /**

@@ -31,6 +31,10 @@
                             <th>本文</th>
                             <td>{!! nl2br(e($contact->body)) !!}</td>
                         </tr>
+                        <tr>
+                            <th></th>
+                            <td><a href="{{ URL::temporarySignedRoute('contact.preview', now()->addDay(), $contact) }}" class="text-indigo-500 hover:underline">プレビュー</a></td>
+                        </tr>
                     </table>
                 </div>
 
