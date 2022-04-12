@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -37,6 +38,12 @@ class SitemapJob implements ShouldQueue
                           ->add(Url::create('/'))
                           ->add(Url::create(route('license')))
                           ->add(Url::create(route('contact')));
+
+        Category::has('materials')->lazy()->each(function (Category $category) use ($sitemap) {
+            $sitemap->add(
+                Url::create(route('category.show', $category))
+            );
+        });
 
         Material::latest('updated_at')->lazy()->each(function (Material $material) use ($sitemap) {
             $sitemap->add(
