@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,8 @@ Route::resource('material', MaterialController::class);
 Route::get('download/{material}', DownloadController::class)->name('download')->middleware('signed');
 
 Route::resource('category', CategoryController::class)->only(['index', 'show']);
+
+Route::get('sitemap', SitemapController::class)->name('sitemap');
 
 Route::view('contact', 'contact')->name('contact');
 Route::view('license', 'license')->name('license');
