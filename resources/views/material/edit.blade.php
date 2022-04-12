@@ -13,7 +13,7 @@
                     @csrf
                     @method('PUT')
 
-                    <x-jet-label for="file" value="{{ __('ファイルを変更するには非公開にしてからアップロードし直してください。') }}"/>
+                    <x-jet-label for="file" value="{{ __('ファイルの差し替えはできません。ファイルを変更するには非公開にしてから別のファイルを新規アップロードし直してください。') }}"/>
 
                     <img class="object-contain h-full sm:h-56" src="{{ $material->image }}"
                          alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
