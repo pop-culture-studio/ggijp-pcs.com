@@ -31,10 +31,11 @@ class MaterialController extends Controller
      */
     public function index(Request $request)
     {
-        $materials = Material::latest('id')
-            ->keywordSearch($request->query('q'))
-            ->cursorPaginate()
-            ->withQueryString();
+        $materials = Material::query()
+                             ->keywordSearch($request->query('q'))
+                             ->latest('id')
+                             ->cursorPaginate()
+                             ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
     }
@@ -97,18 +98,18 @@ class MaterialController extends Controller
             $title = $request->input('title');
 
             $material->fill([
-                'title' => $title,
+                'title'       => $title,
                 'description' => $request->input('description'),
             ])->save();
 
             $cats = Str::of($request->input('cat'))
-                ->explode(',')
-                ->map(fn ($cat) => trim($cat))
-                ->unique()
-                ->reject(fn ($cat) => empty($cat))
-                ->map(fn ($cat) => Category::firstOrCreate([
-                    'name' => $cat,
-                ]));
+                       ->explode(',')
+                       ->map(fn ($cat) => trim($cat))
+                       ->unique()
+                       ->reject(fn ($cat) => empty($cat))
+                       ->map(fn ($cat) => Category::firstOrCreate([
+                           'name' => $cat,
+                       ]));
 
             $material->categories()->sync($cats->pluck('id'));
         });
