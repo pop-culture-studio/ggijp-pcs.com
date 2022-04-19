@@ -20,8 +20,8 @@ class CreatorController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $materials = $user->materials()
-            ->latest('id')
-            ->cursorPaginate();
+                          ->latest('id')
+                          ->cursorPaginate();
 
         return view('creator.show')->with(compact('user', 'materials'));
     }

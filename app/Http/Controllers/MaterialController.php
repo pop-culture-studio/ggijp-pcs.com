@@ -41,27 +41,6 @@ class MaterialController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Material  $material
@@ -114,7 +93,7 @@ class MaterialController extends Controller
             $material->categories()->sync($cats->pluck('id'));
         });
 
-        return redirect()->route('material.show', $material);
+        return to_route('material.show', $material);
     }
 
     /**
@@ -129,6 +108,6 @@ class MaterialController extends Controller
 
         $material->delete();
 
-        return redirect()->route('dashboard');
+        return to_route('dashboard');
     }
 }

@@ -26,7 +26,7 @@ class DownloadController extends Controller
                 $material->file,
                 now()->addMinutes(10),
                 [
-                    'ResponseContentType' => 'application/octet-stream',
+                    'ResponseContentType'        => 'application/octet-stream',
                     'ResponseContentDisposition' => 'attachment; filename='.basename($material->file),
                 ]
             )
