@@ -51,7 +51,7 @@
 
             <x-preview :material="$material" />
 
-            <a href="{{ URL::temporarySignedRoute('download', now()->addMinutes(60), $material) }}">
+            <a href="{{ URL::temporarySignedRoute('download', now()->addHour(), $material) }}">
                 <div class="w-auto text-center text-3xl p-5 m-5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg">
                     {{ __('ダウンロード') }}
                 </div>
