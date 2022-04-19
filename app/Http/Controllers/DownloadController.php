@@ -24,7 +24,7 @@ class DownloadController extends Controller
         return redirect(
             Storage::temporaryUrl(
                 $material->file,
-                now()->addMinutes(10),
+                now()->addHour(),
                 [
                     'ResponseContentType'        => 'application/octet-stream',
                     'ResponseContentDisposition' => 'attachment; filename='.basename($material->file),
