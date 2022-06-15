@@ -7,7 +7,7 @@ environments:
         runtime: docker
         domain: ggijp-pcs.com
         storage: storage.ggijp-pcs.com
-        database: ggijp-pcs-com-production
+        database: ggijp-pcs-com
         octane: true
         octane-database-session-persist: true
         octane-database-session-ttl: 10
@@ -39,7 +39,7 @@ environments:
         cli-memory: 512
         runtime: docker
         storage: storage-staging.ggijp-pcs.com
-        database: ggijp-pcs-com-production
+        database: ggijp-pcs-com
         octane: true
         octane-database-session-persist: true
         octane-database-session-ttl: 10
