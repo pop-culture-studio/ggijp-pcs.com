@@ -145,7 +145,7 @@
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.228.5"
             },
-            "time": "2022-06-28T18:13:37+00:0
+            "time": "2022-06-28T18:13:37+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
