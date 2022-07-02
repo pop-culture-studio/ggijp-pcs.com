@@ -33,8 +33,12 @@
                 </div>
             </main>
 
+
 {{--            @include('side')--}}
         </div>
+
+        @include('layouts.footer')
+
     </div>
 
     @livewireScripts
