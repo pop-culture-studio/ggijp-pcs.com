@@ -1,4 +1,4 @@
-<div class="my-6 mx-0 sm:mx-6 grid grid-flow-col gap-4">
+<div class="my-6 mx-1 sm:mx-6 grid grid-flow-col gap-4">
     @foreach (config('pcs.category') as $cat)
         <div class="w-auto">
             <a href="{{ route('category.show', Arr::get($cat, 'title')) }}" title="{{ Arr::get($cat, 'title') }}" class="hover:opacity-80">

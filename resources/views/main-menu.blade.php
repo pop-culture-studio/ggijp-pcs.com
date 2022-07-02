@@ -15,17 +15,18 @@
             </div>
 
             <!-- Navigation Links -->
-            <div class="space-x-8 -my-px ml-10 flex justify-end">
+            <div class="space-x-2 flex justify-end">
                 <x-jet-nav-link href="{{ route('home') }}#popular" class="whitespace-nowrap">
                     {{ __('人気') }}
                 </x-jet-nav-link>
                 <x-jet-nav-link href="{{ route('home') }}#new" class="whitespace-nowrap">
                     {{ __('新着') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('home') }}" class="whitespace-nowrap">
+                <x-jet-nav-link href="{{ route('home') }}#category" class="whitespace-nowrap">
                     {{ __('カテゴリー') }}
                 </x-jet-nav-link>
             </div>
+
         </div>
     </div>
 </nav>
