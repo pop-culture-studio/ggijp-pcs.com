@@ -17,13 +17,19 @@
 
             <div class="w-auto h-auto mt-10 bg-white relative">
                 <img src="{{ asset('/images/bg_home.png') }}">
-                <a href="{{ route('home') }}" target="_top" class="w-1/2 absolute top-1/3 left-1/4 right-1/4 z-30">
-                    <img src="{{ asset('images/logo_home.png') }}"
-                         alt="{{ config('app.name', 'Laravel') }}"
-                         title="{{ config('app.name', 'Laravel') }}"
-                    >
-                </a>
+
+                <div class="w-1/2 absolute top-1/3 left-1/4 right-1/4 z-30">
+                    <a href="{{ route('home') }}" target="_top">
+                        <img src="{{ asset('images/logo_home.png') }}"
+                             alt="{{ config('app.name', 'Laravel') }}"
+                             title="{{ config('app.name', 'Laravel') }}"
+                        >
+                    </a>
+                </div>
             </div>
+
+            @includeIf('search')
+
             @includeIf('category-menu')
 
             <div class="sm:px-6 lg:px-8">

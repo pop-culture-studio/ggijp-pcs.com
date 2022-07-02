@@ -8,6 +8,8 @@
 
             <x-breadcrumbs-back/>
 
+            @includeIf('search')
+
             @includeIf('category-menu')
 
             <x-gradient-h2 class="my-6">{{ $category->name }}</x-gradient-h2>

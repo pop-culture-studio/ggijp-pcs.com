@@ -24,6 +24,8 @@
 
             <x-breadcrumbs-back/>
 
+            @includeIf('search')
+
             @includeIf('category-menu')
 
             <x-gradient-h2 class="my-6">{{ request('q', 'すべての素材') }}</x-gradient-h2>
