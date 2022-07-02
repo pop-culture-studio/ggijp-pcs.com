@@ -25,6 +25,11 @@
                 <x-jet-nav-link href="{{ route('home') }}">
                     {{ __('キーワード一覧') }}
                 </x-jet-nav-link>
+                @can('create', App\Models\Material::class)
+                    <x-jet-nav-link href="{{ route('dashboard') }}" class="text-indigo-500">
+                        {{ __('ダッシュボード') }}
+                    </x-jet-nav-link>
+                @endcan
             </div>
         </div>
     </div>
