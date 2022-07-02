@@ -60,7 +60,7 @@
 
                     <a href="{{ URL::temporarySignedRoute('download', now()->addHour(), $material) }}">
                         <div
-                            class="w-fix text-center text-2xl p-5 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full">
+                            class="w-fix text-center text-2xl p-1 sm:p-5 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full">
                             {{ __('ダウンロード') }}
                         </div>
                     </a>
