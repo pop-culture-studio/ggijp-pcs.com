@@ -1,13 +1,13 @@
-<x-guest-layout>
-    <div class="pt-4 bg-gray-100">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-            <div>
-                <x-jet-authentication-card-logo />
-            </div>
+<x-main-layout>
+    <x-slot name="title">
+        プライバシーポリシー
+    </x-slot>
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
+    <div class="py-6">
+        <div class="sm:px-6 lg:px-8">
+            <div class="prose prose-indigo prose-a:text-indigo-500 max-w-none mt-6 p-6">
                 {!! $policy !!}
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-main-layout>

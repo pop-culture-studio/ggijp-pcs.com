@@ -19,7 +19,16 @@
                 <a href="{{ route('contact') }}" class="font-bold text-indigo-500 hover:underline">{{ __('お問い合わせ') }}</a>
             </li>
             <li>
-                <a href="{{ route('license') }}" class="font-bold text-indigo-500 hover:underline">{{ __('利用規約・ライセンス') }}</a>
+                <a href="{{ route('about') }}" class="font-bold text-indigo-500 hover:underline">{{ __('未来図倉庫について') }}</a>
+            </li>
+            <li>
+                <a href="{{ route('terms.show') }}" class="font-bold text-indigo-500 hover:underline">{{ __('利用規約') }}</a>
+            </li>
+            <li>
+                <a href="{{ route('faq') }}" class="font-bold text-indigo-500 hover:underline">{{ __('よくある質問') }}</a>
+            </li>
+            <li>
+                <a href="{{ route('policy.show') }}" class="font-bold text-indigo-500 hover:underline">{{ __('プライバシーポリシー') }}</a>
             </li>
         </ul>
     </div>
