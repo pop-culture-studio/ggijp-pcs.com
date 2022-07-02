@@ -13,6 +13,14 @@
         </form>
     </div>
 
+
+    <h2 class="text-lg">カテゴリー</h2>
+    <div class="flex flex-auto flex-wrap gap-3">
+        @foreach ($cats as $cat)
+            <x-category :url="route('category.show', $cat)" :name="$cat->name" :count="$cat->materials_count" />
+        @endforeach
+    </div>
+
     <div class="my-6">
         <ul>
             <li>
@@ -51,12 +59,6 @@
         </div>
     @endcan
 
-    <h2 class="text-lg">カテゴリー</h2>
-    <div class="flex flex-auto flex-wrap gap-3">
-        @foreach ($cats as $cat)
-            <x-category :url="route('category.show', $cat)" :name="$cat->name" :count="$cat->materials_count" />
-        @endforeach
-    </div>
 
     @if (isset($side))
         {{ $side }}
