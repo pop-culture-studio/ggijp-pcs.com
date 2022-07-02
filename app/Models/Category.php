@@ -13,6 +13,11 @@ class Category extends Model
         'name',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
     public function materials()
     {
         return $this->belongsToMany(Material::class);
