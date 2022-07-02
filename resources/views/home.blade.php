@@ -11,12 +11,8 @@
         </x-ogp>
     </x-slot>
 
-    <x-slot name="side">
-
-    </x-slot>
-
     <div class="py-0">
-        <div class="">
+        <div>
             <h1 class="text-4xl hidden">{{ config('app.name', 'Laravel') }}</h1>
 
             <div class="w-auto h-auto mt-10 bg-white relative">
