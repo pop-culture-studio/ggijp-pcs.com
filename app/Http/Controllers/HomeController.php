@@ -9,10 +9,17 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $materials = Material::latest('id')
-                             ->limit(10)
-                             ->get();
+        $popular_materials = Material::latest('download')
+                                     ->limit(10)
+                                     ->get();
 
-        return view('home')->with(compact('materials'));
+        $new_materials = Material::latest('id')
+                                 ->limit(10)
+                                 ->get();
+
+        return view('home')->with(compact(
+            'popular_materials',
+            'new_materials'
+        ));
     }
 }

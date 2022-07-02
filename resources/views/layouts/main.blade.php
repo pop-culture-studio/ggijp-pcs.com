@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8">
@@ -26,10 +26,14 @@
         <div class="flex flex-col sm:flex-row bg-white max-w-full mx-auto">
 
             <main class="flex-initial flex-grow">
-                {{ $slot }}
+                @include('main-menu')
+
+                <div class="mt-16">
+                    {{ $slot }}
+                </div>
             </main>
 
-            @include('side')
+{{--            @include('side')--}}
         </div>
     </div>
 
