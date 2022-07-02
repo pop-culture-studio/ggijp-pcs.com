@@ -61,13 +61,13 @@ class Material extends Model
             }
 
             if (filled($this->thumbnail) && Storage::exists($this->thumbnail)) {
-                return Storage::temporaryUrl($this->thumbnail, now()->addMinutes(60));
+                return Storage::temporaryUrl($this->thumbnail, now()->addHours(12));
             }
 
             $mime = cache()->rememberForever('mimetype:'.$this->id, fn () => Storage::mimeType($this->file));
 
             if (str_contains($mime, 'image/')) {
-                return Storage::temporaryUrl($this->file, now()->addMinutes(60));
+                return Storage::temporaryUrl($this->file, now()->addHours(12));
             }
 
             $type = match (true) {
