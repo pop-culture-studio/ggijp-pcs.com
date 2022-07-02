@@ -58,7 +58,7 @@
                                                            class="text-red-500 hover:underline">編集</a></div>
                     @endcan
 
-                    <a href="{{ URL::temporarySignedRoute('download', now()->addHour(), $material) }}">
+                    <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}">
                         <div
                             class="w-fix text-center text-2xl p-1 sm:p-5 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full">
                             {{ __('ダウンロード') }}
