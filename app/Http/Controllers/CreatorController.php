@@ -21,7 +21,7 @@ class CreatorController extends Controller
     {
         $materials = $user->materials()
                           ->latest('id')
-                          ->cursorPaginate();
+                          ->paginate();
 
         return view('creator.show')->with(compact('user', 'materials'));
     }

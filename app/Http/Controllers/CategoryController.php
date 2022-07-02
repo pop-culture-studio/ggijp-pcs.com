@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $materials = $category->materials()
                               ->latest('id')
-                              ->cursorPaginate();
+                              ->paginate();
 
         return view('category.show')->with(compact('category', 'materials'));
     }
