@@ -16,7 +16,7 @@ module.exports = {
                 sans: ['"M PLUS Rounded 1c"', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                indigo: colors.sky,
+                indigo: colors.gray,
             }
         },
     },

@@ -19,7 +19,7 @@
                 <img src="{{ asset('/images/bg_home.png') }}">
 
                 <div class="w-1/2 absolute top-1/3 left-1/4 right-1/4 z-30">
-                    <a href="{{ route('home') }}" target="_top">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('images/logo_home.png') }}"
                              alt="{{ config('app.name', 'Laravel') }}"
                              title="{{ config('app.name', 'Laravel') }}"
