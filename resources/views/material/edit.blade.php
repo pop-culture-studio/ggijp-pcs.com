@@ -19,15 +19,17 @@
                          alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
 
                     <div class="my-2">
-                        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには,で区切ってください。）') }}"/>
+                        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
                         <x-jet-input name="cat" type="text" value="{{ $material->categories->implode('name', ',') }}"
                                      class="mt-1 block w-full sm:w-1/2" required/>
                         <x-jet-input-error for="cat" class="mt-2"/>
 
                         <div class="my-2 text-md">基本カテゴリー
+                            <span class="font-bold">
                             @foreach (config('pcs.category') as $cat)
                                 {{ Arr::get($cat, 'title') }}@if (!$loop->last),@endif
                             @endforeach
+                            </span>
                         </div>
                     </div>
 

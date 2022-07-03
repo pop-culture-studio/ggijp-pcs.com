@@ -42,14 +42,16 @@
     </div>
 
     <div class="my-2">
-        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには,で区切ってください。）') }}"/>
+        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
         <x-jet-input name="cat" type="text" class="mt-1 block w-full sm:w-1/2" required wire:model.lazy="cat"/>
         <x-jet-input-error for="cat" class="mt-2"/>
 
         <div class="my-2 text-md">基本カテゴリー
-            @foreach (config('pcs.category') as $cat)
-                {{ Arr::get($cat, 'title') }}@if (!$loop->last),@endif
-            @endforeach
+            <span class="font-bold">
+                @foreach (config('pcs.category') as $cat)
+                    {{ Arr::get($cat, 'title') }}@if (!$loop->last),@endif
+                @endforeach
+            </span>
         </div>
 
     </div>
@@ -74,7 +76,10 @@
     <details class="mt-3 p-3 bg-indigo-100 rounded-md">
         <summary>ヘルプ</summary>
         <ul class="list-inside list-disc">
-            <li>どんなファイルでもアップロードできますがマイナーなフォーマットは正常にダウンロードできない場合があります。そんな時はzipにしてからアップロードしてください。（動作確認済フォーマット {{ config('pcs.mimes') }}）</li>
+            <li>
+                どんなファイルでもアップロードできますがマイナーなフォーマットは正常にダウンロードできない場合があります。そんな時はzipにしてからアップロードしてください。（動作確認済フォーマット {{ config('pcs.mimes') }}
+                ）
+            </li>
             <li>カテゴリーはなんでも自由に追加できます。カテゴリーは正確に入力しないと別カテゴリーで登録されます。基本カテゴリーはコピペでの入力を推奨。</li>
             <li>サムネイル用の画像を登録するには先に素材ファイルをアップロードしてから編集画面でサムネイルを登録してください。</li>
             <li>ダウンロード時のファイル名はアップロードしたファイルとは違うランダムなので元のファイル名を残したい場合はタイトルや説明に書いてください。</li>

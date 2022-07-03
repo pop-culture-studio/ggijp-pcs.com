@@ -48,7 +48,7 @@
                     <x-badge title="カテゴリー" class="my-3">
                         @foreach ($material->categories as $cat)
                             <a href="{{ route('category.show', $cat) }}"
-                               class="text-indigo-500 hover:underline mx-1">{{ $cat->name }}</a>
+                               class="text-indigo-500 hover:underline mx-1 whitespace-nowrap">{{ $cat->name }}</a>
                         @endforeach
                     </x-badge>
 
@@ -60,7 +60,7 @@
 
                     <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}">
                         <div
-                            class="w-fix text-center text-2xl p-1 sm:p-5 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full">
+                            class="w-fix text-center text-xl py-3 px-16 m-6 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full">
                             {{ __('ダウンロード') }}
                         </div>
                     </a>
