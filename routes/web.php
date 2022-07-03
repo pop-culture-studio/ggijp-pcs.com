@@ -47,6 +47,7 @@ Route::resource('category', CategoryController::class)->only(['index', 'show']);
 
 Route::get('sitemap', SitemapController::class)->name('sitemap');
 
+Route::view('request', 'request')->name('request');
 Route::view('contact', 'contact')->name('contact');
 Route::view('about', 'about')->name('about');
 Route::view('faq', 'faq')->name('faq');
