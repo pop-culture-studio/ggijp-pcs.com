@@ -36,9 +36,7 @@ class SitemapJob implements ShouldQueue
     {
         $sitemap = Sitemap::create()
                           ->add(Url::create('/'))
-                          ->add(Url::create(route('material.index')))
-                          ->add(Url::create(route('license')))
-                          ->add(Url::create(route('contact')));
+                          ->add(Url::create(route('material.index')));
 
         Category::has('materials')->lazy()->each(function (Category $category) use ($sitemap) {
             $sitemap->add(
