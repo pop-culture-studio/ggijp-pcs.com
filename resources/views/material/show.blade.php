@@ -77,7 +77,7 @@
                        class="text-indigo-500 hover:underline">{{ $cat->name }}</a>
                 </h4>
                 <div class="my-6 mx-3 flex flex-wrap gap-4">
-                    @foreach($cat->materials()->limit(10)->get() as $rel_material)
+                    @foreach($cat->materials()->limit(5)->get() as $rel_material)
                         <x-item :material="$rel_material" :image="$rel_material->image" :name="$rel_material->title">
                         </x-item>
                     @endforeach
