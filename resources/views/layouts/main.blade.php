@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div class="font-sans text-gray-900 antialiased">
+    <div class="font-sans text-gray-900 antialiased relative">
 
         <div class="flex flex-col sm:flex-row bg-white max-w-full mx-auto">
 
@@ -39,6 +39,9 @@
 
         @include('layouts.footer')
 
+        <div class="pcs:back-to-top">
+            <a href="#" class="pcs:back-to-top-button">↑</a>
+        </div>
     </div>
 
     @livewireScripts

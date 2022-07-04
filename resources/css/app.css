@@ -2,4 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.pcs\:back-to-top {
+    @apply top-[100vh] absolute right-3 bottom-0 w-12 pointer-events-none;
+}
+
+.pcs\:back-to-top-button {
+    @apply sticky top-[calc(100vh_-_4rem)] inline-block no-underline text-black font-extrabold text-center rounded-full w-12 h-12 ring-1 ring-gray-500 bg-white opacity-80 hover:opacity-50 p-3 pointer-events-auto z-50;
+}
+
+
 [x-cloak] { display: none !important; }
