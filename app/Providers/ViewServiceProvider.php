@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\View\Composers\SideComposer;
+use App\View\Composers\HomeComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +25,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('side', SideComposer::class);
+        View::composer('home', HomeComposer::class);
     }
 }
