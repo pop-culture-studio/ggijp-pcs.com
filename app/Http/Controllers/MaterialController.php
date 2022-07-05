@@ -8,7 +8,6 @@ use App\Models\Material;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,7 +76,7 @@ class MaterialController extends Controller
             $title = $request->input('title');
 
             $material->fill([
-                'title'       => $title,
+                'title' => $title,
                 'description' => $request->input('description'),
             ])->save();
 
@@ -102,11 +101,14 @@ class MaterialController extends Controller
      * @param  \App\Models\Material  $material
      * @return RedirectResponse
      */
-    public function destroy(Material $material)
+    public function destroy(Request $request, Material $material)
     {
-        //Storage::delete($material->file);
-
-        $material->delete();
+        if ($request->boolean('forceDelete')) {
+            Storage::delete($material->file);
+            $material->forceDelete();
+        } else {
+            $material->delete();
+        }
 
         return to_route('dashboard');
     }

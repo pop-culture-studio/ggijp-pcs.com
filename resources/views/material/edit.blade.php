@@ -86,9 +86,17 @@
                             @csrf
                             @method('DELETE')
 
-                            <x-jet-button class="bg-red-500 hover:bg-red-400">
+                            <div class="flex items-center mb-3">
+                                <x-jet-checkbox name="forceDelete"/>
+
+                                <div class="ml-2 text-red-500">
+                                    復元できないように完全に削除
+                                </div>
+                            </div>
+
+                            <x-jet-danger-button type="submit">
                                 {{ __('今すぐ非公開') }}
-                            </x-jet-button>
+                            </x-jet-danger-button>
 
                         </form>
                     </details>
