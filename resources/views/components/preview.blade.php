@@ -1,6 +1,6 @@
 @props(['material'])
 
-<div class="flex justify-center rounded-lg p-5">
+<div class="flex justify-center rounded-lg sm:p-5">
     @if (str_contains(Storage::mimeType($material->file), 'audio'))
         <audio controls src="{{ Storage::temporaryUrl($material->file, now()->addHours(12)) }}">
             このブラウザでは表示できません。
