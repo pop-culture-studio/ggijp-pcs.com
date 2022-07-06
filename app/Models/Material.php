@@ -23,6 +23,13 @@ class Material extends Model
         'file', 'thumbnail',
     ];
 
+    /**
+     * The number of models to return for pagination.
+     *
+     * @var int
+     */
+    protected $perPage = 50;
+
     protected static function booted()
     {
         static::saved(function ($material) {
