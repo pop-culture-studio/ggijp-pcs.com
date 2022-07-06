@@ -44,7 +44,7 @@ class SitemapJob implements ShouldQueue
             );
         });
 
-        Material::latest('updated_at')->lazy()->each(function (Material $material) use ($sitemap) {
+        Material::latest()->lazy()->each(function (Material $material) use ($sitemap) {
             $sitemap->add(
                 Url::create(route('material.show', $material))
                    ->setLastModificationDate($material->updated_at)
