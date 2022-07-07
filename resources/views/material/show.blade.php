@@ -10,7 +10,7 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ $material->description ?? config('app.name') }}
+                {{ $material->description ?? $material->title ?? config('app.name') }}
             </x-slot>
 
             <x-slot name="image">
