@@ -6,7 +6,7 @@
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
         <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL"
-             data-url="https://developers.line.biz/ja/docs/line-social-plugins/install-guide/using-line-share-buttons/"
+             data-url="{{ url()->current() }}"
              data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
                 defer="defer"></script>
