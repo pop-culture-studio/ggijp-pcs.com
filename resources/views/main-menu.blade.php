@@ -1,6 +1,6 @@
 <nav class="bg-white border-b border-gray-100 fixed top-0 left-0 right-0 z-50">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -24,6 +24,11 @@
                 </x-jet-nav-link>
                 <x-jet-nav-link href="{{ route('home') }}#category" class="whitespace-nowrap">
                     {{ __('カテゴリー') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
+                    <img src="{{ asset('images/instagram.svg') }}"
+                         class="h-5 w-5 opacity-60"
+                         alt="Instagram" title="Instagram">
                 </x-jet-nav-link>
             </div>
 
