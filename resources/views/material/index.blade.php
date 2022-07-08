@@ -24,7 +24,7 @@
 
             @includeIf('category-menu')
 
-            <x-gradient-h2 class="my-6">{{ request('q', 'すべての素材') }}</x-gradient-h2>
+            <x-h2 class="my-6">{{ request('q', 'すべての素材') }}</x-gradient-h2>
 
             <div>
                 <div class="my-6 flex flex-wrap gap-4">

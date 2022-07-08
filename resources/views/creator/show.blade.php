@@ -10,7 +10,7 @@
 
             @includeIf('category-menu')
 
-            <x-gradient-h2 class="my-6">{{ $user->name }}</x-gradient-h2>
+            <x-h2 class="my-6">{{ $user->name }}</x-gradient-h2>
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4">

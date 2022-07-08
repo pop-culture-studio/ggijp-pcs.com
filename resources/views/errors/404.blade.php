@@ -5,7 +5,7 @@
 
     <div class="py-6">
         <div class="sm:px-6 lg:px-8">
-            <x-gradient-h2 class="my-6">{{ __('ページが見つかりません') }}</x-gradient-h2>
+            <x-h2 class="my-6">{{ __('ページが見つかりません') }}</x-gradient-h2>
 
             @includeIf('search')
 

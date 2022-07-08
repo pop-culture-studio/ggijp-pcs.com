@@ -1,4 +1,4 @@
-<h2 class="text-2xl sm:text-4xl font-bold text-center text-gray-500" id="popular">人気な素材</h2>
+<x-h2 class="my-6" id="popular">人気な素材</x-h2>
 
 <div class="my-6 mx-3 flex flex-wrap gap-4">
     @foreach ($popular_materials as $material)

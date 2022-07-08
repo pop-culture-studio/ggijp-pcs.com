@@ -1,6 +1,6 @@
 <div>
-    <h2 class="text-2xl sm:text-4xl font-bold text-center text-gray-500" id="category">
-        キーワードから探す</h2>
+    <x-h2 class="mt-6" id="category">
+        キーワードから探す</x-h2>
 
     @foreach(config('pcs.keywords') as $key => $cats)
         <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500">
