@@ -60,7 +60,7 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        return view('material.edit')->with(compact('material'));
+        return view('dashboard.edit')->with(compact('material'));
     }
 
     /**

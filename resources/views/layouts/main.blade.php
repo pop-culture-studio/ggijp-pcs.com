@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,43 +8,39 @@
     <title>@isset($title){{ $title }} | @endisset{{ config('app.name', 'Laravel') }}</title>
 
     @isset($ogp)
-    {{ $ogp }}
+        {{ $ogp }}
     @endisset
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
 </head>
-
 <body>
-    <div class="font-sans text-gray-900 antialiased relative">
+<div class="font-sans text-gray-900 antialiased relative">
 
-        <div class="flex flex-col sm:flex-row bg-white max-w-full mx-auto">
+    <div class="flex flex-col sm:flex-row bg-white max-w-full mx-auto">
 
-            <main class="flex-initial flex-grow">
-                @include('main-menu')
+        <main class="flex-initial flex-grow">
+            @include('main-menu')
 
-                <div class="mt-16">
-                    {{ $slot }}
-                </div>
-            </main>
-
-
-{{--            @include('side')--}}
-        </div>
-
-        @include('layouts.footer')
-
-        <div class="pcs:back-to-top">
-            <a href="#" class="pcs:back-to-top-button">↑</a>
-        </div>
+            <div class="mt-16">
+                {{ $slot }}
+            </div>
+        </main>
     </div>
 
-    @livewireScripts
+    @include('layouts.footer')
+
+    <div class="pcs:back-to-top">
+        <a href="#" class="pcs:back-to-top-button">↑</a>
+    </div>
+</div>
+
+@livewireScripts
 
 </body>
-
 </html>

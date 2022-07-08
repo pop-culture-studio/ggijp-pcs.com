@@ -15,6 +15,6 @@ class DashboardController extends Controller
                              ->latest('id')
                              ->paginate();
 
-        return view('dashboard')->with(compact('materials'));
+        return view('dashboard.dashboard')->with(compact('materials'));
     }
 }

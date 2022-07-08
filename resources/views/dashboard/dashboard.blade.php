@@ -7,7 +7,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @can('create', App\Models\Material::class)
-                    @include('material.create')
+                    @include('dashboard.create')
                 @else
                     素材のアップロードは未来図倉庫チームメンバーのみ可能です。
                 @endcan
@@ -15,6 +15,6 @@
         </div>
     </div>
 
-    @include('material.list')
+    @include('dashboard.list')
 
 </x-app-layout>
