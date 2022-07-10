@@ -1,5 +1,5 @@
 <div class="text-center">
-    <x-h2 class="">SNSでシェア！</x-h2>
+    <x-h2>SNSでシェア！</x-h2>
     <div class="flex justify-center gap-2 mb-3">
         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="PCS_miraizu"
            data-hashtags="未来図倉庫" data-related="PCS_miraizu" data-show-count="false">Tweet</a>
