@@ -47,7 +47,7 @@ Route::resource('category', CategoryController::class)->only(['index', 'show']);
 
 Route::get('sitemap', SitemapController::class)->name('sitemap');
 
-Route::view('request', 'pages.request')->name('request');
-Route::view('contact', 'pages.contact')->name('contact');
+Route::view('request', 'pages.request')->name('form.request');
+Route::view('contact', 'pages.contact')->name('form.contact');
 Route::view('about', 'pages.about')->name('about');
 Route::view('faq', 'pages.faq')->name('faq');

@@ -10,10 +10,10 @@
             <a href="{{ route('faq') }}" class="hover:underline">{{ __('よくある質問') }}</a>
         </li>
         <li>
-            <a href="{{ route('request') }}" class="hover:underline">{{ __('リクエスト･メッセージ') }}</a>
+            <a href="{{ route('form.request') }}" class="hover:underline">{{ __('リクエスト･メッセージ') }}</a>
         </li>
         <li>
-            <a href="{{ route('contact') }}" class="hover:underline">{{ __('お問い合わせ') }}</a>
+            <a href="{{ route('form.contact') }}" class="hover:underline">{{ __('お問い合わせ') }}</a>
         </li>
         <li>
             <a href="{{ route('policy.show') }}" class="hover:underline">{{ __('プライバシーポリシー') }}</a>
