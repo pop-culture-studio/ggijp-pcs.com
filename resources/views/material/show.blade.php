@@ -30,7 +30,7 @@
                 </div>
 
                 <div>
-                    <h2 class="text-3xl font-extrabold my-6">{{ $material->title }}</h2>
+                    <h2 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h2>
 
                     @if ($material->description)
                         <div class="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
