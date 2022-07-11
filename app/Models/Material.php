@@ -100,7 +100,7 @@ class Material extends Model
     {
         $cat = $this->categories()->first();
 
-        $color = Arr::first(config('pcs.category'), fn ($value) => Arr::get($value, 'title') === $cat->name);
+        $color = Arr::first(config('pcs.category'), fn ($value) => Arr::get($value, 'title') === $cat?->name);
 
         return Arr::get($color, 'color', 'black');
     }
