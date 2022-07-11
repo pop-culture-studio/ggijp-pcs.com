@@ -17,6 +17,27 @@ module.exports = {
             },
             colors: {
                 indigo: colors.gray,
+                '2d': {
+                    DEFAULT: '#9ed8f6'
+                },
+                bg: {
+                    DEFAULT: '#f7c8d5'
+                },
+                photo: {
+                    DEFAULT: '#f9ddad'
+                },
+                bgm: {
+                    DEFAULT: '#dbe8a7'
+                },
+                voice: {
+                    DEFAULT: '#d4bad9'
+                },
+                '3d': {
+                    DEFAULT: '#c1e3de'
+                },
+                live2d: {
+                    DEFAULT: '#f3a593'
+                }
             }
         },
     },

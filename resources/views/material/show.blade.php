@@ -24,7 +24,7 @@
 
             <x-breadcrumbs-back/>
 
-            <div class="sm:grid sm:grid-cols-2 py-6">
+            <div class="sm:grid sm:grid-cols-2 gap-3 py-6">
                 <div>
                     <x-preview :material="$material"/>
                 </div>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class Material extends Model
@@ -90,6 +91,20 @@ class Material extends Model
         } catch (\Exception) {
             return 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found');
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryColorAttribute(): string
+    {
+        $cat = $this->categories()->first();
+
+        $color = Arr::first(config('pcs.category'), function ($value) use ($cat) {
+            return Arr::get($value, 'title') === $cat->name;
+        });
+
+        return Arr::get($color, 'color', 'indigo-500');
     }
 
     /**
