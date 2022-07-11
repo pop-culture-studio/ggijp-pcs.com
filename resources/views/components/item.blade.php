@@ -10,4 +10,3 @@
         <span class="font-bold hover:text-indigo-500">{{ $name }}</span>
     </a>
 </div>
-

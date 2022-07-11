@@ -100,15 +100,15 @@ return [
             'bg' => 'bg-live2d',
             'ring' => 'ring-live2d',
         ],
-        [
-            'id' => 0,
-            'title' => 'その他',
-            'image' => 'other.png',
-            'color' => 'indigo-500',
-            'text' => 'text-indigo-500',
-            'bg' => 'bg-indigo-500',
-            'ring' => 'ring-indigo-500',
-        ],
+    ],
+
+    /**
+     * text-{{ $material->categoryColor }}などで使うカラー。ここに書いてビルド後のcssファイルに含まれるようにする。
+     */
+    'colors' => [
+        'text-indigo-500',
+        'bg-indigo-500',
+        'ring-indigo-500',
     ],
 
     'keywords' => [
