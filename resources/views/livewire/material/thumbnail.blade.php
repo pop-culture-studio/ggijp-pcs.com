@@ -7,7 +7,7 @@
                  alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
         @endif
 
-        <x-jet-label for="file" value="{{ 'ファイル（1MBまで）' }}"/>
+        <x-jet-label for="file" value="{{ 'ファイル（2MBまで）' }}"/>
 
         <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true, progress = 0"
              x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"

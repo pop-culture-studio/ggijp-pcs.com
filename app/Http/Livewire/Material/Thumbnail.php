@@ -20,7 +20,7 @@ class Thumbnail extends Component
     public string|TemporaryUploadedFile|null $thumbnail = null;
 
     protected array $rules = [
-        'thumbnail' => ['nullable', 'max:1024', 'image', 'mimes:jpg,jpeg,gif,png,webp'],
+        'thumbnail' => ['nullable', 'max:2048', 'image', 'mimes:jpg,jpeg,gif,png,webp'],
     ];
 
     /**
