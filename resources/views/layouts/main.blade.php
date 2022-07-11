@@ -20,9 +20,9 @@
     @livewireStyles
 </head>
 <body>
-<div class="font-sans text-gray-900 antialiased relative">
+<div class="font-sans bg-white dark:bg-black text-gray-900 dark:text-white antialiased relative">
 
-    <div class="flex flex-col sm:flex-row bg-white max-w-full mx-auto">
+    <div class="flex flex-col sm:flex-row max-w-full mx-auto">
 
         <main class="flex-initial flex-grow">
             @include('main-menu')

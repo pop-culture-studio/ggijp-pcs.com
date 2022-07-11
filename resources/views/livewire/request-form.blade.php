@@ -1,4 +1,4 @@
-<div class="w-full sm:max-w-xl sm:mx-auto mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+<div class="w-full sm:max-w-xl sm:mx-auto mt-6 px-6 py-4 bg-white dark:bg-gray-300 shadow-md overflow-hidden sm:rounded-lg">
     @if(session()->missing('mail_success'))
 
         <x-jet-validation-errors class="mb-4"/>

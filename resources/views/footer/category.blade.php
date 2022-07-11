@@ -3,7 +3,7 @@
         キーワードから探す</x-h2>
 
     @foreach(config('pcs.keywords') as $key => $cats)
-        <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500">
+        <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500 dark:text-white">
             <h3 class="text-xl font-bold">{{ $key }}</h3>
             <ul role="list" class="flex flex-wrap gap-3 justify-start whitespace-nowrap">
                 @foreach($cats as $cat)
