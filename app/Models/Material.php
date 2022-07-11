@@ -102,7 +102,7 @@ class Material extends Model
 
         $color = Arr::first(config('pcs.category'), fn ($value) => Arr::get($value, 'title') === $cat->name);
 
-        return Arr::get($color, 'color', 'indigo-500');
+        return Arr::get($color, 'color', 'black');
     }
 
     /**
