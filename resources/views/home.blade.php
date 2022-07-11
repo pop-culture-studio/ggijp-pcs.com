@@ -37,8 +37,6 @@
                 @include('home.popular')
             @endif
 
-            <hr class="my-16">
-
             @if($new_materials)
                 @include('home.new')
             @endif
