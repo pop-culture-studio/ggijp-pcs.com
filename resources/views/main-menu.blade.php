@@ -26,9 +26,7 @@
                     {{ __('カテゴリー') }}
                 </x-jet-nav-link>
                 <x-jet-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
-                    <img src="{{ asset('images/instagram.svg') }}"
-                         class="h-5 w-5 opacity-60"
-                         alt="Instagram" title="Instagram">
+                   <x-icon.instagram/>
                 </x-jet-nav-link>
             </div>
 
