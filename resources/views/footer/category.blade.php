@@ -3,6 +3,19 @@
         キーワードから探す
     </x-h2>
 
+    <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500 dark:text-white">
+        <ul role="list" class="flex flex-wrap gap-3 justify-start whitespace-nowrap">
+            @foreach($keywords as $key)
+                <li>
+                    <a href="{{ route('category.show', $key) }}" title="{{ $key->name }} [{{ $key->materials_count }}]"
+                       class="hover:underline">
+                        #{{ $key->name }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
     @foreach(config('category') as $key => $cats)
         <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500 dark:text-white">
             <h3 class="text-xl font-bold">
