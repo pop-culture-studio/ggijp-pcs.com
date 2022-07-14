@@ -30,7 +30,7 @@ class Gallery extends Component
         for ($i = 0; $i < $count; $i++) {
             $name = $zip->getNameIndex($i);
 
-            if (str_contains($name, '/')) {
+            if (str_contains($name, '__MACOSX/')) {
                 continue;
             }
 
