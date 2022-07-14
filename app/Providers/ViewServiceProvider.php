@@ -27,6 +27,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('home', HomeComposer::class);
-        View::composer('footer.category', KeywordComposer::class);
+        // View::composer('footer.category', KeywordComposer::class);
     }
 }
