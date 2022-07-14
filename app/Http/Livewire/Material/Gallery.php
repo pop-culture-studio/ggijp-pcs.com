@@ -52,6 +52,8 @@ class Gallery extends Component
                 ];
             }
         }
+
+        $zip->close();
     }
 
     public function render()
