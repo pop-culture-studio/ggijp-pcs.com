@@ -17,7 +17,7 @@ class KeywordComposer
             now()->addHour(),
             fn () => Category::has('materials')
                              ->withCount('materials')
-                             ->orderBy('name')
+                             ->latest('materials_count')
                              ->get()
         );
 
