@@ -8,6 +8,7 @@ environments:
         domain: ggijp-pcs.com
         storage: storage.ggijp-pcs.com
         database: ggijp-pcs-com
+        cache: ggijp-pcs-com
         octane: true
         octane-database-session-persist: true
         octane-database-session-ttl: 10
