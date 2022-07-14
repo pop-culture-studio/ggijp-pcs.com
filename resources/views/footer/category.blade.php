@@ -3,7 +3,7 @@
         キーワードから探す
     </x-h2>
 
-    @foreach(config('pcs.keywords') as $key => $cats)
+    @foreach(config('category') as $key => $cats)
         <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500 dark:text-white">
             <h3 class="text-xl font-bold">
                 <a href="{{ route('category.show', $key) }}" class="hover:underline">
