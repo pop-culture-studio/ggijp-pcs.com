@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use ZipArchive;
 
@@ -21,6 +22,7 @@ class Gallery extends Component
         }
 
         $zip = new ZipArchive();
+
         if (! $zip->open(Storage::disk('local')->path('tmp/zip/'.$this->material->file))) {
             return;
         }
@@ -29,6 +31,7 @@ class Gallery extends Component
 
         for ($i = 0; $i < $count; $i++) {
             $name = $zip->getNameIndex($i);
+            $name = mb_convert_encoding(basename($name), 'UTF-8');
 
             if (str_contains($name, '__MACOSX/')) {
                 continue;
@@ -36,13 +39,14 @@ class Gallery extends Component
 
             $data = $zip->getFromIndex($i);
 
-            if (! Storage::disk('local')->put('tmp/img/'.$name, $data)) {
+            $random = Str::random();
+
+            if (! Storage::disk('local')->put('tmp/img/'.$random, $data)) {
                 continue;
             }
 
-            if (str_contains($mime = Storage::disk('local')->mimeType('tmp/img/'.$name), 'image/')) {
+            if (str_contains($mime = Storage::disk('local')->mimeType('tmp/img/'.$random), 'image/')) {
                 $this->files[$name] = [
-                    'name' => $name,
                     'data' => base64_encode($data),
                     'mime' => $mime,
                 ];
