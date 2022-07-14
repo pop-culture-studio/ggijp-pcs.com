@@ -53,7 +53,14 @@
 
                 </form>
 
-
+                <details class="mt-3 p-3 bg-indigo-100 rounded-md">
+                    <summary>ヘルプ</summary>
+                    <ul class="list-inside list-disc">
+                        <li>
+                            カテゴリーの順番を変更したり左上に表示するカテゴリーを変更するには：一番目に表示させたいカテゴリーだけ残して他を削除して更新後、再度他のカテゴリーを入力して更新すれば入力した順に表示される。
+                        </li>
+                    </ul>
+                </details>
             </div>
         </div>
     </div>
