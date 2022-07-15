@@ -3,6 +3,18 @@
         カテゴリー {{ $category->name }}
     </x-slot>
 
+    <x-slot name="ogp">
+        <x-ogp>
+            <x-slot name="title">
+                カテゴリー {{ $category->name }}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ $category->name }}カテゴリーの素材一覧
+            </x-slot>
+        </x-ogp>
+    </x-slot>
+
     <div class="py-6">
         <div class="px-3 sm:px-6 lg:px-8">
 
