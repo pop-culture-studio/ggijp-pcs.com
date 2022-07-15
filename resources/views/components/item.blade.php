@@ -5,7 +5,7 @@
             <img class="object-cover h-72 sm:h-56"
                  src="{{ empty($image) ? 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found') : $image }}"
                  alt="{{ $name }}" title="{{ $name }}"
-                 width="350" height="350">
+                 width="350" height="350" loading="lazy">
         </div>
         <span class="font-bold hover:text-indigo-500">{{ $name }}</span>
     </a>

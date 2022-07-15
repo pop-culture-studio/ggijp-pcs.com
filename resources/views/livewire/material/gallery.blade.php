@@ -3,6 +3,7 @@
         <div class="grid grid-cols-3 gap-3">
             @foreach($files as $name => $file)
                 <img src="{{ $file['image'] }}"
+                     loading="lazy"
                      alt="{{ $name }}"
                      title="{{ $name }}"
                      class="pcs:scale-up-image">
