@@ -6,7 +6,7 @@
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">
-                カテゴリー {{ $category->name }}
+                {{ $category->name }}
             </x-slot>
 
             <x-slot name="description">
