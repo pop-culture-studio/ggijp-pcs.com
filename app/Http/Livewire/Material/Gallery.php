@@ -35,8 +35,9 @@ class Gallery extends Component
         $count = $zip->count();
 
         for ($i = 0; $i < $count; $i++) {
-            $name = $zip->getNameIndex($i);
-            $name = mb_convert_encoding(basename($name), 'UTF-8');
+            $name = $zip->getNameIndex($i, ZipArchive::FL_ENC_RAW);
+            $name = mb_convert_encoding($name, 'UTF-8', 'CP932');
+            $name = basename($name);
 
             if (str_contains($name, '__MACOSX/')) {
                 continue;
