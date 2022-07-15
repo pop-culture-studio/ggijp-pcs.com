@@ -44,16 +44,16 @@ class Gallery extends Component
 
             $data = $zip->getFromIndex($i);
 
-            $random = Str::random();
+            $random_path = 'tmp/img/'.Str::random();
 
-            if (! Storage::disk('local')->put('tmp/img/'.$random, $data)) {
+            if (! Storage::disk('local')->put($random_path, $data)) {
                 continue;
             }
 
-            if (str_contains($mime = Storage::disk('local')->mimeType('tmp/img/'.$random), 'image/')) {
+            if (str_contains(Storage::disk('local')->mimeType($random_path), 'image/')) {
+                Storage::put($random_path, $data);
                 $this->files[$name] = [
-                    'data' => base64_encode($data),
-                    'mime' => $mime,
+                    'image' => Storage::temporaryUrl($random_path, now()->addHour()),
                 ];
             }
         }
