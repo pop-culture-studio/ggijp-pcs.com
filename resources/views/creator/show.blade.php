@@ -3,6 +3,18 @@
         {{ $user->name }}
     </x-slot>
 
+    <x-slot name="ogp">
+        <x-ogp>
+            <x-slot name="title">
+                {{ $user->name }}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ $user->name }}の素材一覧
+            </x-slot>
+        </x-ogp>
+    </x-slot>
+
     <div class="py-6">
         <div class="px-3 sm:px-6 lg:px-8">
 
