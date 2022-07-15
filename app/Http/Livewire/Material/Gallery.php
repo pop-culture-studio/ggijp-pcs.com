@@ -19,7 +19,7 @@ class Gallery extends Component
         rescue(fn () => $this->zip());
     }
 
-    protected function zip()
+    protected function zip(): void
     {
         $file = Storage::get($this->material->file);
         if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, $file)) {
