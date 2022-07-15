@@ -3,6 +3,10 @@
         {{ $material->title }}
     </x-slot>
 
+    <x-slot name="description">
+        {{ $material->description ?? $material->title ?? config('app.name') }}
+    </x-slot>
+
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">

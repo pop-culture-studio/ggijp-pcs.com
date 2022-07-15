@@ -7,6 +7,10 @@
 
     <title>@isset($title){{ $title }} | @endisset{{ config('app.name', 'Laravel') }}</title>
 
+    @isset($description)
+        <meta name="description" content="{{ $description }}">
+    @endisset
+
     @isset($ogp)
         {{ $ogp }}
     @endisset
