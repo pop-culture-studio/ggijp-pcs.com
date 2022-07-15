@@ -10,5 +10,8 @@
     @apply sticky top-[calc(100vh_-_4rem)] inline-block no-underline text-black font-extrabold text-center rounded-full w-12 h-12 ring-1 ring-gray-500 bg-white opacity-80 hover:opacity-50 p-3 pointer-events-auto z-50;
 }
 
+.pcs\:scale-up-image {
+    @apply transition ease-out duration-150 hover:scale-150 hover:cursor-pointer;
+}
 
 [x-cloak] { display: none !important; }
