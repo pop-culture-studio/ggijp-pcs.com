@@ -15,7 +15,8 @@
         <h1 class="text-4xl hidden">{{ config('app.name', 'Laravel') }}</h1>
 
         <div class="w-auto h-auto mt-10 bg-white relative">
-            <img src="{{ asset('/images/bg_home.png') }}" class="dark:grayscale">
+            <img src="{{ asset('/images/bg_home.png') }}" class="dark:grayscale"
+                 alt="{{ config('app.name') }}">
 
             <div class="w-1/2 absolute top-1/3 left-1/4 right-1/4 z-30">
                 <a href="{{ route('home') }}">

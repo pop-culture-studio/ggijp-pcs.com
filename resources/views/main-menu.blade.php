@@ -26,7 +26,7 @@
                     {{ __('カテゴリー') }}
                 </x-jet-nav-link>
                 <x-jet-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
-                   <x-icon.instagram/>
+                   <x-icon.instagram/><span class="sr-only">Instagram</span>
                 </x-jet-nav-link>
             </div>
 
