@@ -12,7 +12,7 @@ class Gallery extends Component
 {
     public Material $material;
 
-    public array $files;
+    public array $files = [];
 
     public function mount()
     {
