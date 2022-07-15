@@ -8,6 +8,7 @@ environments:
         domain: ggijp-pcs.com
         storage: storage.ggijp-pcs.com
         database: ggijp-pcs-com
+        timeout: 30
         octane: true
         octane-database-session-persist: true
         octane-database-session-ttl: 10
