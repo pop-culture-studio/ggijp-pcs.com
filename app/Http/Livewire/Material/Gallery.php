@@ -14,11 +14,6 @@ class Gallery extends Component
 
     public array $files = [];
 
-    public function mount()
-    {
-        //rescue(fn () => $this->zip());
-    }
-
     public function zip(): void
     {
         $file = Storage::get($this->material->file);
