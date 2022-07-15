@@ -7,9 +7,8 @@
                          loading="lazy"
                          alt="{{ $name }}"
                          title="{{ $name }}">
-                    <figcaption class="text-center">{{ $name }}</figcaption>
+                    <figcaption class="text-center text-sm">{{ $name }}</figcaption>
                 </figure>
-
             @endforeach
         </div>
     @endif
