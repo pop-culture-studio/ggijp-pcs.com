@@ -46,12 +46,11 @@ class Gallery extends Component
 
             $random_path = 'tmp/img/'.Str::random();
 
-            if (! Storage::disk('local')->put($random_path, $data)) {
+            if (! Storage::put($random_path, $data)) {
                 continue;
             }
 
-            if (str_contains(Storage::disk('local')->mimeType($random_path), 'image/')) {
-                Storage::put($random_path, $data);
+            if (str_contains(Storage::mimeType($random_path), 'image/')) {
                 $this->files[$name] = [
                     'image' => Storage::temporaryUrl($random_path, now()->addHour()),
                 ];
