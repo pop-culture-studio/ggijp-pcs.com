@@ -16,6 +16,11 @@ class Gallery extends Component
 
     public function mount()
     {
+        rescue(fn () => $this->zip());
+    }
+
+    protected function zip()
+    {
         $file = Storage::get($this->material->file);
         if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, $file)) {
             return;
