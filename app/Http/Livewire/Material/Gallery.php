@@ -27,22 +27,23 @@ class Gallery extends Component
             return;
         }
 
-        $count = $zip->count();
+        $count = $zip->count() - 1;
 
-        for ($i = 0; $i < $count; $i++) {
-            $name = $zip->getNameIndex($i, ZipArchive::FL_ENC_RAW);
+        foreach (range(0, $count) as $index) {
+            $name = $zip->getNameIndex($index, ZipArchive::FL_ENC_RAW);
             $enc = mb_detect_encoding($name);
             if (empty($enc)) {
                 $enc = 'CP932';
             }
             $name = mb_convert_encoding($name, 'UTF-8', $enc);
-            $name = basename($name);
 
             if (str_contains($name, '__MACOSX/')) {
                 continue;
             }
 
-            $data = $zip->getFromIndex($i);
+            $name = basename($name);
+
+            $data = $zip->getFromIndex($index);
 
             $random_path = 'tmp/img/'.Str::random();
 
