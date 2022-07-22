@@ -43,6 +43,11 @@ class Gallery extends Component
 
             $name = basename($name);
 
+            //Live2Dのテクスチャは除く
+            if (str_contains($name, 'texture_00.png')) {
+                continue;
+            }
+
             $data = $zip->getFromIndex($index);
 
             $random_path = 'tmp/img/'.Str::random();
