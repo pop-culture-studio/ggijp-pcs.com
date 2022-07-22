@@ -41,12 +41,12 @@ class Gallery extends Component
                 continue;
             }
 
-            $name = basename($name);
-
             //Live2Dのテクスチャは除く
             if (str_contains($name, 'texture_00.png')) {
                 continue;
             }
+
+            $name = basename($name);
 
             $data = $zip->getFromIndex($index);
 
