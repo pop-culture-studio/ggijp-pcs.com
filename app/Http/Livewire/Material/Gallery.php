@@ -16,20 +16,17 @@ class Gallery extends Component
 
     public function zip(): void
     {
-        $file = Storage::get($this->material->file);
-        if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, $file)) {
+        if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, Storage::get($this->material->file))) {
             return;
         }
 
-        $zip = new ZipArchive();
+        $zip = app(ZipArchive::class);
 
         if (! $zip->open(Storage::disk('local')->path('tmp/zip/'.$this->material->file))) {
             return;
         }
 
-        $count = $zip->count() - 1;
-
-        foreach (range(0, $count) as $index) {
+        foreach (range(0, $zip->count() - 1) as $index) {
             $name = $zip->getNameIndex($index, ZipArchive::FL_ENC_RAW);
             $enc = mb_detect_encoding($name);
             if (empty($enc)) {
