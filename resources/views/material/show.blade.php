@@ -37,13 +37,20 @@
                     <h2 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h2>
 
                     @if ($material->description)
-                        <div class="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
+                        <div
+                            class="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
                     @endif
 
                     <x-badge title="作者" class="my-3">
                         <a href="{{ route('creator', $material->user) }}"
                            class="text-indigo-500 hover:underline">{{ $material->user->name }}</a>
                     </x-badge>
+
+                    @if(cache()->has('mimetype:'.$material->id))
+                        <x-badge title="ファイルタイプ" class="my-3">
+                            {{ cache('mimetype:'.$material->id) }}
+                        </x-badge>
+                    @endif
 
                     <x-badge title="カテゴリー" class="my-3">
                         @foreach ($material->categories as $cat)
@@ -60,14 +67,14 @@
 
                     @if (str_contains(Storage::mimeType($material->file), 'zip'))
                         <livewire:material.gallery :material="$material">
-                    @endif
+                            @endif
 
-                    <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}">
-                        <div
-                            class="w-fix text-center text-xl py-3 px-6 sm:px-16 m-6 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full whitespace-nowrap">
-                            {{ __('ダウンロード') }}
-                        </div>
-                    </a>
+                            <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}">
+                                <div
+                                    class="w-fix text-center text-xl py-3 px-6 sm:px-16 m-6 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full whitespace-nowrap">
+                                    {{ __('ダウンロード') }}
+                                </div>
+                            </a>
 
 
                 </div>
