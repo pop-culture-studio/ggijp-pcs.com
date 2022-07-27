@@ -6,7 +6,7 @@
             <img class="object-contain h-full w-auto" src="{{ $material->image }}" title="{{ $material->title }}"
                  alt="{{ $material->title }}">
 
-            <audio controls src="{{ Storage::temporaryUrl($material->file, now()->addHours(12)) }}">
+            <audio class="w-full" controls src="{{ Storage::temporaryUrl($material->file, now()->addHours(12)) }}">
                 このブラウザでは表示できません。
             </audio>
         </div>
