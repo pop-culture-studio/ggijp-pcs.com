@@ -2,7 +2,7 @@
     @if($files)
         <div class="grid grid-cols-3 gap-3 bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
             @foreach($files as $name => $file)
-                <figure class="pcs:scale-up-image">
+                <figure class="hover:cursor-pointer" wire:click="showModal('{{ $name }}')">
                     <img src="{{ $file['image'] }}"
                          loading="lazy"
                          alt="{{ $name }}"
@@ -11,5 +11,17 @@
                 </figure>
             @endforeach
         </div>
+
+        @if($showModal)
+            <x-jet-modal wire:model="showModal" maxWidth="xl" ring="ring-{{ $material->categoryColor }}">
+                <figure>
+                    <img src="{{ $modalImage }}"
+                         loading="lazy"
+                         alt="{{ $modalName }}"
+                         title="{{ $modalName }}">
+                    <figcaption class="text-center text-lg">{{ $modalName }}</figcaption>
+                </figure>
+            </x-jet-modal>
+        @endif
     @endif
 </div>

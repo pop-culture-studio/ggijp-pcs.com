@@ -14,6 +14,10 @@ class Gallery extends Component
 
     public array $files = [];
 
+    public bool $showModal;
+    public string $modalImage;
+    public string $modalName;
+
     public function zip(): void
     {
         if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, Storage::get($this->material->file))) {
@@ -61,6 +65,13 @@ class Gallery extends Component
         }
 
         $zip->close();
+    }
+
+    public function showModal($name)
+    {
+        $this->modalName = $name;
+        $this->modalImage = $this->files[$name]['image'];
+        $this->showModal = true;
     }
 
     public function render()
