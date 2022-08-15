@@ -88,14 +88,10 @@ class Gallery extends Component
      */
     private function reject(string $name): bool
     {
-        if (Str::contains($name, [
+        return Str::contains($name, [
             '__MACOSX/', // MacのFinderで作られたzipの__MACOSX内
             'texture_00.png', // Live2Dのテクスチャ
-        ])) {
-            return true;
-        }
-
-        return false;
+        ]);
     }
 
     public function showModal($name)
