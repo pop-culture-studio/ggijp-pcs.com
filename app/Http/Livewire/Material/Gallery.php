@@ -32,18 +32,9 @@ class Gallery extends Component
 
         foreach (range(0, $zip->count() - 1) as $index) {
             $name = $zip->getNameIndex($index, ZipArchive::FL_ENC_RAW);
-            $enc = mb_detect_encoding($name);
-            if (empty($enc)) {
-                $enc = 'CP932';
-            }
-            $name = mb_convert_encoding($name, 'UTF-8', $enc);
+            $name = $this->encoding($name);
 
-            if (str_contains($name, '__MACOSX/')) {
-                continue;
-            }
-
-            //Live2Dのテクスチャは除く
-            if (str_contains($name, 'texture_00.png')) {
+            if ($this->reject($name)) {
                 continue;
             }
 
@@ -65,6 +56,44 @@ class Gallery extends Component
         }
 
         $zip->close();
+    }
+
+    /**
+     * ファイル名の文字コードをUTF-8に揃える.
+     *
+     * @param  string  $name
+     * @return string
+     */
+    private function encoding(string $name): string
+    {
+        $enc = mb_detect_encoding($name);
+
+        if (empty($enc)) {
+            $enc = 'CP932';
+        }
+
+        return mb_convert_encoding($name, 'UTF-8', $enc);
+    }
+
+    /**
+     * 除外するファイル名.
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    private function reject(string $name): bool
+    {
+        // MacのFinderで作られたzipの__MACOSX
+        if (str_contains($name, '__MACOSX/')) {
+            return true;
+        }
+
+        //Live2Dのテクスチャは除く
+        if (str_contains($name, 'texture_00.png')) {
+            return true;
+        }
+
+        return false;
     }
 
     public function showModal($name)
