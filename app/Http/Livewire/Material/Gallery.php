@@ -18,6 +18,11 @@ class Gallery extends Component
     public string $modalImage;
     public string $modalName;
 
+    /**
+     * zip内のファイルが画像なら表示.
+     *
+     * @return void
+     */
     public function zip(): void
     {
         if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, Storage::get($this->material->file))) {
