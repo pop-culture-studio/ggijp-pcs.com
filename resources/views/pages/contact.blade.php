@@ -1,11 +1,11 @@
 <x-main-layout>
     <x-slot name="title">
-        {{ __('お問い合わせ') }}
+        {{ __('リクエスト・お問い合わせ') }}
     </x-slot>
 
     <div class="py-6">
         <div class="px-2 sm:px-6 lg:px-8">
-            <h1 class="text-4xl mt-10 text-center">{{ __('お問い合わせ') }}</h1>
+            <h1 class="text-4xl mt-10 text-center">{{ __('リクエスト・お問い合わせ') }}</h1>
 
             <div class="py-3 sm:max-w-xl mx-auto">
                 <p>ご要望やご質問、個人的なご依頼、サイトやデータについてお気づきの点などありましたらこちらよりご連絡ください。 素材のご利用については事前に
