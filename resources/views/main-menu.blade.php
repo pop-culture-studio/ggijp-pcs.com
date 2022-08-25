@@ -32,4 +32,7 @@
 
         </div>
     </div>
+    <div class="text-right pr-2 sm:pr-6">
+        <a href="{{ route('form.contact') }}" class="font-medium text-gray-500 hover:text-gray-700">ご依頼はこちら</a>
+    </div>
 </nav>
