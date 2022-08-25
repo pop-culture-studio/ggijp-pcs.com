@@ -31,23 +31,22 @@
 当社は、ユーザー情報のうち個人情報に関して、以下のとおり共同利用します。
 
 <table class="table-auto sm:w-1/2">
-<tr>
-<td>共同して利用される個人情報の項目</td>
-<td class="text-red-500">・氏名<br>
-・メールアドレス</td>
-</tr>
-<tr>
-<td>共同して利用する者の範囲</td>
-<td class="text-red-500">株式会社ゴールデン・ゲート</td>
-</tr>
-<tr>
-<td>共同して利用する者の利用目的</td>
-<td class="text-red-500">サービスのご案内</td>
-</tr>
-<tr>
-<td>個人情報の管理責任者</td>
-<td class="text-red-500">猪花幸二</td>
-</tr>
+    <tr>
+        <td>共同して利用される個人情報の項目</td>
+        <td class="text-red-500">・氏名<br>・メールアドレス</td>
+    </tr>
+    <tr>
+        <td>共同して利用する者の範囲</td>
+        <td class="text-red-500">株式会社ゴールデン・ゲート</td>
+    </tr>
+    <tr>
+        <td>共同して利用する者の利用目的</td>
+        <td class="text-red-500">サービスのご案内</td>
+    </tr>
+    <tr>
+        <td>個人情報の管理責任者</td>
+        <td class="text-red-500">猪花幸二</td>
+    </tr>
 </table>
 
 ## 5.個人情報の開示
