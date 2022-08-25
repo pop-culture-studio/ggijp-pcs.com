@@ -7,7 +7,7 @@
         <form wire:submit.prevent="sendmail">
             <div>
                 <x-jet-label for="name" value="{{ __('お名前') }}"/>
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.lazy="name" required
+                <x-jet-input id="name" class="block mt-1 w-full " type="text" name="name" wire:model.lazy="name" required
                              autofocus autocomplete="name"/>
             </div>
 
@@ -22,7 +22,7 @@
 
                 <textarea name="body"
                           wire:model.lazy="body"
-                          class="w-full h-32 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                          class="text-black bg-white w-full h-32 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                           required
                 ></textarea>
             </div>

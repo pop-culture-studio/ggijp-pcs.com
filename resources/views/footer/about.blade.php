@@ -10,9 +10,6 @@
             <a href="{{ route('faq') }}" class="hover:underline">{{ __('よくある質問') }}</a>
         </li>
         <li>
-            <a href="{{ route('form.request') }}" class="hover:underline">{{ __('リクエスト･メッセージ') }}</a>
-        </li>
-        <li>
             <a href="{{ route('form.contact') }}" class="hover:underline">{{ __('お問い合わせ') }}</a>
         </li>
         <li>
