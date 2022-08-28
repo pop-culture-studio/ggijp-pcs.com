@@ -31,6 +31,17 @@ class Material extends Model
      */
     protected $perPage = 50;
 
+    protected static function booted()
+    {
+        static::saved(function ($material) {
+            cache()->delete('home.popular');
+        });
+
+        static::deleted(function ($material) {
+            cache()->delete('home.new');
+        });
+    }
+
     /**
      * @return BelongsTo
      */
@@ -97,7 +108,7 @@ class Material extends Model
      */
     public function getCategoryColorAttribute(): string
     {
-        $cat = $this->categories()->first();
+        $cat = $this->categories?->first();
 
         $color = Arr::first(config('pcs.category'), fn ($value) => Arr::get($value, 'title') === $cat?->name);
 
