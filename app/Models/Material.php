@@ -31,17 +31,6 @@ class Material extends Model
      */
     protected $perPage = 50;
 
-    protected static function booted()
-    {
-        static::saved(function ($material) {
-            cache()->delete('side.cats');
-        });
-
-        static::deleted(function ($material) {
-            cache()->delete('side.cats');
-        });
-    }
-
     /**
      * @return BelongsTo
      */
@@ -69,13 +58,23 @@ class Material extends Model
             }
 
             if (filled($this->thumbnail) && Storage::exists($this->thumbnail)) {
-                return Storage::temporaryUrl($this->thumbnail, now()->addHours(12));
+                return Storage::temporaryUrl(
+                    $this->thumbnail,
+                    now()->addHours(24),
+                    [
+                        'ResponseCacheControl' => 'max-age=86400',
+                    ]);
             }
 
             $mime = cache()->rememberForever('mimetype:'.$this->id, fn () => Storage::mimeType($this->file));
 
             if (str_contains($mime, 'image/')) {
-                return Storage::temporaryUrl($this->file, now()->addHours(12));
+                return Storage::temporaryUrl(
+                    $this->file,
+                    now()->addHours(24),
+                    [
+                        'ResponseCacheControl' => 'max-age=86400',
+                    ]);
             }
 
             $type = match (true) {
