@@ -20,7 +20,7 @@ return [
     ],
 
     /**
-     *
+     * 素材が削除済時のサムネイル画像.
      */
     'not_found_image' => 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found'),
 
