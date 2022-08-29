@@ -73,7 +73,7 @@ class Material extends Model
                     $this->thumbnail,
                     now()->addHours(24),
                     [
-                        'ResponseCacheControl' => 'max-age=86400',
+                        'ResponseCacheControl' => 'max-age=31536000',
                     ]);
             }
 
@@ -84,7 +84,7 @@ class Material extends Model
                     $this->file,
                     now()->addHours(24),
                     [
-                        'ResponseCacheControl' => 'max-age=86400',
+                        'ResponseCacheControl' => 'max-age=31536000',
                     ]);
             }
 
