@@ -20,6 +20,11 @@ return [
     ],
 
     /**
+     *
+     */
+    'not_found_image' => 'https://placehold.jp/ffffff/999999/350x350.png?text='.urlencode('Not Found'),
+
+    /**
      * アップロードできる最大ファイルサイズ。MB。
      * S3に直接アップロードされるのでphp.iniやLambdaの制限とは無関係。
      */
