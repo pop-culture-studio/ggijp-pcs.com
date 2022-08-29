@@ -35,9 +35,11 @@ class Material extends Model
     {
         static::saved(function ($material) {
             cache()->delete('home.popular');
+            cache()->delete('home.new');
         });
 
         static::deleted(function ($material) {
+            cache()->delete('home.popular');
             cache()->delete('home.new');
         });
     }
