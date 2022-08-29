@@ -22,6 +22,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
+
+    @includeIf('layouts.ads')
 </head>
 <body>
 <div class="font-sans bg-white dark:bg-black text-gray-900 dark:text-white antialiased relative">
