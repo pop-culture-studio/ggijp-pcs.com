@@ -29,10 +29,9 @@
 <div class="font-sans bg-white dark:bg-black text-gray-900 dark:text-white antialiased relative">
 
     <div class="flex flex-col sm:flex-row max-w-full mx-auto">
+        @include('main-menu')
 
         <main class="flex-initial flex-grow">
-            @include('main-menu')
-
             <div class="mt-16">
                 {{ $slot }}
             </div>
