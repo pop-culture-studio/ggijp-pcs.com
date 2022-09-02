@@ -1,4 +1,8 @@
 <x-main-layout>
+    <x-slot name="description">
+        ｢未来図倉庫｣は、ポップカルチャースタジオ未来図が運営しているフリー素材集です。イラストやBGM、Live2Dなど幅広いジャンルの素材を日々制作しています。様々なニーズに対応できるよう、更新していきます。お役立てください。
+    </x-slot>
+
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">
