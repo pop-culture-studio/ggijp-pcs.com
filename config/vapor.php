@@ -41,7 +41,7 @@ return [
 
     'serve_assets' => [
         //
-        'ads.txt'
+        'ads.txt',
     ],
 
 ];
