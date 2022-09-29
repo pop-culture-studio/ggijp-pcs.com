@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,7 @@ class DownloadController extends Controller
     public function __invoke(Request $request, Material $material)
     {
         dispatch(function () use ($material) {
-            $material->increment('download');
+            Model::withoutTimestamps(fn () => $material->increment('download'));
         });
 
         return redirect(
@@ -26,7 +27,7 @@ class DownloadController extends Controller
                 $material->file,
                 now()->addHour(),
                 [
-                    'ResponseContentType'        => 'application/octet-stream',
+                    'ResponseContentType' => 'application/octet-stream',
                     'ResponseContentDisposition' => 'attachment; filename='.basename($material->file),
                 ]
             )
