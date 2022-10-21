@@ -13,21 +13,15 @@ class HomeComposer
      */
     public function compose(View $view)
     {
-        $popular_materials = cache()->remember('home.popular',
-            now()->addHour(),
-            fn () => Material::with('categories')
-                             ->latest('download')
-                             ->limit(20)
-                             ->get()
-        );
+        $popular_materials = Material::with('categories')
+                                     ->latest('download')
+                                     ->limit(20)
+                                     ->get();
 
-        $new_materials = cache()->remember('home.new',
-            now()->addHour(),
-            fn () => Material::with('categories')
-                             ->latest('id')
-                             ->limit(20)
-                             ->get()
-        );
+        $new_materials = Material::with('categories')
+                                 ->latest('id')
+                                 ->limit(20)
+                                 ->get();
 
         $view->with(compact(
             'popular_materials',
