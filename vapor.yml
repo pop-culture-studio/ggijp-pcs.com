@@ -1,6 +1,6 @@
 id: 25776
 name: ggijp-pcs-com
-#asset-domain: assets.ggijp-pcs.com
+asset-domain: assets.ggijp-pcs.com
 environments:
     production:
         memory: 1024
