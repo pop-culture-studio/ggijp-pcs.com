@@ -17,7 +17,10 @@ class Material extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'file', 'title', 'description', 'author'
+        'file',
+        'title',
+        'description',
+        'author',
     ];
 
     protected $hidden = [
@@ -33,15 +36,15 @@ class Material extends Model
 
     protected static function booted()
     {
-        static::saved(function ($material) {
-            cache()->delete('home.popular');
-            cache()->delete('home.new');
-        });
-
-        static::deleted(function ($material) {
-            cache()->delete('home.popular');
-            cache()->delete('home.new');
-        });
+//        static::saved(function ($material) {
+//            cache()->delete('home.popular');
+//            cache()->delete('home.new');
+//        });
+//
+//        static::deleted(function ($material) {
+//            cache()->delete('home.popular');
+//            cache()->delete('home.new');
+//        });
     }
 
     /**
@@ -128,6 +131,7 @@ class Material extends Model
             return $query->where(function (Builder $query) use ($search) {
                 $query->where('title', 'like', "%$search%")
                       ->orWhere('description', 'like', "%$search%")
+                      ->orWhere('author', 'like', "%$search%")
                       ->orWhereHas('categories', function (Builder $query) use ($search) {
                           $query->where('name', 'like', "%$search%");
                       })
