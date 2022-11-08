@@ -27,6 +27,8 @@ class Create extends Component
 
     public ?string $description = null;
 
+    public ?string $author = null;
+
     #[ArrayShape(['file' => 'string[]', 'cat' => 'string'])]
     protected function rules(): array
     {
@@ -79,6 +81,7 @@ class Create extends Component
                 'file' => $path,
                 'title' => $title,
                 'description' => $this->description,
+                'author' => $this->author,
             ]);
 
             $cats = Str::of($this->cat)

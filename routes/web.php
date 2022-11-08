@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\Dashboard\ContactController;
@@ -38,6 +39,8 @@ Route::get('contact/preview/{contact}', ContactPreviewController::class)
      ->middleware('signed');
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');
+
+Route::get('author/{author}', AuthorController::class)->name('author');
 
 Route::resource('material', MaterialController::class);
 

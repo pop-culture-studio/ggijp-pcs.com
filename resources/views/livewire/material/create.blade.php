@@ -63,7 +63,13 @@
     </div>
 
     <div class="my-2">
-        <x-jet-label for="description" value="{{ __('説明') }}"/>
+        <x-jet-label for="author" value="{{ __('作者（省略可）') }}"/>
+        <x-jet-input name="author" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="author"/>
+        <x-jet-input-error for="author" class="mt-2"/>
+    </div>
+
+    <div class="my-2">
+        <x-jet-label for="description" value="{{ __('説明（省略可）') }}"/>
         <textarea name="description" rows="4" cols="40" wire:model.defer="description"
                   class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
         <x-jet-input-error for="description" class="mt-2"/>

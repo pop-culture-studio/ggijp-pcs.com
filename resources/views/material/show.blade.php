@@ -41,10 +41,12 @@
                             class="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">{!! nl2br(e($material->description)) !!}</div>
                     @endif
 
-                    {{--                    <x-badge title="作者" class="my-3">--}}
-                    {{--                        <a href="{{ route('creator', $material->user) }}"--}}
-                    {{--                           class="text-indigo-500 hover:underline">{{ $material->user->name }}</a>--}}
-                    {{--                    </x-badge>--}}
+                    @if($material->author)
+                        <x-badge title="作者" class="my-3">
+                            <a href="{{ route('author', $material->author) }}"
+                               class="text-indigo-500 hover:underline">{{ $material->author }}</a>
+                        </x-badge>
+                    @endif
 
                     <x-badge title="カテゴリー" class="my-3">
                         @foreach ($material->categories as $cat)
@@ -76,6 +78,7 @@
                             {{ __('ダウンロード') }}
                         </div>
                     </a>
+
                 </div>
             </div>
 

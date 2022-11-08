@@ -9,8 +9,8 @@
                         <th>ファイル</th>
                         <th>カテゴリー</th>
                         <th>タイトル</th>
-                        <th>説明</th>
                         <th>作者</th>
+                        <th>説明</th>
                         <th>アップロード日</th>
                         <th>ダウンロード数</th>
                     </tr>
@@ -30,10 +30,8 @@
 
                             <td>{{ Str::limit($material->categories->implode('name', ','), 20) }}</td>
                             <td>{{ Str::limit($material->title, 30) }}</td>
+                            <td>{{ Str::limit($material->author, 30) }}</td>
                             <td>{{ Str::limit($material->description, 20) }}</td>
-                            <td>
-                                {{ $material->user->name }}
-                            </td>
                             <td>{{ $material->created_at->toDateString() }}</td>
                             <td>{{ $material->download }}</td>
 

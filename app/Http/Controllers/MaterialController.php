@@ -78,6 +78,7 @@ class MaterialController extends Controller
             $material->fill([
                 'title' => $title,
                 'description' => $request->input('description'),
+                'author' => $request->input('author'),
             ])->save();
 
             $cats = Str::of($request->input('cat'))

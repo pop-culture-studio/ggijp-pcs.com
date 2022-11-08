@@ -10,6 +10,7 @@
                         <th>ファイル</th>
                         <th>カテゴリー</th>
                         <th>タイトル</th>
+                        <th>作者</th>
                         <th>説明</th>
                         <th>編集</th>
                     </tr>
@@ -27,6 +28,7 @@
 
                             <td>{{ Str::limit($material->categories->implode('name', ','), 50) }}</td>
                             <td>{{ Str::limit($material->title, 50) }}</td>
+                            <td>{{ Str::limit($material->author, 50) }}</td>
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>
                                 <form action="{{ route('material.edit', $material) }}">
