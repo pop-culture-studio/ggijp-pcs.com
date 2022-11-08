@@ -43,7 +43,7 @@
                     <div class="my-2">
                         <x-jet-label for="author" value="{{ __('作者（省略可）') }}"/>
                         <x-jet-input name="author" value="{{ $material->author }}" type="text"
-                                     class="mt-1 block w-full sm:w-1/2" required/>
+                                     class="mt-1 block w-full sm:w-1/2"/>
                         <x-jet-input-error for="author" class="mt-2"/>
                     </div>
 
