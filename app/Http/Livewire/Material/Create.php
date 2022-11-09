@@ -81,17 +81,19 @@ class Create extends Component
                 'file' => $path,
                 'title' => $title,
                 'description' => $this->description,
-                'author' => $this->author,
+                'author' => Str::of($this->author)->replace('/', '／')->replace('#', '＃')->value(),
             ]);
 
             $cats = Str::of($this->cat)
-                ->explode(',')
-                ->map(fn ($cat) => trim($cat))
-                ->unique()
-                ->reject(fn ($cat) => empty($cat))
-                ->map(fn ($cat) => Category::firstOrCreate([
-                    'name' => $cat,
-                ]));
+                       ->replace('/', '／')
+                       ->replace('#', '＃')
+                       ->explode(',')
+                       ->map(fn ($cat) => trim($cat))
+                       ->unique()
+                       ->reject(fn ($cat) => empty($cat))
+                       ->map(fn ($cat) => Category::firstOrCreate([
+                           'name' => $cat,
+                       ]));
 
             $material->categories()->sync($cats->pluck('id'));
 

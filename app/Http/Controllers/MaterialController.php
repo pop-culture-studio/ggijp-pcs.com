@@ -78,10 +78,12 @@ class MaterialController extends Controller
             $material->fill([
                 'title' => $title,
                 'description' => $request->input('description'),
-                'author' => $request->input('author'),
+                'author' => Str::of($request->input('author'))->replace('/', '／')->replace('#', '＃')->value(),
             ])->save();
 
             $cats = Str::of($request->input('cat'))
+                       ->replace('/', '／')
+                       ->replace('#', '＃')
                        ->explode(',')
                        ->map(fn ($cat) => trim($cat))
                        ->unique()
