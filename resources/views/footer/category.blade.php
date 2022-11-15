@@ -9,6 +9,7 @@
                 <a href="{{ route('category.show', $key) }}" class="hover:underline">
                     {{ $key }}
                 </a>
+                <span class="text-gray-300"> [{{ \App\Models\Category::query()->withCount('materials')->where('name', $key)->first()->materials_count ?? '' }}]</span>
             </h3>
             <ul role="list" class="flex flex-wrap gap-3 justify-start whitespace-nowrap">
                 @foreach($cats as $cat)
