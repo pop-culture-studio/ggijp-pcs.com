@@ -19,7 +19,7 @@ class SearchTest extends TestCase
 
         $file = UploadedFile::fake()->image('test.png');
 
-        User::factory()->withPersonalTeam()->hasMaterials(10, [
+        User::factory()->withPersonalTeam()->hasMaterials(1, [
             'title' => 'test',
             'author' => 'test',
             'file' => $file->path(),
@@ -37,7 +37,7 @@ class SearchTest extends TestCase
 
         $file = UploadedFile::fake()->image('test.png');
 
-        User::factory()->withPersonalTeam()->hasMaterials(10, [
+        User::factory()->withPersonalTeam()->hasMaterials(1, [
             'title' => 'test2',
             'author' => 'test2',
             'file' => $file->path(),
