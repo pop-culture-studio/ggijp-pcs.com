@@ -24,7 +24,7 @@
 
             @includeIf('category-menu')
 
-            <x-h2 class="my-6">{{ $category->name }}</x-h2>
+            <x-h2 class="my-6">{{ $category->name }}<x-category-count :name="$category->name" class="ml-1"></x-category-count></x-h2>
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4">
