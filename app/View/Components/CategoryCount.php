@@ -17,9 +17,11 @@ class CategoryCount extends Component
         public int $count = 0,
     ) {
         $this->count = cache()->remember(
-            'category.count:'.$this->name,
-            now()->addHour(),
-            fn () => Category::withCount('materials')->where('name', $this->name)->first()->materials_count ?? 0
+            key: 'category.count:'.$this->name,
+            ttl: now()->addHours(12),
+            callback: fn () => Category::withCount('materials')
+                                       ->where('name', $this->name)
+                                       ->first()->materials_count ?? 0
         );
     }
 
