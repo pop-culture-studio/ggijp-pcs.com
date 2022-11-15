@@ -10,7 +10,8 @@ class CategoryCount extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param  string  $name
+     * @param  int  $count
      */
     public function __construct(
         public string $name,
