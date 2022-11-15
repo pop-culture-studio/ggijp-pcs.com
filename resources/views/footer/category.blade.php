@@ -3,13 +3,13 @@
         キーワードから探す
     </x-h2>
 
-    @foreach(config('category') as $key => $cats)
+    @foreach(config('category') as $name => $cats)
         <div class="mx-auto py-6 px-6 sm:px-36 text-gray-500 dark:text-white">
             <h3 class="text-xl font-bold">
-                <a href="{{ route('category.show', $key) }}" class="hover:underline">
-                    {{ $key }}
+                <a href="{{ route('category.show', $name) }}" class="hover:underline">
+                    {{ $name }}
                 </a>
-                <x-category-count :name="$key" class="ml-1"></x-category-count>
+                <x-category-count :name="$name" class="ml-1"></x-category-count>
             </h3>
             <ul role="list" class="flex flex-wrap gap-3 justify-start whitespace-nowrap">
                 @foreach($cats as $cat)
