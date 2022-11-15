@@ -20,7 +20,7 @@ class CategoryCount extends Component
             key: 'category.count:'.$this->name,
             ttl: now()->addHours(12),
             callback: fn () => Category::withCount('materials')
-                                       ->where('name', $this->name)
+                                       ->whereName($this->name)
                                        ->first()->materials_count ?? 0
         );
     }
