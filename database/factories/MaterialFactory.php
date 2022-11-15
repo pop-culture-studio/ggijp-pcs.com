@@ -23,7 +23,9 @@ class MaterialFactory extends Factory
     {
         return [
             'file' => $this->faker->url(),
-            'title'=> $this->faker->name(),
+            'title'=> $this->faker->text(),
+            'author'=> $this->faker->name(),
+            'description' => $this->faker->text(),
         ];
     }
 }

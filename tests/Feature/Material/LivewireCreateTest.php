@@ -29,6 +29,7 @@ class LivewireCreateTest extends TestCase
             ->set('file', $file)
             ->set('cat', '1,2')
             ->set('title', null)
+            ->set('author', 'test')
             ->set('description', 'test')
             ->call('create');
 
