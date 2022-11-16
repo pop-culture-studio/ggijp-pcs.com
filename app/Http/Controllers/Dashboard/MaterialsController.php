@@ -12,7 +12,7 @@ class MaterialsController extends Controller
     {
         $this->authorize('create', Material::class);
 
-        $materials = Material::with(['categories', 'user'])
+        $materials = Material::query()
                              ->latest('download')
                              ->paginate();
 

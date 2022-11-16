@@ -6,12 +6,13 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function index()
-    {
-        return to_route('home');
-    }
-
-    public function show(Category $category)
+    /**
+     * Handle the incoming request.
+     *
+     * @param  Category  $category
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function __invoke(Category $category)
     {
         $materials = $category->materials()
                               ->latest('id')

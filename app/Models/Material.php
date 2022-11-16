@@ -34,18 +34,12 @@ class Material extends Model
      */
     protected $perPage = 50;
 
-    protected static function booted()
-    {
-//        static::saved(function ($material) {
-//            cache()->delete('home.popular');
-//            cache()->delete('home.new');
-//        });
-//
-//        static::deleted(function ($material) {
-//            cache()->delete('home.popular');
-//            cache()->delete('home.new');
-//        });
-    }
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['categories'];
 
     /**
      * @return BelongsTo

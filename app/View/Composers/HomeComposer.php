@@ -13,12 +13,12 @@ class HomeComposer
      */
     public function compose(View $view)
     {
-        $popular_materials = Material::with('categories')
+        $popular_materials = Material::query()
                                      ->latest('download')
                                      ->limit(20)
                                      ->get();
 
-        $new_materials = Material::with('categories')
+        $new_materials = Material::query()
                                  ->latest('id')
                                  ->limit(20)
                                  ->get();

@@ -39,14 +39,17 @@ Route::get('contact/preview/{contact}', ContactPreviewController::class)
      ->middleware('signed');
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');
+Route::redirect('creator', '/');
 
 Route::get('author/{author}', AuthorController::class)->name('author');
+Route::redirect('author', '/');
 
 Route::resource('material', MaterialController::class);
 
 Route::get('download/{material}', DownloadController::class)->name('download')->middleware('signed');
 
-Route::resource('category', CategoryController::class)->only(['index', 'show']);
+Route::get('category/{category}', CategoryController::class)->name('category.show');
+Route::redirect('category', '/');
 
 Route::get('sitemap', SitemapController::class)->name('sitemap');
 
