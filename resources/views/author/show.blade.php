@@ -25,7 +25,7 @@
             <x-h2 class="my-6">{{ $author }}の素材一覧</x-h2>
 
             <div class="my-6">
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4 justify-center">
                     @foreach ($materials as $material)
                         <x-item :material="$material" :image="$material->image" :name="$material->title">
                         </x-item>
