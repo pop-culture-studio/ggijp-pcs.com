@@ -24,6 +24,7 @@
     @livewireStyles
 
     @includeIf('layouts.ads')
+    @includeIf('layouts.ga')
 </head>
 <body>
 <div class="font-sans bg-white dark:bg-black text-gray-900 dark:text-white antialiased relative">
