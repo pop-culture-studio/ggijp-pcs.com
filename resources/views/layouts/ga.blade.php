@@ -1,3 +1,4 @@
+@production
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MKHCLVTHW"></script>
 <script>
@@ -7,3 +8,4 @@
 
     gtag('config', 'G-3MKHCLVTHW');
 </script>
+@endproduction
