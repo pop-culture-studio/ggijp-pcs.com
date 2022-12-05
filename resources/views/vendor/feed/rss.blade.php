@@ -24,7 +24,7 @@
                 <link>{{ url($item->link) }}</link>
                 <description>{!! \Spatie\Feed\Helpers\Cdata::out($item->summary) !!}</description>
                 @if($item->__isset('image'))
-                <media:thumbnail>{{ $item->image }}</media:thumbnail>
+                <media:thumbnail>{!! \Spatie\Feed\Helpers\Cdata::out( $item->image) !!}</media:thumbnail>
                 @endif
                 <author>{!! \Spatie\Feed\Helpers\Cdata::out($item->authorName.(empty($item->authorEmail)?'':' <'.$item->authorEmail.'>')) !!}</author>
                 <guid>{{ url($item->id) }}</guid>
