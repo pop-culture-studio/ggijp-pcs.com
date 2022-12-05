@@ -15,6 +15,8 @@
         {{ $ogp }}
     @endisset
 
+    <x-feed-links />
+
     <!-- Fonts -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap">

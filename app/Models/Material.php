@@ -10,8 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Material extends Model
+class Material extends Model implements Feedable
 {
     use HasFactory;
     use SoftDeletes;
@@ -134,5 +136,23 @@ class Material extends Model
                       });
             });
         });
+    }
+
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+                       ->id(route('material.show', $this->id))
+                       ->title($this->title)
+                       ->summary($this->description ?? '')
+                       ->image($this->image)
+                       ->category(...$this->categories->pluck('name'))
+                       ->updated($this->updated_at)
+                       ->link(route('material.show', $this->id))
+                       ->authorName($this->author ?? config('app.name'));
+    }
+
+    public static function getFeedItems()
+    {
+        return Material::latest('id')->take(10)->get();
     }
 }
