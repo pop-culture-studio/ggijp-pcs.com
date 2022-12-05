@@ -26,7 +26,7 @@
             "date_modified": "{{ $item->timestamp() }}",
             "authors": [{ "name": {!! json_encode($item->authorName) !!} }],
 @if($item->__isset('image'))
-            "image": "{{ url($item->image) }}",
+            "image": "{{ $item->image }}",
 @endif
 @if($item->__isset('enclosure'))
             "attachments": [
