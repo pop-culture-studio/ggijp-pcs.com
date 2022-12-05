@@ -148,7 +148,7 @@ class Material extends Model implements Feedable
                        ->category(...$this->categories->pluck('name'))
                        ->updated($this->updated_at)
                        ->link(route('material.show', $this->id))
-                       ->authorName($this->author ?? config('app.name'));
+                       ->authorName(filled($this->author) ? $this->author : config('app.name'));
     }
 
     public static function getFeedItems()
