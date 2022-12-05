@@ -144,6 +144,7 @@ class Material extends Model implements Feedable
                        ->id(route('material.show', $this->id))
                        ->title($this->title)
                        ->summary($this->description ?? '')
+                       ->image($this->image)
                        ->category(...$this->categories->pluck('name'))
                        ->updated($this->updated_at)
                        ->link(route('material.show', $this->id))
