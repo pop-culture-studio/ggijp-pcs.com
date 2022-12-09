@@ -1,5 +1,5 @@
 <div>
-    <ul role="list" class="flex flex-wrap gap-1 justify-around mx-auto py-6 sm:px-10 text-gray-500 whitespace-nowrap">
+    <ul role="list" class="flex flex-wrap gap-1 justify-around mx-auto py-6 sm:px-10 text-gray-500 dark:text-white whitespace-nowrap">
         <li>
             <a href="{{ route('about') }}" class="hover:underline">{{ __('未来図倉庫について') }}</a>
         </li>

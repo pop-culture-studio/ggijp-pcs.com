@@ -7,7 +7,7 @@
 
     @include('footer.about')
 
-    <div class="my-3 text-center">
+    <div class="py-3 text-center">
         <small class="text-sm">
             Copyright&copy; <a href="https://pcs-miraizu.com/"
                                class="font-bold text-indigo-500 dark:text-white hover:underline"
