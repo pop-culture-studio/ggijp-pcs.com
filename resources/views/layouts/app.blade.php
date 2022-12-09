@@ -39,7 +39,7 @@
 
         @livewireScripts
 
-        <!-- Laravel {{ app() ->version() }} -->
+        <!-- Laravel {{ app()->version() }} -->
         <!-- PHP {{ phpversion() }} -->
     </body>
 </html>
