@@ -29,9 +29,8 @@
             <x-breadcrumbs-back/>
 
             <div class="sm:grid sm:grid-cols-2 gap-3 py-6">
-                <div>
-                    <x-preview :material="$material"/>
-                </div>
+
+                <x-preview :material="$material"/>
 
                 <div>
                     <h2 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h2>
