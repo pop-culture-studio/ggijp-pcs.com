@@ -13,7 +13,7 @@ class MaterialsController extends Controller
         $this->authorize('create', Material::class);
 
         $materials = Material::query()
-                             ->latest('download')
+                             ->latest('id')
                              ->paginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
