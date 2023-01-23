@@ -1,10 +1,6 @@
 <div class="text-center">
     <x-h2 class="mb-6">SNSでシェア！</x-h2>
     <div class="flex justify-center gap-2 mb-3">
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="PCS_miraizu"
-           data-hashtags="未来図倉庫" data-related="PCS_miraizu" data-show-count="false">Tweet</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
         <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL"
              data-url=""
              data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
