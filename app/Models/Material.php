@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Storage;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
+/**
+ * @mixin IdeHelperMaterial
+ */
 class Material extends Model implements Feedable
 {
     use HasFactory;
