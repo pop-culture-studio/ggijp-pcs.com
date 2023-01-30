@@ -28,6 +28,6 @@ class FlushPagination
     public function handle($event)
     {
         Paginator::useTailwind();
-        PaginationState::resolveUsing($event->sandbox);
+        //PaginationState::resolveUsing($event->sandbox);
     }
 }
