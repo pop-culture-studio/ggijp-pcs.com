@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -49,7 +50,7 @@ class Material extends Model implements Feedable
     /**
      * @return BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -57,9 +58,19 @@ class Material extends Model implements Feedable
     /**
      * @return BelongsToMany
      */
-    public function categories()
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    /**
+     * @return Attribute
+     */
+    public function mainCategory(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $this->categories?->first()
+        );
     }
 
     /**

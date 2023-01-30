@@ -30,8 +30,8 @@ class MaterialController extends Controller
      */
     public function index(Request $request)
     {
-        $materials = Material::query()
-                             ->keywordSearch($request->query('q'))
+        $materials = Material::keywordSearch($request->query('q'))
+                             //->select('id', 'file', 'title', 'thumbnail')
                              ->latest('id')
                              ->paginate()
                              ->withQueryString();
