@@ -5,7 +5,7 @@ environments:
     production:
         memory: 1024
         cli-memory: 512
-        runtime: docker
+        runtime: 'php-8.2:al2'
         domain: ggijp-pcs.com
         storage: storage.ggijp-pcs.com
         database: ggijp-pcs-com
@@ -39,7 +39,7 @@ environments:
     staging:
         memory: 1024
         cli-memory: 512
-        runtime: docker
+        runtime: 'php-8.2:al2'
         storage: storage-staging.ggijp-pcs.com
         database: ggijp-pcs-com
         timeout: 30
