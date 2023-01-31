@@ -69,7 +69,7 @@ class Material extends Model implements Feedable
     public function mainCategory(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $this->categories?->first()
+            get: fn ($value) => $this->categories?->first()
         );
     }
 
