@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\Material\CategoryColor;
 use App\Casts\Material\Image;
+use App\Models\Concerns\MaterialFeed;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Arr;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
@@ -22,6 +22,7 @@ class Material extends Model implements Feedable
 {
     use HasFactory;
     use SoftDeletes;
+    use MaterialFeed;
 
     protected $fillable = [
         'file',
@@ -102,23 +103,5 @@ class Material extends Model implements Feedable
                       });
             });
         });
-    }
-
-    public function toFeedItem(): FeedItem
-    {
-        return FeedItem::create()
-                       ->id(route('material.show', $this->id))
-                       ->title($this->title)
-                       ->summary($this->description ?? '')
-                       ->image($this->image)
-                       ->category(...$this->categories->pluck('name'))
-                       ->updated($this->updated_at)
-                       ->link(route('material.show', $this->id))
-                       ->authorName(filled($this->author) ? $this->author : config('app.name'));
-    }
-
-    public static function getFeedItems()
-    {
-        return Material::latest('id')->take(10)->get();
     }
 }
