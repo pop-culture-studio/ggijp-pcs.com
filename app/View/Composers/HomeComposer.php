@@ -11,14 +11,16 @@ class HomeComposer
      * @param  \Illuminate\View\View  $view
      * @return void
      */
-    public function compose(View $view)
+    public function compose(View $view): void
     {
         $popular_materials = Material::query()
+                                     //->select('id', 'file', 'title', 'thumbnail')
                                      ->latest('download')
                                      ->limit(20)
                                      ->get();
 
         $new_materials = Material::query()
+                                 //->select('id', 'file', 'title', 'thumbnail')
                                  ->latest('id')
                                  ->limit(20)
                                  ->get();

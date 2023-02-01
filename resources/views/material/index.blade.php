@@ -27,7 +27,7 @@
             <x-h2 class="my-6">{{ request('q', 'すべての素材') }}</x-h2>
 
             <div>
-                <div class="my-6 flex flex-wrap gap-4">
+                <div class="my-6 flex flex-wrap gap-4 justify-center">
                     @foreach ($materials as $material)
                         <x-item :material="$material" :image="$material->image" :name="$material->title">
                         </x-item>
