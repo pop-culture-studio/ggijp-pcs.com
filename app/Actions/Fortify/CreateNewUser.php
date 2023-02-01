@@ -41,8 +41,6 @@ class CreateNewUser implements CreatesNewUsers
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);
-
-                $this->invite($user);
             });
         });
     }
@@ -60,30 +58,5 @@ class CreateNewUser implements CreatesNewUsers
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
         ]));
-    }
-
-    /**
-     * @param  User  $user
-     * @return void
-     */
-    protected function invite(User $user)
-    {
-        $team = Team::find(config('pcs.team_id'));
-
-        if (Features::sendsTeamInvitations()) {
-            app(InvitesTeamMembers::class)->invite(
-                $team->owner,
-                $team,
-                $user->email,
-                'member'
-            );
-        } else {
-            app(AddsTeamMembers::class)->add(
-                $team->owner,
-                $team,
-                $user->email,
-                'member'
-            );
-        }
     }
 }
