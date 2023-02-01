@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -15,7 +12,7 @@ class AuthorController extends Controller
      *
      * @param  Request  $request
      * @param  string  $author
-     * @return Application|Factory|View
+     * @return \Illuminate\Contracts\View\View
      */
     public function __invoke(Request $request, string $author)
     {
