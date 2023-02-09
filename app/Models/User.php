@@ -66,7 +66,7 @@ class User extends Authenticatable
     /**
      * @return HasMany
      */
-    public function materials()
+    public function materials(): HasMany
     {
         return $this->hasMany(Material::class);
     }
