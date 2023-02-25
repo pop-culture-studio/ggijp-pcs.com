@@ -1,12 +1,14 @@
 /node_modules
 /public/hot
 /public/build
+/public/vendor
 /public/storage
 /storage/*.key
 /vendor
 .env
 .env.backup
 .phpunit.result.cache
+/.phpunit.cache
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
