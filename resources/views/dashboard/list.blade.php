@@ -32,9 +32,9 @@
                             <td>{{ Str::limit($material->description, 50) }}</td>
                             <td>
                                 <form action="{{ route('material.edit', $material) }}">
-                                    <x-jet-button class="min-w-max">
+                                    <x-button class="min-w-max">
                                         {{ __('編集') }}
-                                    </x-jet-button>
+                                    </x-button>
                                 </form>
                             </td>
 

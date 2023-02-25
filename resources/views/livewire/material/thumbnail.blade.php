@@ -7,7 +7,7 @@
                  alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
         @endif
 
-        <x-jet-label for="file" value="{{ 'ファイル（2MBまで）' }}"/>
+        <x-label for="file" value="{{ 'ファイル（2MBまで）' }}"/>
 
         <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true, progress = 0"
              x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"
@@ -30,20 +30,20 @@
                     @endif
                 </div>
 
-                <x-jet-input-error for="thumbnail"/>
+                <x-input-error for="thumbnail"/>
             </div>
         </div>
 
 
-        <x-jet-button class="mt-2">
+        <x-button class="mt-2">
             {{ __('登録') }}
-        </x-jet-button>
+        </x-button>
 
     </form>
 
     <form wire:submit.prevent="delete">
-        <x-jet-danger-button class="mt-10" type="submit">
+        <x-danger-button class="mt-10" type="submit">
             {{ __('サムネイル画像を削除') }}
-        </x-jet-danger-button>
+        </x-danger-button>
     </form>
 </div>

@@ -16,21 +16,21 @@
 
             <!-- Navigation Links -->
             <div class="space-x-1 flex justify-center pt-1 sm:pt-0">
-                <x-jet-nav-link href="{{ route('form.contact') }}" class="whitespace-nowrap">
+                <x-nav-link href="{{ route('form.contact') }}" class="whitespace-nowrap">
                     {{ __('ご依頼はこちら') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('home') }}#popular" class="whitespace-nowrap">
+                </x-nav-link>
+                <x-nav-link href="{{ route('home') }}#popular" class="whitespace-nowrap">
                     {{ __('人気') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('home') }}#new" class="whitespace-nowrap">
+                </x-nav-link>
+                <x-nav-link href="{{ route('home') }}#new" class="whitespace-nowrap">
                     {{ __('新着') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('home') }}#category" class="whitespace-nowrap">
+                </x-nav-link>
+                <x-nav-link href="{{ route('home') }}#category" class="whitespace-nowrap">
                     {{ __('カテゴリー') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
+                </x-nav-link>
+                <x-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
                    <x-icon.instagram/><span class="sr-only">Instagram</span>
-                </x-jet-nav-link>
+                </x-nav-link>
             </div>
 
         </div>

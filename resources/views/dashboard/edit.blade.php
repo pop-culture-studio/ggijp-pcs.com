@@ -13,16 +13,16 @@
                     @csrf
                     @method('PUT')
 
-                    <x-jet-label for="file" value="{{ __('ファイルの差し替えはできません。ファイルを変更するには非公開にしてから別のファイルを新規アップロードし直してください。') }}"/>
+                    <x-label for="file" value="{{ __('ファイルの差し替えはできません。ファイルを変更するには非公開にしてから別のファイルを新規アップロードし直してください。') }}"/>
 
                     <img class="object-contain h-full sm:h-56" src="{{ $material->image }}"
                          alt="{{ $material->title }}" title="{{ $material->title }}" loading="lazy">
 
                     <div class="my-2">
-                        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
-                        <x-jet-input name="cat" type="text" value="{{ $material->categories->implode('name', ',') }}"
+                        <x-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
+                        <x-input name="cat" type="text" value="{{ $material->categories->implode('name', ',') }}"
                                      class="mt-1 block w-full sm:w-1/2" required/>
-                        <x-jet-input-error for="cat" class="mt-2"/>
+                        <x-input-error for="cat" class="mt-2"/>
 
                         <div class="my-2 text-md">基本カテゴリー
                             <span class="font-bold">
@@ -34,29 +34,29 @@
                     </div>
 
                     <div class="my-2">
-                        <x-jet-label for="title" value="{{ __('タイトル（必須）') }}"/>
-                        <x-jet-input name="title" value="{{ $material->title }}" type="text"
+                        <x-label for="title" value="{{ __('タイトル（必須）') }}"/>
+                        <x-input name="title" value="{{ $material->title }}" type="text"
                                      class="mt-1 block w-full sm:w-1/2" required/>
-                        <x-jet-input-error for="title" class="mt-2"/>
+                        <x-input-error for="title" class="mt-2"/>
                     </div>
 
                     <div class="my-2">
-                        <x-jet-label for="author" value="{{ __('作者（省略可）') }}"/>
-                        <x-jet-input name="author" value="{{ $material->author }}" type="text"
+                        <x-label for="author" value="{{ __('作者（省略可）') }}"/>
+                        <x-input name="author" value="{{ $material->author }}" type="text"
                                      class="mt-1 block w-full sm:w-1/2"/>
-                        <x-jet-input-error for="author" class="mt-2"/>
+                        <x-input-error for="author" class="mt-2"/>
                     </div>
 
                     <div class="my-2">
-                        <x-jet-label for="description" value="{{ __('説明（省略可）') }}"/>
+                        <x-label for="description" value="{{ __('説明（省略可）') }}"/>
                         <textarea name="description" rows="4" cols="40"
                                   class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">{{ $material->description }}</textarea>
-                        <x-jet-input-error for="description" class="mt-2"/>
+                        <x-input-error for="description" class="mt-2"/>
                     </div>
 
-                    <x-jet-button class="mt-2">
+                    <x-button class="mt-2">
                         {{ __('更新') }}
-                    </x-jet-button>
+                    </x-button>
 
                 </form>
 
@@ -102,16 +102,16 @@
                             @method('DELETE')
 
                             <div class="flex items-center mb-3">
-                                <x-jet-checkbox name="forceDelete"/>
+                                <x-checkbox name="forceDelete"/>
 
                                 <div class="ml-2 text-red-500">
                                     復元できないように完全に削除
                                 </div>
                             </div>
 
-                            <x-jet-danger-button type="submit">
+                            <x-danger-button type="submit">
                                 {{ __('今すぐ非公開') }}
-                            </x-jet-danger-button>
+                            </x-danger-button>
 
                         </form>
                     </details>

@@ -13,7 +13,7 @@
         </div>
 
         @if($showModal)
-            <x-jet-modal wire:model="showModal" maxWidth="xl" ring="ring-{{ $material->categoryColor }}">
+            <x-modal wire:model="showModal" maxWidth="xl" ring="ring-{{ $material->categoryColor }}">
                 <figure>
                     <img src="{{ $modalImage }}"
                          loading="lazy"
@@ -21,7 +21,7 @@
                          title="{{ $modalName }}">
                     <figcaption class="text-center text-lg">{{ $modalName }}</figcaption>
                 </figure>
-            </x-jet-modal>
+            </x-modal>
         @endif
     @endif
 </div>
