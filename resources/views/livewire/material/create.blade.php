@@ -1,6 +1,6 @@
 <form wire:submit.prevent="create">
 
-    <x-jet-label for="file"
+    <x-label for="file"
                  value="{{ 'ファイル（必須。' . config('pcs.max_upload') . 'MB以下。）' }}"/>
 
     <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true, progress = 0"
@@ -37,14 +37,14 @@
                 @endif
             </div>
 
-            <x-jet-input-error for="file"/>
+            <x-input-error for="file"/>
         </div>
     </div>
 
     <div class="my-2">
-        <x-jet-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
-        <x-jet-input name="cat" type="text" class="mt-1 block w-full sm:w-1/2" required wire:model.lazy="cat"/>
-        <x-jet-input-error for="cat" class="mt-2"/>
+        <x-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
+        <x-input name="cat" type="text" class="mt-1 block w-full sm:w-1/2" required wire:model.lazy="cat"/>
+        <x-input-error for="cat" class="mt-2"/>
 
         <div class="my-2 text-md">基本カテゴリー
             <span class="font-bold">
@@ -57,27 +57,27 @@
     </div>
 
     <div class="my-2">
-        <x-jet-label for="title" value="{{ __('タイトル（省略時はファイル名）') }}"/>
-        <x-jet-input name="title" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="title"/>
-        <x-jet-input-error for="title" class="mt-2"/>
+        <x-label for="title" value="{{ __('タイトル（省略時はファイル名）') }}"/>
+        <x-input name="title" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="title"/>
+        <x-input-error for="title" class="mt-2"/>
     </div>
 
     <div class="my-2">
-        <x-jet-label for="author" value="{{ __('作者（省略可）') }}"/>
-        <x-jet-input name="author" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="author"/>
-        <x-jet-input-error for="author" class="mt-2"/>
+        <x-label for="author" value="{{ __('作者（省略可）') }}"/>
+        <x-input name="author" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="author"/>
+        <x-input-error for="author" class="mt-2"/>
     </div>
 
     <div class="my-2">
-        <x-jet-label for="description" value="{{ __('説明（省略可）') }}"/>
+        <x-label for="description" value="{{ __('説明（省略可）') }}"/>
         <textarea name="description" rows="4" cols="40" wire:model.defer="description"
                   class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
-        <x-jet-input-error for="description" class="mt-2"/>
+        <x-input-error for="description" class="mt-2"/>
     </div>
 
-    <x-jet-button class="mt-2">
+    <x-button class="mt-2">
         {{ __('アップロード') }}
-    </x-jet-button>
+    </x-button>
 
     <details class="mt-3 p-3 bg-indigo-100 rounded-md">
         <summary>ヘルプ</summary>
