@@ -19,7 +19,7 @@ class LivewireCreateTest extends TestCase
 
     public function test_create()
     {
-        Storage::fake('materials');
+        Storage::fake('tmp-for-tests');
 
         $file = UploadedFile::fake()->image('test.png');
 
@@ -59,7 +59,7 @@ class LivewireCreateTest extends TestCase
 
     public function test_required_cat()
     {
-        Storage::fake('materials');
+        Storage::fake('tmp-for-tests');
 
         $file = UploadedFile::fake()->image('test.png');
 

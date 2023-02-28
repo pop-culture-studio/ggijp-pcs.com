@@ -4,16 +4,15 @@ namespace App\Models;
 
 use App\Casts\Material\CategoryColor;
 use App\Casts\Material\Image;
-use Illuminate\Contracts\Database\Query\Builder;
+use App\Models\Concerns\MaterialFeed;
+use App\Models\Concerns\MaterialScope;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Arr;
 use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 
 /**
  * @mixin IdeHelperMaterial
@@ -22,6 +21,8 @@ class Material extends Model implements Feedable
 {
     use HasFactory;
     use SoftDeletes;
+    use MaterialScope;
+    use MaterialFeed;
 
     protected $fillable = [
         'file',
@@ -80,45 +81,5 @@ class Material extends Model implements Feedable
         return Attribute::make(
             get: fn ($value) => $this->categories?->first()
         );
-    }
-
-    /**
-     * @param  Builder  $query
-     * @param  string|null  $search
-     * @return Builder
-     */
-    public function scopeKeywordSearch(Builder $query, ?string $search): Builder
-    {
-        return $query->when(filled($search), function (Builder $query, $b) use ($search) {
-            return $query->where(function (Builder $query) use ($search) {
-                $query->where('title', 'like', "%$search%")
-                      ->orWhere('description', 'like', "%$search%")
-                      ->orWhere('author', 'like', "%$search%")
-                      ->orWhereHas('categories', function (Builder $query) use ($search) {
-                          $query->where('name', 'like', "%$search%");
-                      })
-                      ->orWhereHas('user', function (Builder $query) use ($search) {
-                          $query->where('name', 'like', "%$search%");
-                      });
-            });
-        });
-    }
-
-    public function toFeedItem(): FeedItem
-    {
-        return FeedItem::create()
-                       ->id(route('material.show', $this->id))
-                       ->title($this->title)
-                       ->summary($this->description ?? '')
-                       ->image($this->image)
-                       ->category(...$this->categories->pluck('name'))
-                       ->updated($this->updated_at)
-                       ->link(route('material.show', $this->id))
-                       ->authorName(filled($this->author) ? $this->author : config('app.name'));
-    }
-
-    public static function getFeedItems()
-    {
-        return Material::latest('id')->take(10)->get();
     }
 }

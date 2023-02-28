@@ -8,6 +8,9 @@ use InvalidArgumentException;
 
 /**
  * Material Image Cast.
+ *
+ * @template TGet
+ * @template TSet
  */
 class Image implements CastsAttributes
 {
@@ -18,7 +21,7 @@ class Image implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
-     * @return mixed
+     * @return TGet|null
      */
     public function get($model, string $key, $value, array $attributes)
     {
@@ -72,12 +75,12 @@ class Image implements CastsAttributes
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  string  $key
-     * @param  mixed  $value
+     * @param  TSet|null  $value
      * @param  array  $attributes
      * @return mixed
      */
     public function set($model, string $key, $value, array $attributes)
     {
-        throw new \LogicException();
+        throw new InvalidArgumentException();
     }
 }

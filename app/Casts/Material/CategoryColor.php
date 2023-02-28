@@ -4,9 +4,13 @@ namespace App\Casts\Material;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Arr;
+use InvalidArgumentException;
 
 /**
  * Material CategoryColor Cast.
+ *
+ * @template TGet
+ * @template TSet
  */
 class CategoryColor implements CastsAttributes
 {
@@ -17,7 +21,7 @@ class CategoryColor implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
-     * @return mixed
+     * @return TGet|null
      */
     public function get($model, string $key, $value, array $attributes)
     {
@@ -33,12 +37,12 @@ class CategoryColor implements CastsAttributes
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  string  $key
-     * @param  mixed  $value
+     * @param  TSet|null  $value
      * @param  array  $attributes
      * @return mixed
      */
     public function set($model, string $key, $value, array $attributes)
     {
-        throw new \LogicException();
+        throw new InvalidArgumentException();
     }
 }
