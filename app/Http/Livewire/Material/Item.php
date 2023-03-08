@@ -22,7 +22,7 @@ class Item extends Component
 
     public function mount()
     {
-        $this->material = $this->material->fresh();
+        $this->material->refresh();
     }
 
     public function render(): View
