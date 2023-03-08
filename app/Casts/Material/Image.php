@@ -3,6 +3,7 @@
 namespace App\Casts\Material;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use InvalidArgumentException;
 
@@ -17,18 +18,18 @@ class Image implements CastsAttributes
     /**
      * Cast the given value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  Model  $model
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
      * @return TGet|null
      */
-    public function get($model, string $key, $value, array $attributes)
+    public function get(Model $model, string $key, mixed $value, array $attributes)
     {
         return rescue(fn () => $this->url($model), config('pcs.not_found_image'));
     }
 
-    private function url($model): string
+    private function url(Model $model): string
     {
         if (blank($model->file)) {
             throw new InvalidArgumentException();
@@ -73,13 +74,13 @@ class Image implements CastsAttributes
     /**
      * Prepare the given value for storage.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  Model  $model
      * @param  string  $key
      * @param  TSet|null  $value
      * @param  array  $attributes
      * @return mixed
      */
-    public function set($model, string $key, $value, array $attributes)
+    public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
         throw new InvalidArgumentException();
     }

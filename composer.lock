@@ -4671,16 +4671,16 @@
         },
         {
             "name": "puklipo/laravel-vapor-gzip",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pop-culture-studio/laravel-vapor-gzip.git",
-                "reference": "954f44ec03bc9e5bdf05e4633abbed578c6f49e5"
+                "reference": "f1a9b0ecfd1b11123a82a0a5dca45649b1c6b4de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pop-culture-studio/laravel-vapor-gzip/zipball/954f44ec03bc9e5bdf05e4633abbed578c6f49e5",
-                "reference": "954f44ec03bc9e5bdf05e4633abbed578c6f49e5",
+                "url": "https://api.github.com/repos/pop-culture-studio/laravel-vapor-gzip/zipball/f1a9b0ecfd1b11123a82a0a5dca45649b1c6b4de",
+                "reference": "f1a9b0ecfd1b11123a82a0a5dca45649b1c6b4de",
                 "shasum": ""
             },
             "require": {
@@ -4712,9 +4712,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pop-culture-studio/laravel-vapor-gzip/issues",
-                "source": "https://github.com/pop-culture-studio/laravel-vapor-gzip/tree/1.1.0"
+                "source": "https://github.com/pop-culture-studio/laravel-vapor-gzip/tree/1.1.1"
             },
-            "time": "2023-01-30T04:19:15+00:00"
+            "time": "2023-03-08T01:36:47+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

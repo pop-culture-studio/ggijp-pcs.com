@@ -3,6 +3,7 @@
 namespace App\Models\Concerns;
 
 use App\Models\Material;
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\Feed\FeedItem;
 
 trait MaterialFeed
@@ -20,7 +21,7 @@ trait MaterialFeed
                        ->authorName(filled($this->author) ? $this->author : config('app.name'));
     }
 
-    public static function getFeedItems()
+    public static function getFeedItems(): Collection
     {
         return Material::latest('id')->take(10)->get();
     }
