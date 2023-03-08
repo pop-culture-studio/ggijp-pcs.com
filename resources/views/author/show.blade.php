@@ -27,8 +27,7 @@
             <div class="my-6">
                 <div class="flex flex-wrap gap-4 justify-center">
                     @foreach ($materials as $material)
-                        <x-item :material="$material" :image="$material->image" :name="$material->title">
-                        </x-item>
+                        <livewire:material.item :material="$material"></livewire:material.item>
                     @endforeach
                 </div>
 

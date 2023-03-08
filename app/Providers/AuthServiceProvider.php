@@ -24,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         Gate::define('admin', function (User $user) {
             return $user->hasTeamPermission(Team::find(config('pcs.team_id')), 'admin');
