@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Material;
 
 use App\Models\User;
