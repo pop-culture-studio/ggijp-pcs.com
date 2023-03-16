@@ -1,6 +1,6 @@
 <div>
     <x-button wire:click="update">
-        {{ __('説明を再生成する') }}
+        {{ __('説明を再生成') }}
     </x-button>
 
     @if (session()->has('message'))
