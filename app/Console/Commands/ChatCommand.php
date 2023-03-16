@@ -36,6 +36,7 @@ class ChatCommand extends Command
                                 'author',
                             ])
                             ->whereNull('chat')
+                            ->latest()
                             ->first();
 
         if (blank($material)) {
