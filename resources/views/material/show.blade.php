@@ -60,6 +60,14 @@
                         </x-badge>
                     @endif
 
+                    @if ($material->chat)
+                        <div
+                            class="text-sm bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
+                            {{ $material->chat }}
+                            <div class="font-bold">この説明はChatGPTによる自動生成です。</div>
+                        </div>
+                    @endif
+
                     @can('update', $material)
                         <div class="p-1 m-1 text-right">
                             <a href="{{ route('material.edit', $material) }}"

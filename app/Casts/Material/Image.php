@@ -39,6 +39,8 @@ class Image implements CastsAttributes
             return Storage::url($model->file);
         }
 
+        $mime = cache()->rememberForever('mimetype:'.$model->id, fn () => Storage::mimeType($model->file));
+
         if (filled($model->thumbnail) && Storage::exists($model->thumbnail)) {
             return Storage::temporaryUrl(
                 $model->thumbnail,
@@ -47,8 +49,6 @@ class Image implements CastsAttributes
                     'ResponseCacheControl' => 'max-age=31536000',
                 ]);
         }
-
-        $mime = cache()->rememberForever('mimetype:'.$model->id, fn () => Storage::mimeType($model->file));
 
         if (str_contains($mime, 'image/')) {
             return Storage::temporaryUrl(
