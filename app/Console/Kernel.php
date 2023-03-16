@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ChatCommand;
 use App\Jobs\SitemapJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -19,6 +20,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $schedule->job(SitemapJob::class)->dailyAt('04:00');
+
+        $schedule->command(ChatCommand::class)->hourly();
     }
 
     /**
