@@ -32,13 +32,13 @@ class ChatJob implements ShouldQueue
         $this->category->load('materials');
         $this->category->loadCount('materials');
 
-//        foreach ($this->category->materials as $material) {
-//            dump($material->title);
-//        }
+        //        foreach ($this->category->materials as $material) {
+        //            dump($material->title);
+        //        }
 
         $prompt = collect([
             $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta descriptionを一つ',
-            '素材例：'.$this->category->materials->pluck('title')->join(' '),
+            'カテゴリー内の素材例：'.$this->category->materials->pluck('title')->join(' '),
         ])->join(PHP_EOL);
 
         //dump($prompt);
@@ -50,9 +50,9 @@ class ChatJob implements ShouldQueue
             ],
         ]);
 
-        //        foreach ($response->choices as $result) {
-        //            dump($result->message->content);
-        //        }
+        foreach ($response->choices as $result) {
+            dump($result->message->content);
+        }
 
         $result = head($response->choices);
 
