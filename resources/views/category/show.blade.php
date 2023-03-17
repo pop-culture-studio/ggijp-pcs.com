@@ -10,7 +10,7 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ $category->name }}カテゴリーの素材一覧
+                {{ $category->description }}
             </x-slot>
         </x-ogp>
     </x-slot>
@@ -24,7 +24,17 @@
 
             @includeIf('category-menu')
 
-            <x-h2 class="my-6">{{ $category->name }}<x-category-count :name="$category->name" class="ml-1"></x-category-count></x-h2>
+            <x-h2 class="my-6">{{ $category->name }}
+                <x-category-count :name="$category->name" class="ml-1"></x-category-count>
+            </x-h2>
+
+            @if (filled($category->description))
+                <div
+                    class="text-sm bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
+                    {{ $category->description }}
+                    <div class="font-bold">この説明はChatGPTによる自動生成です。</div>
+                </div>
+            @endif
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4 justify-center">

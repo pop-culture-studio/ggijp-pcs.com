@@ -90,21 +90,6 @@
         </div>
     </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-            <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
-                <h2 class="text-3xl mb-3">ChatGPTによる説明</h2>
-
-                <div class="mb-5">{{ $material->chat }}</div>
-
-                <livewire:material.update-chat :material="$material"/>
-
-            </div>
-        </div>
-    </div>
-
-
     @can('delete', $material)
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

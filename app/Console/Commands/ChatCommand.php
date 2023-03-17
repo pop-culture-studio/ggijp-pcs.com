@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\ChatJob;
+use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Console\Command;
 
@@ -13,38 +14,30 @@ class ChatCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'material:chat';
+    protected $signature = 'chatgpt';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update material description by ChatGPT';
+    protected $description = 'Update category description by ChatGPT';
 
     /**
      * Execute the console command.
      */
     public function handle(): void
     {
-        $material = Material::query()
-                            ->select([
-                                'id',
-                                'title',
-                                'description',
-                                'created_at',
-                                'author',
-                            ])
-                            ->whereNull('chat')
-                            ->latest()
+        $category = Category::query()
+                            ->oldest('updated_at')
                             ->first();
 
-        if (blank($material)) {
+        if (blank($category)) {
             return;
         }
 
-        dump($material->toArray());
+        dump($category->toArray());
 
-        ChatJob::dispatch($material);
+        ChatJob::dispatch($category);
     }
 }

@@ -19,7 +19,7 @@ class ChatJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(protected Material $material)
+    public function __construct(protected Category $category)
     {
         //
     }
@@ -29,16 +29,16 @@ class ChatJob implements ShouldQueue
      */
     public function handle(): void
     {
+        $this->category->load('materials');
+        $this->category->loadCount('materials');
+
+//        foreach ($this->category->materials as $material) {
+//            dump($material->title);
+//        }
+
         $prompt = collect([
-            '次のフリー素材の説明文を作成',
-            '',
-            'タイトル：'.$this->material->title,
-            '作者：'.$this->material->author,
-            '説明：'.$this->material->description,
-            '公開日：'.$this->material->created_at->toDateString(),
-            //'メインカテゴリー：'.$this->material->categories->first()->name,
-            'カテゴリー：'.$this->material->categories->map(fn (Category $cat) => $cat->name)->join(', '),
-            'ファイルタイプ：'.cache('mimetype:'.$this->material->id),
+            $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta description',
+            '素材例：'.$this->category->materials->pluck('title')->join(' '),
         ])->join(PHP_EOL);
 
         //dump($prompt);
@@ -50,14 +50,14 @@ class ChatJob implements ShouldQueue
             ],
         ]);
 
-//        foreach ($response->choices as $result) {
-//            dump($result->message->content);
-//        }
+        //        foreach ($response->choices as $result) {
+        //            dump($result->message->content);
+        //        }
 
         $result = head($response->choices);
 
-        $this->material->forceFill([
-            'chat' => trim($result->message->content),
+        $this->category->forceFill([
+            'description' => trim($result->message->content),
         ])->save();
     }
 }
