@@ -3,17 +3,17 @@
 namespace App\Http\Livewire\Material;
 
 use App\Jobs\ChatJob;
-use App\Models\Material;
+use App\Models\Category;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class UpdateChat extends Component
 {
-    public Material $material;
+    public Category $category;
 
     public function update(): void
     {
-        ChatJob::dispatch($this->material);
+        ChatJob::dispatch($this->category);
 
         session()->flash('message', 'ChatGPTによる説明を更新中。少し待ってからリロードしてください。');
     }
