@@ -3,6 +3,10 @@
         カテゴリー {{ $category->name }}
     </x-slot>
 
+    <x-slot name="description">
+        {{ $category->description }}
+    </x-slot>
+
     <x-slot name="ogp">
         <x-ogp>
             <x-slot name="title">
