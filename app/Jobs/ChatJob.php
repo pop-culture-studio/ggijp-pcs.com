@@ -50,9 +50,9 @@ class ChatJob implements ShouldQueue
             ],
         ]);
 
-        foreach ($response->choices as $result) {
-            dump($result->message->content);
-        }
+//        foreach ($response->choices as $result) {
+//            dump($result->message->content);
+//        }
 
         $result = head($response->choices);
 
