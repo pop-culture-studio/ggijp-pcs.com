@@ -29,6 +29,7 @@ class ChatCommand extends Command
     public function handle(): void
     {
         $category = Category::query()
+                            ->has('materials')
                             ->oldest('updated_at')
                             ->first();
 
