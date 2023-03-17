@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Jobs\ChatJob;
 use App\Models\Category;
-use App\Models\Material;
 use Illuminate\Console\Command;
 
 class ChatCommand extends Command
