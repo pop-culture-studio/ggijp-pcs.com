@@ -15,12 +15,12 @@ class AuthorTest extends TestCase
     {
         $user = User::factory()->withPersonalTeam()->withMaterials()->create();
 
-        $author = Material::first();
+        $author = Material::first()->author;
 
         $response = $this->get(route('author', $author));
 
         $response->assertSuccessful()
-                 ->assertViewHasAll(['author', 'materials']);
+                 ->assertViewHasAll(['author' => $author, 'materials']);
     }
 
     public function test_creator()
@@ -30,6 +30,6 @@ class AuthorTest extends TestCase
         $response = $this->get(route('creator', $user));
 
         $response->assertSuccessful()
-                 ->assertViewHasAll(['user', 'materials']);
+                 ->assertViewHasAll(['user' => $user, 'materials']);
     }
 }
