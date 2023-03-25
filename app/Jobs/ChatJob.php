@@ -29,6 +29,10 @@ class ChatJob implements ShouldQueue
      */
     public function handle(): void
     {
+        if (blank(config('openai.api_key'))) {
+            return;
+        }
+
         $this->category->load('materials');
         $this->category->loadCount('materials');
 
