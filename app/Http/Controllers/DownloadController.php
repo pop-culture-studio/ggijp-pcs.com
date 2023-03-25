@@ -14,9 +14,7 @@ class DownloadController extends Controller
      */
     public function __invoke(Request $request, Material $material): RedirectResponse
     {
-        dispatch(function () use ($material) {
-            Material::withoutTimestamps(fn () => $material->increment('download'));
-        });
+        dispatch(fn () => Material::withoutTimestamps(fn () => $material->increment('download')));
 
         return redirect(
             Storage::temporaryUrl(
