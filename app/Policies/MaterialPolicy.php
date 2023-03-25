@@ -31,8 +31,7 @@ class MaterialPolicy
      */
     public function view(?User $user, Material $material)
     {
-        return $material->user->is($user)
-            || $material->user->belongsToTeam(Team::find(config('pcs.team_id')));
+        return true;
     }
 
     /**
