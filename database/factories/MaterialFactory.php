@@ -19,7 +19,7 @@ class MaterialFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'file' => $this->faker->url(),
