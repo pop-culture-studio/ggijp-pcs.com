@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AuthorController extends Controller
 {
@@ -14,7 +15,7 @@ class AuthorController extends Controller
      * @param  string  $author
      * @return \Illuminate\Contracts\View\View
      */
-    public function __invoke(Request $request, string $author)
+    public function __invoke(Request $request, string $author): View
     {
         $materials = Material::query()
                              ->where('author', $author)

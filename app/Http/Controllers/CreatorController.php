@@ -3,21 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CreatorController extends Controller
 {
     /**
      * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  User  $user
-     * @return Application|Factory|View
      */
-    public function __invoke(Request $request, User $user)
+    public function __invoke(Request $request, User $user): View
     {
         $materials = $user->materials()
                           ->latest('id')

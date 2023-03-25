@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
+use Throwable;
 
 class MaterialController extends Controller
 {
@@ -25,10 +24,8 @@ class MaterialController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
-     * @return Application|Factory|View
      */
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $materials = Material::keywordSearch($request->query('q'))
                              //->select('id', 'file', 'title', 'thumbnail')
@@ -41,11 +38,8 @@ class MaterialController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Material  $material
-     * @return Application|Factory|View
      */
-    public function show(Material $material)
+    public function show(Material $material): View
     {
         abort_if(Storage::missing($material->file), 404);
 
@@ -54,11 +48,8 @@ class MaterialController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Material  $material
-     * @return Application|Factory|View
      */
-    public function edit(Material $material)
+    public function edit(Material $material): View
     {
         return view('dashboard.edit')->with(compact('material'));
     }
@@ -66,11 +57,9 @@ class MaterialController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Material  $material
-     * @return RedirectResponse
+     * @throws Throwable
      */
-    public function update(MaterialUpdateRequest $request, Material $material)
+    public function update(MaterialUpdateRequest $request, Material $material): RedirectResponse
     {
         DB::transaction(function () use ($request, $material) {
             $title = $request->input('title');
@@ -100,11 +89,8 @@ class MaterialController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Material  $material
-     * @return RedirectResponse
      */
-    public function destroy(Request $request, Material $material)
+    public function destroy(Request $request, Material $material): RedirectResponse
     {
         if ($request->boolean('forceDelete')) {
             Storage::delete($material->file);
