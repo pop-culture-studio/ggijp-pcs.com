@@ -29,7 +29,7 @@ class CategoryTest extends TestCase
         $response->assertSuccessful()
                  ->assertViewHasAll([
                      'category' => $cat,
-                     'materials'
+                     'materials',
                  ]);
     }
 }
