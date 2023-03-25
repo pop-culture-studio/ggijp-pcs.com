@@ -32,7 +32,7 @@ class SitemapJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $sitemap = Sitemap::create()
                           ->add(Url::create('/'))
@@ -40,18 +40,16 @@ class SitemapJob implements ShouldQueue
                           ->add(Url::create(route('about')))
                           ->add(Url::create(route('faq')));
 
-        Category::has('materials')->lazy()->each(function (Category $category) use ($sitemap) {
-            $sitemap->add(
-                Url::create(route('category.show', $category))
-            );
-        });
+        Category::has('materials')->lazy()
+                ->each(fn (Category $category) => $sitemap->add(
+                    Url::create(route('category.show', $category))
+                ));
 
-        Material::latest()->lazy()->each(function (Material $material) use ($sitemap) {
-            $sitemap->add(
-                Url::create(route('material.show', $material))
-                   ->setLastModificationDate($material->updated_at)
-            );
-        });
+        Material::latest()->lazy()
+                ->each(fn (Material $material) => $sitemap->add(
+                    Url::create(route('material.show', $material))
+                       ->setLastModificationDate($material->updated_at)
+                ));
 
         $sitemap->writeToDisk('s3', 'sitemap.xml');
     }
