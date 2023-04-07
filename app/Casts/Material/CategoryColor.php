@@ -5,7 +5,7 @@ namespace App\Casts\Material;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use InvalidArgumentException;
+use RuntimeException;
 
 /**
  * Material CategoryColor Cast.
@@ -44,6 +44,6 @@ class CategoryColor implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        throw new InvalidArgumentException();
+        throw new RuntimeException();
     }
 }
