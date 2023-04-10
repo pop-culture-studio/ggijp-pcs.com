@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -58,7 +57,7 @@ class Create extends Component
      * @throws AuthorizationException
      * @throws Throwable
      */
-    public function create(): RedirectResponse
+    public function create()
     {
         $this->authorize('create', Material::class);
 
