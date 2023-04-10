@@ -22,18 +22,15 @@ class ContactNotification extends Notification implements ShouldQueue
      * @return void
      */
     public function __construct(
-        protected Contact $contact
+        protected Contact $contact,
     ) {
         //
     }
 
     /**
      * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
      */
-    public function via($notifiable)
+    public function via(object $notifiable): array
     {
         return collect(['mail'])
             ->when(
@@ -44,11 +41,8 @@ class ContactNotification extends Notification implements ShouldQueue
 
     /**
      * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
             ->subject(config('pcs.contact.subject'))
@@ -60,26 +54,9 @@ class ContactNotification extends Notification implements ShouldQueue
             ->salutation(__('このメールに返信はできないので問い合わせへの対応は新規メールを送信してください。'));
     }
 
-    /**
-     * @param  mixed  $notifiable
-     * @return LineNotifyMessage
-     */
-    public function toLineNotify($notifiable)
+    public function toLineNotify(object $notifiable): LineNotifyMessage
     {
         return LineNotifyMessage::create('問い合わせがありました。'.PHP_EOL.
             URL::temporarySignedRoute('contact.preview', now()->addDay(), $this->contact));
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
     }
 }
