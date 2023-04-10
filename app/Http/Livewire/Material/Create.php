@@ -6,13 +6,15 @@ use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use JetBrains\PhpStorm\ArrayShape;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
+use Throwable;
 
 class Create extends Component
 {
@@ -29,7 +31,6 @@ class Create extends Component
 
     public ?string $author = null;
 
-    #[ArrayShape(['file' => 'string[]', 'cat' => 'string'])]
     protected function rules(): array
     {
         return [
@@ -38,7 +39,6 @@ class Create extends Component
         ];
     }
 
-    #[ArrayShape(['cat.required' => 'string'])]
     protected function messages(): array
     {
         return [
@@ -49,16 +49,16 @@ class Create extends Component
     /**
      * @throws ValidationException
      */
-    public function updated(string $propertyName)
+    public function updated(string $propertyName): void
     {
         $this->validateOnly($propertyName);
     }
 
     /**
      * @throws AuthorizationException
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function create()
+    public function create(): RedirectResponse
     {
         $this->authorize('create', Material::class);
 
@@ -103,7 +103,7 @@ class Create extends Component
         return redirect()->route('dashboard');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.material.create');
     }
