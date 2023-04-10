@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -19,13 +20,13 @@ class ContactForm extends Component
         'body' => 'required',
     ];
 
-    public function ready(Request $request)
+    public function ready(Request $request): void
     {
         $this->name = $request->cookie('name', '');
         $this->email = $request->cookie('email', '');
     }
 
-    public function sendmail()
+    public function sendmail(): void
     {
         $this->validate();
 
@@ -43,7 +44,7 @@ class ContactForm extends Component
         session()->flash('mail_success', true);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.contact-form');
     }
