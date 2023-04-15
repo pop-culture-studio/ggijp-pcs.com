@@ -44,11 +44,4 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
-
-    public function materials()
-    {
-        $users = $this->allUsers()->pluck('id');
-
-        return Material::whereIn('user_id', $users);
-    }
 }
