@@ -26,8 +26,14 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //未来図倉庫チーム管理者
         Gate::define('admin', function (User $user) {
             return $user->hasTeamPermission(Team::find(config('pcs.team_id')), 'admin');
+        });
+
+        //未来図倉庫チームメンバー
+        Gate::define('pcs', function (User $user) {
+            return $user->belongsToTeam(Team::find(config('pcs.team_id')));
         });
     }
 }
