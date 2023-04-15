@@ -15,7 +15,7 @@ class MaterialsController extends Controller
      */
     public function __invoke(Request $request): View
     {
-        $this->authorize('create', Material::class);
+        $this->authorize('pcs');
 
         $materials = Material::query()
                              ->latest('id')
