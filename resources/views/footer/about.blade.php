@@ -15,7 +15,7 @@
         <li>
             <a href="{{ route('policy.show') }}" class="hover:underline">{{ __('プライバシーポリシー') }}</a>
         </li>
-        @can('create', App\Models\Material::class)
+        @can('pcs')
             <li>
                 <a href="{{ route('dashboard') }}" class="font-bold text-indigo-500 hover:underline">{{ __('ダッシュボード') }}</a>
             </li>

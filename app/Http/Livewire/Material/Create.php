@@ -59,7 +59,7 @@ class Create extends Component
      */
     public function create()
     {
-        $this->authorize('create', Material::class);
+        $this->authorize('pcs');
 
         $this->validate();
 

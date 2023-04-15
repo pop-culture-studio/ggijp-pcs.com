@@ -42,7 +42,7 @@ class MaterialPolicy
      */
     public function create(User $user)
     {
-        return $user->belongsToTeam(Team::find(config('pcs.team_id')));
+        return $user->can('pcs');
     }
 
     /**
