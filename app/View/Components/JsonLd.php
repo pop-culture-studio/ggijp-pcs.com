@@ -3,11 +3,11 @@
 namespace App\View\Components;
 
 use App\Models\Material;
+use App\Support\JsonLd\ImageObject;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use JsonLd\Context;
-use App\Support\JsonLd\ImageObject;
 use JsonLd\ContextTypes\Person;
 
 class JsonLd extends Component

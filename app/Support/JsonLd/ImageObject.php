@@ -8,7 +8,7 @@ use JsonLd\ContextTypes\Person;
 class ImageObject extends AbstractContext
 {
     /**
-     * Property structure
+     * Property structure.
      *
      * @var array
      */
