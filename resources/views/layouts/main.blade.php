@@ -15,6 +15,10 @@
         {{ $ogp }}
     @endisset
 
+    @isset($json_ld)
+        {{ $json_ld }}
+    @endisset
+
     <x-feed-links />
 
     <!-- Fonts -->

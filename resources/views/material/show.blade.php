@@ -23,6 +23,10 @@
         </x-ogp>
     </x-slot>
 
+    <x-slot name="json_ld">
+        <x-json-ld :material="$material" />
+    </x-slot>
+
     <div class="py-6">
         <div class="px-3 sm:px-6 lg:px-8">
 
