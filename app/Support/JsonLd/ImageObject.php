@@ -3,7 +3,6 @@
 namespace App\Support\JsonLd;
 
 use JsonLd\ContextTypes\AbstractContext;
-use JsonLd\ContextTypes\Person;
 
 class ImageObject extends AbstractContext
 {
