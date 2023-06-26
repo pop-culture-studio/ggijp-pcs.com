@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\JsonLd;
 
 use App\Models\Material;
 use App\Support\JsonLd\ImageObject;
@@ -10,7 +10,7 @@ use Illuminate\View\Component;
 use JsonLd\Context;
 use JsonLd\ContextTypes\Person;
 
-class JsonLd extends Component
+class Image extends Component
 {
     /**
      * Create a new component instance.
@@ -37,6 +37,6 @@ class JsonLd extends Component
             'license' => route('terms.show'),
         ]);
 
-        return view('components.json-ld')->with(compact('context'));
+        return view('components.json-ld.image')->with(compact('context'));
     }
 }
