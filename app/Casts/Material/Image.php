@@ -44,7 +44,7 @@ class Image implements CastsAttributes
         if (filled($model->thumbnail) && Storage::exists($model->thumbnail)) {
             return Storage::temporaryUrl(
                 $model->thumbnail,
-                now()->addDays(30),
+                now()->addDays(7),//指定できるのは最長で1週間まで
                 [
                     'ResponseCacheControl' => 'max-age=31536000',
                 ]);
@@ -53,7 +53,7 @@ class Image implements CastsAttributes
         if (str_contains($mime, 'image/')) {
             return Storage::temporaryUrl(
                 $model->file,
-                now()->addDays(30),
+                now()->addDays(7),//指定できるのは最長で1週間まで
                 [
                     'ResponseCacheControl' => 'max-age=31536000',
                 ]);
