@@ -8,7 +8,6 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use JsonLd\Context;
-use JsonLd\ContextTypes\Person;
 
 class Image extends Component
 {
