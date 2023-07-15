@@ -29,10 +29,14 @@ class Image extends Component
         $name = empty($this->material->author) ? config('app.name') : $this->material->author;
 
         $context = Context::create(ImageObject::class, [
-            'creator' => new Person(compact('name')),
+            'creator' => [
+                'name' => $name,
+            ],
             'creditText' => config('app.name'),
             'contentUrl' => $this->material->image,
             'license' => route('terms.show'),
+            'acquireLicensePage' => route('terms.show'),
+            'copyrightNotice' => $name,
         ]);
 
         return view('components.json-ld.image')->with(compact('context'));
