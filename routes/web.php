@@ -34,8 +34,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 });
 
 Route::get('contact/preview/{contact}', ContactPreviewController::class)
-     ->name('contact.preview')
-     ->middleware('signed');
+    ->name('contact.preview')
+    ->middleware('signed');
 
 Route::get('creator/{user}', CreatorController::class)->name('creator');
 Route::redirect('creator', '/');
@@ -52,8 +52,8 @@ Route::redirect('category', '/');
 
 Route::get('sitemap', SitemapController::class)->name('sitemap');
 
-Route::view('contact', 'pages.contact')->name('form.contact');
-Route::view('about', 'pages.about')->name('about');
-Route::view('faq', 'pages.faq')->name('faq');
+Route::view('contact', 'contact')->name('form.contact');
+Route::view('about', 'static.about')->name('about');
+Route::view('faq', 'static.faq')->name('faq');
 
 Route::feeds();
