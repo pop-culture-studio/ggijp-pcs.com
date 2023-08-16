@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Material;
 
 use App\Models\Category;
-use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\DB;
@@ -84,15 +83,15 @@ class Create extends Component
             ]);
 
             $cats = Str::of($this->cat)
-                       ->replace('/', '／')
-                       ->replace('#', '＃')
-                       ->explode(',')
-                       ->map(fn ($cat) => trim($cat))
-                       ->unique()
-                       ->reject(fn ($cat) => empty($cat))
-                       ->map(fn ($cat) => Category::firstOrCreate([
-                           'name' => $cat,
-                       ]));
+                ->replace('/', '／')
+                ->replace('#', '＃')
+                ->explode(',')
+                ->map(fn ($cat) => trim($cat))
+                ->unique()
+                ->reject(fn ($cat) => empty($cat))
+                ->map(fn ($cat) => Category::firstOrCreate([
+                    'name' => $cat,
+                ]));
 
             $material->categories()->sync($cats->pluck('id'));
 

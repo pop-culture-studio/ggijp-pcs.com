@@ -14,8 +14,8 @@ class CreatorController extends Controller
     public function __invoke(Request $request, User $user): View
     {
         $materials = $user->materials()
-                          ->latest('id')
-                          ->paginate();
+            ->latest('id')
+            ->paginate();
 
         return view('creator.show')->with(compact('user', 'materials'));
     }
