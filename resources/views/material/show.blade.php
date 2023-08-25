@@ -24,7 +24,7 @@
     </x-slot>
 
     <x-slot name="json_ld">
-        <x-json-ld.image :material="$material" />
+        <x-json-ld.image :material="$material"/>
     </x-slot>
 
     <div class="py-6">

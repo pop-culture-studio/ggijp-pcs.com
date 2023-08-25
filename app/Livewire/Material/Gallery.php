@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\Support\Facades\Storage;

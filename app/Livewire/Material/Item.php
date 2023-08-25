@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\View\View;
@@ -11,18 +11,20 @@ class Item extends Component
     public bool $ready = false;
 
     public Material $material;
+
     public string $image;
 
-    public function onReady(): void
-    {
-        $this->ready = true;
-
-        $this->image = $this->material->image;
-    }
+    //    public function onReady(): void
+    //    {
+    //        $this->ready = true;
+    //
+    //        $this->image = $this->material->image;
+    //    }
 
     public function mount(): void
     {
-        $this->material->refresh();
+        //$this->material->refresh();
+        $this->image = $this->material->image;
     }
 
     public function render(): View

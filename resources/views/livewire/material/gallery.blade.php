@@ -13,7 +13,7 @@
         </div>
 
         @if($showModal)
-            <x-modal wire:model="showModal" maxWidth="xl" ring="ring-{{ $material->categoryColor }}">
+            <x-modal wire:model.live="showModal" maxWidth="xl" ring="ring-{{ $material->categoryColor }}">
                 <figure>
                     <img src="{{ $modalImage }}"
                          loading="lazy"

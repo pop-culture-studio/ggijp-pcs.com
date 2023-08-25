@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Category;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Throwable;
 

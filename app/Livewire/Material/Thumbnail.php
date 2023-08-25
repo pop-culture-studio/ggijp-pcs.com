@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class Thumbnail extends Component
