@@ -23,7 +23,7 @@ class Item extends Component
 
     public function mount(): void
     {
-        //$this->material->refresh();
+        $this->material->refresh();
         $this->image = $this->material->image;
     }
 
