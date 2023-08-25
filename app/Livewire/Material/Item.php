@@ -14,16 +14,17 @@ class Item extends Component
 
     public string $image;
 
-    public function onReady(): void
-    {
-        $this->ready = true;
-
-        $this->image = $this->material->image;
-    }
+    //    public function onReady(): void
+    //    {
+    //        $this->ready = true;
+    //
+    //        $this->image = $this->material->image;
+    //    }
 
     public function mount(): void
     {
         //$this->material->refresh();
+        $this->image = $this->material->image;
     }
 
     public function render(): View
