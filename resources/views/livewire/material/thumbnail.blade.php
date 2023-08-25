@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="update">
+    <form wire:submit="update">
 
         @if (!empty($material->thumbnail))
             <img class="object-contain h-full sm:h-56"
@@ -14,7 +14,7 @@
              x-on:livewire-upload-progress="progress = $event.detail.progress">
 
             <input type="file" accept="image/*" class="file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-solid file:border-indigo-500 file:bg-indigo-50 file:text-indigo-700
-      hover:file:bg-indigo-100" wire:model="thumbnail"/>
+      hover:file:bg-indigo-100" wire:model.live="thumbnail"/>
 
             <div class="p-3">
 
@@ -41,7 +41,7 @@
 
     </form>
 
-    <form wire:submit.prevent="delete">
+    <form wire:submit="delete">
         <x-danger-button class="mt-10" type="submit">
             {{ __('サムネイル画像を削除') }}
         </x-danger-button>

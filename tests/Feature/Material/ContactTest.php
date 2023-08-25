@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Material;
 
-use App\Http\Livewire\ContactForm;
+use App\Livewire\ContactForm;
 use App\Notifications\ContactNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6b959294a4f87dd5cd39a9d7cabf746",
+    "content-hash": "b861f1ea6f8a89f6fb5f0ffdb993a498",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.279.5",
+            "version": "3.279.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5cd1276c49effad408928e19a44a7d188cb9dedf"
+                "reference": "e83376ac8e88ed99c3d75d1309a2cb1148d31fd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5cd1276c49effad408928e19a44a7d188cb9dedf",
-                "reference": "5cd1276c49effad408928e19a44a7d188cb9dedf",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e83376ac8e88ed99c3d75d1309a2cb1148d31fd9",
+                "reference": "e83376ac8e88ed99c3d75d1309a2cb1148d31fd9",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.279.5"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.279.6"
             },
-            "time": "2023-08-23T18:34:06+00:00"
+            "time": "2023-08-24T18:07:59+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -1843,16 +1843,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v3.3.2",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "009e5e90636159e9da7f12ccada0c1b5b9ca8ee9"
+                "reference": "a790bdd9259bc306ecbb121d8753469f2d4e474b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/009e5e90636159e9da7f12ccada0c1b5b9ca8ee9",
-                "reference": "009e5e90636159e9da7f12ccada0c1b5b9ca8ee9",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/a790bdd9259bc306ecbb121d8753469f2d4e474b",
+                "reference": "a790bdd9259bc306ecbb121d8753469f2d4e474b",
                 "shasum": ""
             },
             "require": {
@@ -1866,7 +1866,7 @@
             "require-dev": {
                 "inertiajs/inertia-laravel": "^0.6.5",
                 "laravel/sanctum": "^3.0",
-                "livewire/livewire": "^2.12",
+                "livewire/livewire": "^3.0",
                 "mockery/mockery": "^1.0",
                 "orchestra/testbench": "^8.0",
                 "phpstan/phpstan": "^1.10",
@@ -1875,7 +1875,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "4.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -1908,7 +1908,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2023-08-21T13:08:00+00:00"
+            "time": "2023-08-24T15:57:34+00:00"
         },
         {
             "name": "laravel/octane",
@@ -3203,33 +3203,33 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.12.6",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "7d3a57b3193299cf1a0639a3935c696f4da2cf92"
+                "reference": "b2ba0baa66ddc294ba7b8b105d750dc5124056ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/7d3a57b3193299cf1a0639a3935c696f4da2cf92",
-                "reference": "7d3a57b3193299cf1a0639a3935c696f4da2cf92",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/b2ba0baa66ddc294ba7b8b105d750dc5124056ba",
+                "reference": "b2ba0baa66ddc294ba7b8b105d750dc5124056ba",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
-                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
-                "illuminate/validation": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/database": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "illuminate/validation": "^10.0|^11.0",
                 "league/mime-type-detection": "^1.9",
-                "php": "^7.2.5|^8.0",
+                "php": "^8.1",
                 "symfony/http-kernel": "^5.0|^6.0"
             },
             "require-dev": {
                 "calebporzio/sushi": "^2.1",
-                "laravel/framework": "^7.0|^8.0|^9.0|^10.0",
+                "laravel/framework": "^10.0|^11.0",
                 "mockery/mockery": "^1.3.1",
-                "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0",
-                "orchestra/testbench-dusk": "^5.2|^6.0|^7.0|^8.0",
-                "phpunit/phpunit": "^8.4|^9.0",
+                "orchestra/testbench": "^7.0|^8.0",
+                "orchestra/testbench-dusk": "^7.0|^8.0",
+                "phpunit/phpunit": "^9.0",
                 "psy/psysh": "@stable"
             },
             "type": "library",
@@ -3264,7 +3264,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.12.6"
+                "source": "https://github.com/livewire/livewire/tree/v3.0.0"
             },
             "funding": [
                 {
@@ -3272,7 +3272,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-11T04:02:34+00:00"
+            "time": "2023-08-24T15:33:35+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -10153,16 +10153,16 @@
         },
         {
             "name": "laravel-lang/http-statuses",
-            "version": "v3.4.3",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/http-statuses.git",
-                "reference": "0bd05c814ac28e826bb243b4ab5e1a12fd58e0ce"
+                "reference": "a040c261c10f68980e865c9900b76c32fd6f0275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/0bd05c814ac28e826bb243b4ab5e1a12fd58e0ce",
-                "reference": "0bd05c814ac28e826bb243b4ab5e1a12fd58e0ce",
+                "url": "https://api.github.com/repos/Laravel-Lang/http-statuses/zipball/a040c261c10f68980e865c9900b76c32fd6f0275",
+                "reference": "a040c261c10f68980e865c9900b76c32fd6f0275",
                 "shasum": ""
             },
             "require": {
@@ -10217,7 +10217,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/http-statuses/issues",
-                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.4.3"
+                "source": "https://github.com/Laravel-Lang/http-statuses/tree/v3.4.4"
             },
             "funding": [
                 {
@@ -10225,7 +10225,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-08-22T01:18:47+00:00"
+            "time": "2023-08-24T01:17:58+00:00"
         },
         {
             "name": "laravel-lang/lang",
