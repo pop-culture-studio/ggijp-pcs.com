@@ -9,9 +9,6 @@ class CategoryCount extends Component
 {
     /**
      * Create a new component instance.
-     *
-     * @param  string  $name
-     * @param  int  $count
      */
     public function __construct(
         public string $name,
@@ -21,8 +18,8 @@ class CategoryCount extends Component
             key: 'category.count:'.$this->name,
             ttl: now()->addHours(12),
             callback: fn () => Category::withCount('materials')
-                                       ->whereName($this->name)
-                                       ->first()->materials_count ?? 0
+                ->whereName($this->name)
+                ->first()->materials_count ?? 0
         );
     }
 

@@ -4,16 +4,16 @@
 
         <x-validation-errors class="mb-4"/>
 
-        <form wire:submit.prevent="sendmail">
+        <form wire:submit="sendmail">
             <div>
                 <x-label for="name" value="{{ __('お名前') }}"/>
-                <x-input id="name" class="block mt-1 w-full " type="text" name="name" wire:model.lazy="name" required
+                <x-input id="name" class="block mt-1 w-full " type="text" name="name" wire:model.blur="name" required
                              autofocus autocomplete="name"/>
             </div>
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}"/>
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model.lazy="email"
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model.blur="email"
                              required/>
             </div>
 
@@ -21,7 +21,7 @@
                 <x-label for="message" value="{{ __('メッセージ') }}"/>
 
                 <textarea name="body"
-                          wire:model.lazy="body"
+                          wire:model.blur="body"
                           class="text-black bg-white w-full h-32 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                           required
                 ></textarea>

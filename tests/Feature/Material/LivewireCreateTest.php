@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Material;
 
-use App\Http\Livewire\Material\Create;
+use App\Livewire\Material\Create;
 use App\Models\Category;
 use App\Models\Material;
 use App\Models\User;

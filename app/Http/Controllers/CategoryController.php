@@ -14,8 +14,8 @@ class CategoryController extends Controller
     public function __invoke(Category $category): View
     {
         $materials = $category->materials()
-                              ->latest('id')
-                              ->paginate();
+            ->latest('id')
+            ->paginate();
 
         if (blank($category->description)) {
             ChatJob::dispatch($category);

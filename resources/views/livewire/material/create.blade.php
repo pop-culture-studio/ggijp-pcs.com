@@ -1,4 +1,4 @@
-<form wire:submit.prevent="create">
+<form wire:submit="create">
 
     <x-label for="file"
                  value="{{ 'ファイル（必須。' . config('pcs.max_upload') . 'MB以下。）' }}"/>
@@ -7,7 +7,7 @@
          x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"
          x-on:livewire-upload-progress="progress = $event.detail.progress">
 
-        <input type="file" wire:model="file" class="file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-solid file:border-indigo-500 file:bg-indigo-50 file:text-indigo-700
+        <input type="file" wire:model.live="file" class="file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-solid file:border-indigo-500 file:bg-indigo-50 file:text-indigo-700
       hover:file:bg-indigo-100" required/>
 
         <div class="p-3">
@@ -43,7 +43,7 @@
 
     <div class="my-2">
         <x-label for="cat" value="{{ __('カテゴリー（必須。複数設定するには「,」で区切ってください。）') }}"/>
-        <x-input name="cat" type="text" class="mt-1 block w-full sm:w-1/2" required wire:model.lazy="cat"/>
+        <x-input name="cat" type="text" class="mt-1 block w-full sm:w-1/2" required wire:model.blur="cat"/>
         <x-input-error for="cat" class="mt-2"/>
 
         <div class="my-2 text-md">基本カテゴリー
@@ -58,19 +58,19 @@
 
     <div class="my-2">
         <x-label for="title" value="{{ __('タイトル（省略時はファイル名）') }}"/>
-        <x-input name="title" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="title"/>
+        <x-input name="title" type="text" class="mt-1 block w-full sm:w-1/2" wire:model="title"/>
         <x-input-error for="title" class="mt-2"/>
     </div>
 
     <div class="my-2">
         <x-label for="author" value="{{ __('作者（省略可）') }}"/>
-        <x-input name="author" type="text" class="mt-1 block w-full sm:w-1/2" wire:model.defer="author"/>
+        <x-input name="author" type="text" class="mt-1 block w-full sm:w-1/2" wire:model="author"/>
         <x-input-error for="author" class="mt-2"/>
     </div>
 
     <div class="my-2">
         <x-label for="description" value="{{ __('説明（省略可）') }}"/>
-        <textarea name="description" rows="4" cols="40" wire:model.defer="description"
+        <textarea name="description" rows="4" cols="40" wire:model="description"
                   class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
         <x-input-error for="description" class="mt-2"/>
     </div>

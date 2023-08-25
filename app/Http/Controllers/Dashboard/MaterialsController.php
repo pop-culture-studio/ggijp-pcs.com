@@ -18,8 +18,8 @@ class MaterialsController extends Controller
         $this->authorize('pcs');
 
         $materials = Material::query()
-                             ->latest('id')
-                             ->paginate();
+            ->latest('id')
+            ->paginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
     }

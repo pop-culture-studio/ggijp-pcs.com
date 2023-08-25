@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Category;
-use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Throwable;
 
@@ -84,15 +83,15 @@ class Create extends Component
             ]);
 
             $cats = Str::of($this->cat)
-                       ->replace('/', '／')
-                       ->replace('#', '＃')
-                       ->explode(',')
-                       ->map(fn ($cat) => trim($cat))
-                       ->unique()
-                       ->reject(fn ($cat) => empty($cat))
-                       ->map(fn ($cat) => Category::firstOrCreate([
-                           'name' => $cat,
-                       ]));
+                ->replace('/', '／')
+                ->replace('#', '＃')
+                ->explode(',')
+                ->map(fn ($cat) => trim($cat))
+                ->unique()
+                ->reject(fn ($cat) => empty($cat))
+                ->map(fn ($cat) => Category::firstOrCreate([
+                    'name' => $cat,
+                ]));
 
             $material->categories()->sync($cats->pluck('id'));
 

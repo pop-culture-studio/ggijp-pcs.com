@@ -17,5 +17,7 @@ class ImageObject extends AbstractContext
         'creditText' => null,
         'license' => null,
         'contentUrl' => null,
+        'acquireLicensePage' => null,
+        'copyrightNotice' => null,
     ];
 }

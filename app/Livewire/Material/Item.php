@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Material;
+namespace App\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\View\View;
@@ -11,6 +11,7 @@ class Item extends Component
     public bool $ready = false;
 
     public Material $material;
+
     public string $image;
 
     public function onReady(): void
