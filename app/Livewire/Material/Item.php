@@ -4,8 +4,10 @@ namespace App\Livewire\Material;
 
 use App\Models\Material;
 use Illuminate\View\View;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
+#[Lazy]
 class Item extends Component
 {
     public bool $ready = false;
