@@ -94,7 +94,7 @@
                 </h4>
                 <div class="my-6 mx-3 flex flex-wrap gap-4">
                     @foreach($cat->materials()->limit(4)->inRandomOrder()->get() as $rel_material)
-                        <livewire:material.item :material="$rel_material" lazy></livewire:material.item>
+                        <livewire:material.item :material="$rel_material"></livewire:material.item>
                     @endforeach
                 </div>
             @endforeach
