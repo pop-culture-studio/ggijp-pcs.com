@@ -16,6 +16,12 @@
 
             <!-- Navigation Links -->
             <div class="space-x-1 flex justify-center pt-1 sm:pt-0">
+                @can('pcs')
+                    <x-nav-link href="{{ route('dashboard') }}"
+                                class="whitespace-nowrap font-bold text-red-600 hover:text-red-500">
+                        {{ __('管理画面') }}
+                    </x-nav-link>
+                @endcan
                 <x-nav-link href="{{ route('form.contact') }}" class="whitespace-nowrap">
                     {{ __('ご依頼はこちら') }}
                 </x-nav-link>
@@ -29,7 +35,8 @@
                     {{ __('カテゴリー') }}
                 </x-nav-link>
                 <x-nav-link href="https://www.instagram.com/miraizu_souko/" target="_blank">
-                   <x-icon.instagram/><span class="sr-only">Instagram</span>
+                    <x-icon.instagram/>
+                    <span class="sr-only">Instagram</span>
                 </x-nav-link>
             </div>
 
