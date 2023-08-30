@@ -18,12 +18,12 @@
             このブラウザでは表示できません。
         </video>
     @elseif (str_contains(Storage::mimeType($material->file), 'image'))
-        <img class="object-contain h-full w-auto"
+        <img class="object-contain h-auto w-auto self-start"
              src="{{ Storage::temporaryUrl($material->file, now()->addHours(12)) }}"
              title="{{ $material->title }}"
              alt="{{ $material->title }}">
     @else
-        <img class="object-contain h-full w-auto"
+        <img class="object-contain h-auto w-auto self-start"
              src="{{ $material->image }}"
              title="{{ $material->title }}"
              alt="{{ $material->title }}">
