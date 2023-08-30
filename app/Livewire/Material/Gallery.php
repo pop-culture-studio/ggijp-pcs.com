@@ -16,13 +16,13 @@ class Gallery extends Component
     public array $files = [];
 
     public bool $showModal;
+
     public string $modalImage;
+
     public string $modalName;
 
     /**
      * zip内のファイルが画像なら表示.
-     *
-     * @return void
      */
     public function zip(): void
     {
@@ -66,9 +66,6 @@ class Gallery extends Component
 
     /**
      * ファイル名の文字コードをUTF-8に揃える.
-     *
-     * @param  string  $name
-     * @return string
      */
     private function encoding(string $name): string
     {
@@ -83,9 +80,6 @@ class Gallery extends Component
 
     /**
      * 除外するファイル名.
-     *
-     * @param  string  $name
-     * @return bool
      */
     private function reject(string $name): bool
     {
@@ -95,7 +89,7 @@ class Gallery extends Component
         ]);
     }
 
-    public function showModal($name): void
+    public function show($name): void
     {
         $this->modalName = $name;
         $this->modalImage = $this->files[$name]['image'];
