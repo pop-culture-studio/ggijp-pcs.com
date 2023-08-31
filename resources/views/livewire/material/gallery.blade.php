@@ -2,7 +2,7 @@
     @if($files)
         <div class="grid grid-cols-3 gap-3 bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
             @foreach($files as $name => $file)
-                <figure class="hover:cursor-pointer" wire:click="show('{{ $name }}')">
+                <figure class="hover:cursor-pointer" wire:click="show('{{ $name }}')" wire:key="{{ $name }}">
                     <img src="{{ $file['image'] }}"
                          loading="lazy"
                          alt="{{ $name }}"
