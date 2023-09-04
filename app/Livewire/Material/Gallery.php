@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\FileUploadConfiguration;
 use ZipArchive;
 
 class Gallery extends Component
@@ -26,13 +27,15 @@ class Gallery extends Component
      */
     public function zip(): void
     {
-        if (! Storage::disk('local')->put('tmp/zip/'.$this->material->file, Storage::get($this->material->file))) {
+        $tmp = FileUploadConfiguration::directory();
+
+        if (! Storage::disk('local')->put($tmp.'/zip/'.$this->material->file, Storage::get($this->material->file))) {
             return;
         }
 
         $zip = app(ZipArchive::class);
 
-        if (! $zip->open(Storage::disk('local')->path('tmp/zip/'.$this->material->file))) {
+        if (! $zip->open(Storage::disk('local')->path($tmp.'/zip/'.$this->material->file))) {
             return;
         }
 
@@ -48,7 +51,7 @@ class Gallery extends Component
 
             $data = $zip->getFromIndex($index);
 
-            $random_path = 'tmp/img/'.Str::random();
+            $random_path = $tmp.'/img/'.Str::random();
 
             if (! Storage::put($random_path, $data)) {
                 continue;
