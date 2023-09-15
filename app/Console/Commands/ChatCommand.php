@@ -27,10 +27,14 @@ class ChatCommand extends Command
      */
     public function handle(): void
     {
+        $ids = collect(config('pcs.category'))->pluck('id')->values()->toArray();
+
         $category = Category::query()
-                            ->has('materials')
+                            ->whereIntegerInRaw('id', $ids)
                             ->oldest('updated_at')
                             ->first();
+
+        //dump($category);
 
         if (blank($category)) {
             return;
