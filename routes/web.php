@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\ContactPreviewController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 /*
