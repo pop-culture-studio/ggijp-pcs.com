@@ -37,11 +37,7 @@ Route::get('contact/preview/{contact}', ContactPreviewController::class)
     ->name('contact.preview')
     ->middleware('signed');
 
-Route::get('creator/{user}', CreatorController::class)->name('creator');
-Route::redirect('creator', '/');
-
 Route::get('author/{author}', AuthorController::class)->name('author');
-Route::redirect('author', '/');
 
 Route::resource('material', MaterialController::class);
 
@@ -49,7 +45,5 @@ Route::get('download/{material}', DownloadController::class)->name('download')->
 
 Route::get('category/{category}', CategoryController::class)->name('category.show');
 Route::redirect('category', '/');
-
-Route::get('sitemap', SitemapController::class)->name('sitemap');
 
 Route::feeds();

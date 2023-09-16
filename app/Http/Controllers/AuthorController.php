@@ -15,10 +15,12 @@ class AuthorController extends Controller
      */
     public function __invoke(Request $request, string $author): View
     {
+        // folioを使うと$authorがURLエンコードされた文字列になるのでコントローラーの使用を継続
+
         $materials = Material::query()
-            ->where('author', $author)
-            ->latest('id')
-            ->paginate();
+                             ->where('author', $author)
+                             ->latest('id')
+                             ->paginate();
 
         return view('author.show')->with(compact('author', 'materials'));
     }

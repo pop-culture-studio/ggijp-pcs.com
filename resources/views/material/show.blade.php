@@ -46,7 +46,7 @@
 
                     @if($material->author)
                         <x-badge title="作者" class="my-3">
-                            <a href="{{ route('author', Str::replace('/', '／', $material->author)) }}"
+                            <a href="{{ route('author', ['author' => Str::replace('/', '／', $material->author)]) }}"
                                class="text-indigo-500 hover:underline">{{ $material->author }}</a>
                         </x-badge>
                     @endif
