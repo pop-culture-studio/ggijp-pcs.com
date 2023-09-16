@@ -52,8 +52,4 @@ Route::redirect('category', '/');
 
 Route::get('sitemap', SitemapController::class)->name('sitemap');
 
-Route::view('contact', 'contact')->name('form.contact');
-Route::view('about', 'static.about')->name('about');
-Route::view('faq', 'static.faq')->name('faq');
-
 Route::feeds();

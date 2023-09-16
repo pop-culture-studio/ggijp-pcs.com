@@ -1,3 +1,9 @@
+<?php
+use function Laravel\Folio\name;
+
+name('faq');
+?>
+
 <x-main-layout>
     <x-slot name="title">
         {{ __('よくある質問') }}
