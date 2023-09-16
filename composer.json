@@ -10,6 +10,7 @@
         "ext-zlib": "*",
         "aws/aws-sdk-php": "^3.198",
         "guzzlehttp/guzzle": "^7.4",
+        "laravel/folio": "^1.1",
         "laravel/framework": "^10.0",
         "laravel/jetstream": "^4.0",
         "laravel/octane": "^2.0",
