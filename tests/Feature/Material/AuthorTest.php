@@ -27,7 +27,7 @@ class AuthorTest extends TestCase
     {
         $user = User::factory()->withPersonalTeam()->withMaterials()->create();
 
-        $response = $this->get(route('creator', $user));
+        $response = $this->get(route('creator', ['user' => $user]));
 
         $response->assertSuccessful()
                  ->assertViewHasAll(['user' => $user, 'materials']);
