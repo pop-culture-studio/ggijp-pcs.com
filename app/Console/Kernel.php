@@ -11,9 +11,6 @@ class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
      */
     protected function schedule(Schedule $schedule): void
     {
@@ -21,13 +18,11 @@ class Kernel extends ConsoleKernel
 
         $schedule->job(SitemapJob::class)->dailyAt('04:00');
 
-        $schedule->command(ChatCommand::class)->dailyAt('20:00');
+        $schedule->command(ChatCommand::class)->hourly();
     }
 
     /**
      * Register the commands for the application.
-     *
-     * @return void
      */
     protected function commands(): void
     {
