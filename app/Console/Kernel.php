@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->job(SitemapJob::class)->dailyAt('04:00');
 
-        $schedule->command(ChatCommand::class)->hourly();
+        $schedule->command(ChatCommand::class)->dailyAt('20:00');
     }
 
     /**
