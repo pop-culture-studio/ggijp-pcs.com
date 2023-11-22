@@ -8,7 +8,7 @@ environments:
     runtime: docker
     domain: ggijp-pcs.com
     storage: storage.ggijp-pcs.com
-    database: ggijp-pcs-com
+    database: grouphome
     timeout: 30
     warm: 5
     #octane: true
