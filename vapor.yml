@@ -42,7 +42,7 @@ environments:
     cli-memory: 512
     runtime: docker
     storage: storage-staging.ggijp-pcs.com
-    database: ggijp-pcs-com
+    database: grouphome
     timeout: 30
     scheduler: false
     #octane: true
