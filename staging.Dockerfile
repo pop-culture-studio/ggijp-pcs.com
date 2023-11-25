@@ -1,4 +1,4 @@
-FROM laravelphp/vapor:php82
+FROM laravelphp/vapor:php83
 
 COPY ./vapor/php.ini /usr/local/etc/php/conf.d/overrides.ini
 
