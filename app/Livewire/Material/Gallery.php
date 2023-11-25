@@ -5,7 +5,6 @@ namespace App\Livewire\Material;
 use App\Models\Material;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\FileUploadConfiguration;
 use ZipArchive;
@@ -97,10 +96,5 @@ class Gallery extends Component
         $this->modalName = $name;
         $this->modalImage = $this->files[$name]['image'];
         $this->showModal = true;
-    }
-
-    public function render(): View
-    {
-        return view('livewire.material.gallery');
     }
 }

@@ -30,9 +30,9 @@ class ChatCommand extends Command
         $ids = collect(config('pcs.category'))->pluck('id')->values()->toArray();
 
         $category = Category::query()
-                            ->whereIntegerInRaw('id', $ids)
-                            ->oldest('updated_at')
-                            ->first();
+            ->whereIntegerInRaw('id', $ids)
+            ->oldest('updated_at')
+            ->first();
 
         //dump($category);
 

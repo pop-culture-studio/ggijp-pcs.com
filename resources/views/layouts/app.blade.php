@@ -8,7 +8,9 @@
         <title>@isset($title){{ $title }} | @endisset{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap">
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="stylesheet"
+              href="https://fonts.bunny.net/css?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

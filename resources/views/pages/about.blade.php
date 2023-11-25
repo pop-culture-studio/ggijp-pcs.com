@@ -1,3 +1,8 @@
+<?php
+use function Laravel\Folio\name;
+
+name('about');
+?>
 <x-main-layout>
     <x-slot name="title">
         {{ __('未来図倉庫について') }}

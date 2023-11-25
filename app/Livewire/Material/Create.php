@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -98,11 +97,6 @@ class Create extends Component
             session()->flash('flash.banner', $title.'をアップロードしました。');
         });
 
-        return redirect()->route('dashboard');
-    }
-
-    public function render(): View
-    {
-        return view('livewire.material.create');
+        return to_route('dashboard');
     }
 }

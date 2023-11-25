@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\ContactPreviewController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\MaterialsController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,11 +35,7 @@ Route::get('contact/preview/{contact}', ContactPreviewController::class)
     ->name('contact.preview')
     ->middleware('signed');
 
-Route::get('creator/{user}', CreatorController::class)->name('creator');
-Route::redirect('creator', '/');
-
 Route::get('author/{author}', AuthorController::class)->name('author');
-Route::redirect('author', '/');
 
 Route::resource('material', MaterialController::class);
 
@@ -49,11 +43,5 @@ Route::get('download/{material}', DownloadController::class)->name('download')->
 
 Route::get('category/{category}', CategoryController::class)->name('category.show');
 Route::redirect('category', '/');
-
-Route::get('sitemap', SitemapController::class)->name('sitemap');
-
-Route::view('contact', 'contact')->name('form.contact');
-Route::view('about', 'static.about')->name('about');
-Route::view('faq', 'static.faq')->name('faq');
 
 Route::feeds();

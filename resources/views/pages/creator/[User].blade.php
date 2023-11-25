@@ -1,3 +1,20 @@
+<?php
+
+use App\Models\User;
+use Illuminate\View\View;
+use function Laravel\Folio\name;
+use function Laravel\Folio\render;
+
+name('creator');
+
+render(function (View $view, User $user) {
+    $materials = $user->materials()
+                      ->latest('id')
+                      ->paginate();
+
+    return $view->with(compact('materials'));
+});
+?>
 <x-main-layout>
     <x-slot name="title">
         {{ $user->name }}
