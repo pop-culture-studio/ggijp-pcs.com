@@ -71,7 +71,7 @@ class Gallery extends Component
      */
     private function encoding(string $name): string
     {
-        $enc = mb_detect_encoding($name);
+        $enc = mb_detect_encoding(string: $name, strict: true);
 
         if (empty($enc)) {
             $enc = 'CP932';
