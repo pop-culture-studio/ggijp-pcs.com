@@ -1,8 +1,11 @@
 <div wire:init="zip">
     @if($files)
-        <div class="grid grid-cols-3 gap-3 bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
+        <div class="text-white bg-indigo-500 px-3 py-1 rounded-t-lg">プレビュー</div>
+        <div class="grid grid-cols-3 gap-3 bg-indigo-100 dark:bg-indigo-400 p-3 rounded-b-lg">
             @foreach($files as $name => $file)
-                <figure class="hover:cursor-pointer" wire:click="show('{{ $name }}')" wire:key="{{ $name }}">
+                <figure class="hover:cursor-pointer hover:bg-white dark:hover:bg-indigo-600 hover:rounded-md"
+                        wire:click="show('{{ $name }}')"
+                        wire:key="{{ $name }}">
                     <img src="{{ $file['image'] }}"
                          loading="lazy"
                          alt="{{ $name }}"
