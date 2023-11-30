@@ -65,10 +65,6 @@ class Material extends Model implements Feedable
         static::created(queueable(function (Material $material) {
             IndexNow::submit(route('material.show', $material));
         }));
-
-        static::updated(queueable(function (Material $material) {
-            IndexNow::submit(route('material.show', $material));
-        }));
     }
 
     public function user(): BelongsTo
