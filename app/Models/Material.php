@@ -63,7 +63,7 @@ class Material extends Model implements Feedable
     protected static function booted(): void
     {
         static::created(queueable(function (Material $material) {
-            IndexNow::submit(route('material.show', $material));
+            info('IndexNow: '.IndexNow::submit(route('material.show', $material)));
         }));
     }
 
