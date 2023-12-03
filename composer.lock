@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b9122e194d61c96d79cf8679df641da",
+    "content-hash": "758e0b2aae552eecade5a762d66f1f0e",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -263,6 +263,75 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "carbonphp/carbon-doctrine-types",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
+                "reference": "67a77972b9f398ae7068dabacc39c08aeee170d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/67a77972b9f398ae7068dabacc39c08aeee170d5",
+                "reference": "67a77972b9f398ae7068dabacc39c08aeee170d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/dbal": "<3.7.0 || >=4.0.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^3.7.0",
+                "nesbot/carbon": "^2.71.0 || ^3.0.0",
+                "phpunit/phpunit": "^10.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Carbon\\Doctrine\\": "src/Carbon/Doctrine/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KyleKatarn",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "Types to use Carbon in Doctrine",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "doctrine",
+                "time"
+            ],
+            "support": {
+                "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
+                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/2.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kylekatarnls",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/Carbon",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-10-01T14:29:01+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -3071,30 +3140,31 @@
         },
         {
             "name": "linecorp/line-bot-sdk",
-            "version": "7.6.1",
+            "version": "9.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/line/line-bot-sdk-php.git",
-                "reference": "e141f29cd7b9f27615d11f69e329f2b83ed70654"
+                "reference": "2c0e9cbeea6cff4e1b7688788e61f5024055b088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/e141f29cd7b9f27615d11f69e329f2b83ed70654",
-                "reference": "e141f29cd7b9f27615d11f69e329f2b83ed70654",
+                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/2c0e9cbeea6cff4e1b7688788e61f5024055b088",
+                "reference": "2c0e9cbeea6cff4e1b7688788e61f5024055b088",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-sockets": "*",
-                "php": ">=7.2"
+                "guzzlehttp/guzzle": "^7.3",
+                "guzzlehttp/psr7": "^1.7 || ^2.0",
+                "php": ">=8.1"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "^7.3",
+                "guzzlehttp/psr7": "^1.7 || ^2.0",
                 "orchestra/testbench": "*",
                 "phpmd/phpmd": "2.13.0",
-                "phpstan/phpstan": "1.8.9",
-                "phpunit/phpunit": "^7||^8||^9",
-                "squizlabs/php_codesniffer": "3.7.1"
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.2",
+                "squizlabs/php_codesniffer": "3.7.2"
             },
             "type": "library",
             "extra": {
@@ -3103,13 +3173,27 @@
                         "LINE\\Laravel\\LINEBotServiceProvider"
                     ],
                     "aliases": {
-                        "LINEBot": "LINE\\Laravel\\Facade\\LINEBot"
+                        "LINEChannelAccessTokenApi": "LINE\\Laravel\\Facades\\LINEChannelAccessTokenApi",
+                        "LINEInsightApi": "LINE\\Laravel\\Facades\\LINEInsightApi",
+                        "LINELiffApi": "LINE\\Laravel\\Facades\\LINELiffApi",
+                        "LINEManageAudienceApi": "LINE\\Laravel\\Facades\\LINEManageAudienceApi",
+                        "LINEManageAudienceBlobApi": "LINE\\Laravel\\Facades\\LINEManageAudienceBlobApi",
+                        "LINEMessagingApi": "LINE\\Laravel\\Facades\\LINEMessagingApi",
+                        "LINEMessagingBlobApi": "LINE\\Laravel\\Facades\\LINEMessagingBlobApi"
                     }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "LINE\\": "src/"
+                    "LINE\\Parser\\": "src/parser/lib/",
+                    "LINE\\Laravel\\": "src/laravel/lib/",
+                    "LINE\\Webhook\\": "src/webhook/lib/",
+                    "LINE\\Constants\\": "src/constants/",
+                    "LINE\\Clients\\Liff\\": "src/clients/liff/lib/",
+                    "LINE\\Clients\\Insight\\": "src/clients/insight/lib/",
+                    "LINE\\Clients\\MessagingApi\\": "src/clients/messaging-api/lib/",
+                    "LINE\\Clients\\ManageAudience\\": "src/clients/manage-audience/lib/",
+                    "LINE\\Clients\\ChannelAccessToken\\": "src/clients/channel-access-token/lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3147,22 +3231,22 @@
             ],
             "support": {
                 "issues": "https://github.com/line/line-bot-sdk-php/issues",
-                "source": "https://github.com/line/line-bot-sdk-php/tree/7.6.1"
+                "source": "https://github.com/line/line-bot-sdk-php/tree/9.3.0"
             },
-            "time": "2022-10-17T08:29:38+00:00"
+            "time": "2023-09-15T02:25:22+00:00"
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "c5366279aeb10f75bb358032bb832702e3d0d35a"
+                "reference": "724e712cac25c40455102f0b5abd002fd269433b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/c5366279aeb10f75bb358032bb832702e3d0d35a",
-                "reference": "c5366279aeb10f75bb358032bb832702e3d0d35a",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/724e712cac25c40455102f0b5abd002fd269433b",
+                "reference": "724e712cac25c40455102f0b5abd002fd269433b",
                 "shasum": ""
             },
             "require": {
@@ -3215,7 +3299,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.2.2"
+                "source": "https://github.com/livewire/livewire/tree/v3.2.3"
             },
             "funding": [
                 {
@@ -3223,7 +3307,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-29T17:43:29+00:00"
+            "time": "2023-12-02T18:55:31+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -3525,19 +3609,20 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.71.0",
+            "version": "2.72.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "98276233188583f2ff845a0f992a235472d9466a"
+                "reference": "a6885fcbad2ec4360b0e200ee0da7d9b7c90786b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/98276233188583f2ff845a0f992a235472d9466a",
-                "reference": "98276233188583f2ff845a0f992a235472d9466a",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a6885fcbad2ec4360b0e200ee0da7d9b7c90786b",
+                "reference": "a6885fcbad2ec4360b0e200ee0da7d9b7c90786b",
                 "shasum": ""
             },
             "require": {
+                "carbonphp/carbon-doctrine-types": "*",
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "psr/clock": "^1.0",
@@ -3549,8 +3634,8 @@
                 "psr/clock-implementation": "1.0"
             },
             "require-dev": {
-                "doctrine/dbal": "^2.0 || ^3.1.4",
-                "doctrine/orm": "^2.7",
+                "doctrine/dbal": "^2.0 || ^3.1.4 || ^4.0",
+                "doctrine/orm": "^2.7 || ^3.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
                 "ondrejmirtes/better-reflection": "*",
@@ -3627,7 +3712,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-25T11:31:05+00:00"
+            "time": "2023-11-28T10:13:25+00:00"
         },
         {
             "name": "nette/schema",
@@ -5319,23 +5404,23 @@
         },
         {
             "name": "revolution/laravel-line-sdk",
-            "version": "2.2.5",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-line-sdk.git",
-                "reference": "10593a5c29ab6328001d72c111822bc6f0e76e18"
+                "reference": "0f4b067cd39bd5407fde8a4d721f2a5e14d77cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/10593a5c29ab6328001d72c111822bc6f0e76e18",
-                "reference": "10593a5c29ab6328001d72c111822bc6f0e76e18",
+                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/0f4b067cd39bd5407fde8a4d721f2a5e14d77cbe",
+                "reference": "0f4b067cd39bd5407fde8a4d721f2a5e14d77cbe",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "illuminate/support": "^9.0||^10.0",
                 "laravel/socialite": "^5.0",
-                "linecorp/line-bot-sdk": "^7.0",
+                "linecorp/line-bot-sdk": "^9.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -5377,9 +5462,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kawax/laravel-line-sdk/issues",
-                "source": "https://github.com/kawax/laravel-line-sdk/tree/2.2.5"
+                "source": "https://github.com/kawax/laravel-line-sdk/tree/3.1.0"
             },
-            "time": "2023-04-06T01:25:59+00:00"
+            "time": "2023-08-03T01:09:38+00:00"
         },
         {
             "name": "riverline/multipart-parser",
