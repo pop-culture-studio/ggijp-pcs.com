@@ -23,7 +23,6 @@ class DownloadController extends Controller
                 [
                     'ResponseContentType' => 'application/octet-stream',
                     'ResponseContentDisposition' => 'attachment; filename='.basename($material->file),
-                    'X-Robots-Tag' => 'noindex',
                 ]
             )
         );
