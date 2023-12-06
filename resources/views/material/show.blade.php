@@ -37,7 +37,7 @@
                 <x-preview :material="$material"/>
 
                 <div>
-                    <h2 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h2>
+                    <h1 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h1>
 
                     @if ($material->description)
                         <div
