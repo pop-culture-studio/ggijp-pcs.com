@@ -36,7 +36,7 @@
                 <div
                     class="text-sm bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
                     {{ $category->description }}
-                    <div class="font-bold">この説明はChatGPTによる自動生成です。
+                    <div class="font-bold">この説明はOpenAI APIによる自動生成です。
                     </div>
                     @auth
                         <livewire:material.update-chat :category="$category"></livewire:material.update-chat>
