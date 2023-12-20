@@ -64,6 +64,12 @@
                         </x-badge>
                     @endif
 
+                    @if($material->filesize !== 0)
+                        <x-badge title="ファイルサイズ" class="my-3">
+                            {{ Number::fileSize($material->filesize, maxPrecision: 1) }}
+                        </x-badge>
+                    @endif
+
                     @can('update', $material)
                         <div class="p-1 m-1 text-right">
                             <a href="{{ route('material.edit', $material) }}"

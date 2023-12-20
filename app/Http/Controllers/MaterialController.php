@@ -43,6 +43,12 @@ class MaterialController extends Controller
     {
         abort_if(Storage::missing($material->file), 404);
 
+        if ($material->filesize === 0) {
+            $material->fill([
+                'filesize' => Storage::size($material->file),
+            ])->save();
+        }
+
         return view('material.show')->with(compact('material'));
     }
 
