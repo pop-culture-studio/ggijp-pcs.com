@@ -46,8 +46,8 @@ environments:
     timeout: 30
     scheduler: false
     octane: true
-    octane-database-session-persist: true
-    octane-database-session-ttl: 10
+    #octane-database-session-persist: true
+    #octane-database-session-ttl: 10
     build:
       - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
       - 'php artisan vapor-ui:publish --ansi'
