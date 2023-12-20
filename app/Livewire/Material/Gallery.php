@@ -5,10 +5,13 @@ namespace App\Livewire\Material;
 use App\Models\Material;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\FileUploadConfiguration;
 use ZipArchive;
 
+#[Lazy]
 class Gallery extends Component
 {
     public Material $material;
@@ -24,7 +27,7 @@ class Gallery extends Component
     /**
      * zip内のファイルが画像なら表示.
      */
-    public function zip(): void
+    public function mount(): void
     {
         $tmp = FileUploadConfiguration::directory();
 
@@ -96,5 +99,10 @@ class Gallery extends Component
         $this->modalName = $name;
         $this->modalImage = $this->files[$name]['image'];
         $this->showModal = true;
+    }
+
+    public function placeholder(): View
+    {
+        return view('material.placeholder');
     }
 }

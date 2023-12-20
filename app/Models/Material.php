@@ -32,6 +32,7 @@ class Material extends Model implements Feedable
         'title',
         'description',
         'author',
+        'filesize',
     ];
 
     protected $hidden = [

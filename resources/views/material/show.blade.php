@@ -64,6 +64,12 @@
                         </x-badge>
                     @endif
 
+                    @if($material->filesize !== 0)
+                        <x-badge title="ファイルサイズ" class="my-3">
+                            {{ Number::fileSize($material->filesize, maxPrecision: 1) }}
+                        </x-badge>
+                    @endif
+
                     @can('update', $material)
                         <div class="p-1 m-1 text-right">
                             <a href="{{ route('material.edit', $material) }}"
@@ -75,13 +81,7 @@
                         <livewire:material.gallery :material="$material"/>
                     @endif
 
-                    <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}" rel="nofollow">
-                        <div
-                            class="w-fix text-center text-xl py-3 px-6 sm:px-16 m-6 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full whitespace-nowrap">
-                            {{ __('ダウンロード') }}
-                        </div>
-                    </a>
-
+                    <livewire:material.download :material="$material"/>
                 </div>
             </div>
 
