@@ -37,7 +37,7 @@
                 <x-preview :material="$material"/>
 
                 <div>
-                    <h2 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h2>
+                    <h1 class="text-3xl font-extrabold my-6 text-{{ $material->categoryColor }}">{{ $material->title }}</h1>
 
                     @if ($material->description)
                         <div
@@ -75,7 +75,7 @@
                         <livewire:material.gallery :material="$material"/>
                     @endif
 
-                    <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}">
+                    <a href="{{ URL::temporarySignedRoute('download', now()->addHours(12), $material) }}" rel="nofollow">
                         <div
                             class="w-fix text-center text-xl py-3 px-6 sm:px-16 m-6 mx-auto text-white bg-indigo-500 hover:bg-indigo-600 rounded-full whitespace-nowrap">
                             {{ __('ダウンロード') }}

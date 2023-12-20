@@ -3,3 +3,5 @@ Disallow:
 Disallow: /login
 Disallow: /register
 Disallow: /download/
+
+Sitemap: https://ggijp-pcs.com/sitemap

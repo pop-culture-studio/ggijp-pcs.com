@@ -7,6 +7,6 @@ name('sitemap');
 
 render(
     fn () => response(Storage::get('sitemap.xml'), 200, [
-        'Content-Type' => 'text/xml',
+        'Content-Type' => 'application/xml; charset="UTF-8"',
     ])
 );
