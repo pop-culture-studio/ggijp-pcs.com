@@ -1,4 +1,4 @@
-<div wire:init="zip">
+<div>
     @if($files)
         <div class="text-white bg-indigo-500 px-3 py-1 rounded-t-lg">プレビュー</div>
         <div class="grid grid-cols-3 gap-3 bg-indigo-100 dark:bg-indigo-400 p-3 rounded-b-lg">
