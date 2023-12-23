@@ -14,6 +14,6 @@ class UpdateChat extends Component
     {
         ChatJob::dispatch($this->category);
 
-        session()->flash('message', 'ChatGPTによる説明を更新中。少し待ってからリロードしてください。');
+        session()->flash('message', 'OpenAI APIによる説明を更新中。少し待ってからリロードしてください。');
     }
 }
