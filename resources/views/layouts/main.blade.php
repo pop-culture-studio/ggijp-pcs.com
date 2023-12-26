@@ -11,6 +11,10 @@
         <meta name="description" content="{{ $description }}">
     @endisset
 
+    @if(request()->routeIs('material.show'))
+        <link rel="canonical" href="{{ url()->current() }}">
+    @endif
+
     @isset($ogp)
         {{ $ogp }}
     @endisset
@@ -19,7 +23,7 @@
         {{ $json_ld }}
     @endisset
 
-    <x-feed-links />
+    <x-feed-links/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
