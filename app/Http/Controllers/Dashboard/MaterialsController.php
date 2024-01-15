@@ -19,7 +19,7 @@ class MaterialsController extends Controller
 
         $materials = Material::query()
             ->latest('id')
-            ->paginate();
+            ->simplePaginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
     }
