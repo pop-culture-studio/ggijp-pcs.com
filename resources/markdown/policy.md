@@ -43,10 +43,6 @@
         <td>共同して利用する者の利用目的</td>
         <td class="text-red-500">サービスのご案内</td>
     </tr>
-    <tr>
-        <td>個人情報の管理責任者</td>
-        <td class="text-red-500">猪花幸二</td>
-    </tr>
 </table>
 
 ## 5.個人情報の開示
