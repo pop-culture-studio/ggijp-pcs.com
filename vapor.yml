@@ -28,7 +28,6 @@ environments:
     #            - SignalKnownBotDataCenter
     build:
       - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
-      - 'php artisan vapor-ui:publish --ansi'
       - 'php artisan event:cache'
       - 'php artisan config:cache'
       - 'php artisan route:cache'
@@ -50,7 +49,6 @@ environments:
     #octane-database-session-ttl: 10
     build:
       - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
-      - 'php artisan vapor-ui:publish --ansi'
       - 'php artisan event:cache'
       - 'php artisan config:cache'
       - 'php artisan route:cache'
