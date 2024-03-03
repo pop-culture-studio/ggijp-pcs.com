@@ -43,7 +43,7 @@ class ChatJob implements ShouldQueue
         info($prompt);
 
         $response = OpenAI::chat()->create([
-            'model' => 'gpt-3.5-turbo',
+            'model' => 'gpt-4-turbo-preview',
             'messages' => [
                 ['role' => 'user', 'content' => $prompt],
             ],
