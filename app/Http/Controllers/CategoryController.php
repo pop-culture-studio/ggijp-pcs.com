@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $materials = $category->materials()
             ->latest('id')
-            ->paginate();
+            ->simplePaginate();
 
         if (blank($category->description)) {
             ChatJob::dispatch($category);

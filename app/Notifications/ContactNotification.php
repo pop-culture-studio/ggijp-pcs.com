@@ -48,7 +48,7 @@ class ContactNotification extends Notification implements ShouldQueue
             ->subject(config('pcs.contact.subject'))
             ->from(config('mail.from.address'), config('mail.from.name'))
             ->greeting(__('名前：').$this->contact->name)
-            ->line($this->contact->body)
+            ->line([$this->contact->body])
             ->action(__('問い合わせを確認'), route('dashboard.contacts'))
             ->line($this->contact->email)
             ->salutation(__('このメールに返信はできないので問い合わせへの対応は新規メールを送信してください。'));

@@ -39,8 +39,6 @@ Route::get('author/{author}', AuthorController::class)->name('author');
 
 Route::resource('material', MaterialController::class);
 
-Route::get('download/{material}', DownloadController::class)->name('download')->middleware('signed');
-
 Route::get('category/{category}', CategoryController::class)->name('category.show');
 Route::redirect('category', '/');
 
