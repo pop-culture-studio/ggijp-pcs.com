@@ -40,14 +40,6 @@ class Material extends Model implements Feedable
     ];
 
     /**
-     * @var array
-     */
-    protected $casts = [
-        'image' => Image::class,
-        'categoryColor' => CategoryColor::class,
-    ];
-
-    /**
      * The number of models to return for pagination.
      *
      * @var int
@@ -61,10 +53,23 @@ class Material extends Model implements Feedable
      */
     protected $with = ['categories'];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'image' => Image::class,
+            'categoryColor' => CategoryColor::class,
+        ];
+    }
+
     protected static function booted(): void
     {
         static::created(queueable(function (Material $material) {
-            info('IndexNow: '.IndexNow::submit(route('material.show', $material)));
+            IndexNow::submit(route('material.show', $material));
         }));
     }
 
