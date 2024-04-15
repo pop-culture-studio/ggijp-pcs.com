@@ -9,17 +9,13 @@ class HomeComposer
 {
     public function compose(View $view): void
     {
-        $popular_materials = Material::query()
-            ->select()
-            ->latest('download')
-            ->limit(20)
-            ->get();
+        $popular_materials = Material::latest('download')
+                                     ->limit(20)
+                                     ->get();
 
-        $new_materials = Material::query()
-            ->select()
-            ->latest('id')
-            ->limit(20)
-            ->get();
+        $new_materials = Material::latest('id')
+                                 ->limit(20)
+                                 ->get();
 
         $view->with(compact(
             'popular_materials',

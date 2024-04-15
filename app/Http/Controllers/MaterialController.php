@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,8 @@ class MaterialController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @throws AuthorizationException
      */
     public function edit(Material $material): View
     {
@@ -92,6 +95,8 @@ class MaterialController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @throws AuthorizationException
      */
     public function destroy(Request $request, Material $material): RedirectResponse
     {

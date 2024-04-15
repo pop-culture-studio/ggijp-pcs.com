@@ -55,7 +55,7 @@ class Prompt implements Arrayable
             'type' => 'image_url',
             'image_url' => [
                 'url' => $url,
-            ]
+            ],
         ];
 
         return $this;

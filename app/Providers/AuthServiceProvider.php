@@ -2,11 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Team;
-use App\Models\User;
-use App\Policies\TeamPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -16,7 +12,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Team::class => TeamPolicy::class,
+        //
     ];
 
     /**
@@ -26,14 +22,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //未来図倉庫チーム管理者
-        Gate::define('admin', function (User $user) {
-            return $user->hasTeamPermission(Team::find(config('pcs.team_id')), 'admin');
-        });
-
-        //未来図倉庫チームメンバー（管理者も含む）
-        Gate::define('pcs', function (User $user) {
-            return $user->belongsToTeam(Team::find(config('pcs.team_id')));
-        });
+        //
     }
 }

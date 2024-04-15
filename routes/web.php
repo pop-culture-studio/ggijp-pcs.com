@@ -26,9 +26,13 @@ Route::view(uri: '/', view: 'home')->name('home');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::get('dashboard/materials', MaterialsController::class)->name('dashboard.materials');
+    Route::get('dashboard/materials', MaterialsController::class)
+         ->name('dashboard.materials')
+         ->can('pcs');
 
-    Route::get('dashboard/contacts', ContactController::class)->name('dashboard.contacts')->can('admin');
+    Route::get('dashboard/contacts', ContactController::class)
+         ->name('dashboard.contacts')
+         ->can('admin');
 });
 
 Route::get('contact/preview/{contact}', ContactPreviewController::class)
