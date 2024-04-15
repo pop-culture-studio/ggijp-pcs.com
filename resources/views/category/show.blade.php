@@ -32,17 +32,18 @@
                 <x-category-count :name="$category->name" class="ml-1"></x-category-count>
             </x-h2>
 
-            @if (filled($category->description))
-                <div
-                    class="text-sm bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
-                    {{ $category->description }}
-                    <div class="font-bold">この説明はOpenAI APIによる自動生成です。
-                    </div>
-                    @auth
+            @auth
+                @if (filled($category->description))
+                    <div
+                        class="text-sm bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg">
+                        {{ $category->description }}
+                        <div class="font-bold">この説明はOpenAI APIによる自動生成です。
+                        </div>
+
                         <livewire:material.update-chat :category="$category"></livewire:material.update-chat>
-                    @endauth
-                </div>
-            @endif
+                    </div>
+                @endif
+            @endauth
 
             <div class="my-6">
                 <div class="flex flex-wrap gap-4 justify-center">
