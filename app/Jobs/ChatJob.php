@@ -15,6 +15,8 @@ class ChatJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected const MODEL = 'gpt-4-turbo';
+
     /**
      * Create a new job instance.
      */
@@ -43,7 +45,7 @@ class ChatJob implements ShouldQueue
         info($prompt);
 
         $response = OpenAI::chat()->create([
-            'model' => 'gpt-4-turbo-preview',
+            'model' => self::MODEL,
             'messages' => [
                 ['role' => 'user', 'content' => $prompt],
             ],
