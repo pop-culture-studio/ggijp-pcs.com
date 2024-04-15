@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Chat\Prompt;
 use App\Models\Category;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -44,12 +45,12 @@ class ChatJob implements ShouldQueue
 
         info($prompt);
 
-        $response = OpenAI::chat()->create([
-            'model' => self::MODEL,
-            'messages' => [
-                ['role' => 'user', 'content' => $prompt],
-            ],
-        ]);
+        $response = OpenAI::chat()->create(
+            Prompt::make(
+                system: 'あなたはフリー素材サイトの運営者です',
+                prompt: $prompt
+            )->toArray()
+        );
 
         foreach ($response->choices as $result) {
             info($result->message->content);
