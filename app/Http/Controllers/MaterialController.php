@@ -8,6 +8,7 @@ use App\Models\Material;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -15,23 +16,15 @@ use Throwable;
 
 class MaterialController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum')->except(['index', 'show']);
-
-        $this->authorizeResource(Material::class, 'material');
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View
     {
         $materials = Material::keywordSearch($request->query('q'))
-            //->select('id', 'file', 'title', 'thumbnail')
-            ->latest('id')
-            ->simplePaginate()
-            ->withQueryString();
+                             ->latest('id')
+                             ->simplePaginate()
+                             ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
     }
@@ -57,6 +50,8 @@ class MaterialController extends Controller
      */
     public function edit(Material $material): View
     {
+        Gate::authorize('update', $material);
+
         return view('dashboard.edit')->with(compact('material'));
     }
 
@@ -67,6 +62,8 @@ class MaterialController extends Controller
      */
     public function update(MaterialUpdateRequest $request, Material $material): RedirectResponse
     {
+        Gate::authorize('update', $material);
+
         DB::transaction(function () use ($request, $material) {
             $title = $request->input('title');
 
@@ -77,15 +74,15 @@ class MaterialController extends Controller
             ])->save();
 
             $cats = Str::of($request->input('cat'))
-                ->replace('/', '／')
-                ->replace('#', '＃')
-                ->explode(',')
-                ->map(fn ($cat) => trim($cat))
-                ->unique()
-                ->reject(fn ($cat) => empty($cat))
-                ->map(fn ($cat) => Category::firstOrCreate([
-                    'name' => $cat,
-                ]));
+                       ->replace('/', '／')
+                       ->replace('#', '＃')
+                       ->explode(',')
+                       ->map(fn ($cat) => trim($cat))
+                       ->unique()
+                       ->reject(fn ($cat) => empty($cat))
+                       ->map(fn ($cat) => Category::firstOrCreate([
+                           'name' => $cat,
+                       ]));
 
             $material->categories()->sync($cats->pluck('id'));
         });
@@ -98,6 +95,8 @@ class MaterialController extends Controller
      */
     public function destroy(Request $request, Material $material): RedirectResponse
     {
+        Gate::authorize('delete', $material);
+
         if ($request->boolean('forceDelete')) {
             Storage::delete($material->file);
             $material->forceDelete();

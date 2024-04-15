@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class MaterialsController extends Controller
@@ -15,7 +16,7 @@ class MaterialsController extends Controller
      */
     public function __invoke(Request $request): View
     {
-        $this->authorize('pcs');
+        Gate::authorize('pcs');
 
         $materials = Material::query()
             ->latest('id')

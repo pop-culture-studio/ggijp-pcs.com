@@ -32,12 +32,17 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 });
 
 Route::get('contact/preview/{contact}', ContactPreviewController::class)
-    ->name('contact.preview')
-    ->middleware('signed');
+     ->name('contact.preview')
+     ->middleware('signed');
 
 Route::get('author/{author}', AuthorController::class)->name('author');
 
-Route::resource('material', MaterialController::class);
+Route::resource('material', MaterialController::class)
+     ->only(['index', 'show']);
+
+Route::resource('material', MaterialController::class)
+     ->only(['edit', 'update', 'destroy'])
+     ->middleware(['auth:sanctum']);
 
 Route::get('category/{category}', CategoryController::class)->name('category.show');
 Route::redirect('category', '/');
