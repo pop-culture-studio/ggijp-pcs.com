@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\UpdateCategoryMainCommand;
+use App\Console\Commands\UpdateCategorySubCommand;
 use App\Jobs\SitemapJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -19,6 +20,7 @@ class Kernel extends ConsoleKernel
         $schedule->job(SitemapJob::class)->dailyAt('04:00');
 
         $schedule->command(UpdateCategoryMainCommand::class)->dailyAt('04:00');
+        $schedule->command(UpdateCategorySubCommand::class)->dailyAt('05:00');
     }
 
     /**

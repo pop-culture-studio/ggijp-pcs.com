@@ -39,7 +39,7 @@ class ChatJob implements ShouldQueue
         $this->category->loadCount('materials');
 
         $prompt = collect([
-            $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta descriptionを一つ',
+            $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta descriptionを一つ作成。',
             'カテゴリー内の素材例：'.$this->category->materials()->latest()->take(10)->pluck('title')->join(' '),
         ])->join(PHP_EOL);
 
