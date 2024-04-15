@@ -33,7 +33,9 @@
                     @endforeach
                 </div>
 
-                {{ $materials->links() }}
+                <div class="flex justify-center">
+                    {{ $materials->links() }}
+                </div>
             </div>
 
         </div>
