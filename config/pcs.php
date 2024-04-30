@@ -106,13 +106,4 @@ return [
             'ring' => 'ring-live2d',
         ],
     ],
-
-    /**
-     * text-{{ $material->categoryColor }}などで使うカラー。ここに書いてビルド後のcssファイルに含まれるようにする。
-     */
-    'colors' => [
-        'text-indigo-500',
-        'bg-indigo-500',
-        'ring-indigo-500',
-    ],
 ];
