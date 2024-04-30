@@ -11,26 +11,10 @@ environments:
     database: grouphome
     timeout: 30
     warm: 5
-    #octane: true
-    #octane-database-session-persist: true
-    #octane-database-session-ttl: 10
-    #        firewall:
-    #          rate-limit: 1000
-    #          bot-control:
-    #            - CategorySearchEngine
-    ##            - CategorySocialMedia
-    #            - CategoryScrapingFramework
-    #            - CategoryArchiver
-    ##            - CategoryContentFetcher
-    #            - CategoryHttpLibrary
-    #            - CategoryLinkChecker
-    #            - SignalAutomatedBrowser
-    #            - SignalKnownBotDataCenter
     build:
       - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
       - 'php artisan event:cache'
       - 'php artisan config:cache'
-      - 'php artisan route:cache'
       - 'php artisan view:cache'
       - 'npm ci && npm run build && rm -rf node_modules'
     deploy:
@@ -44,14 +28,10 @@ environments:
     database: grouphome
     timeout: 30
     scheduler: false
-    #octane: true
-    #octane-database-session-persist: true
-    #octane-database-session-ttl: 10
     build:
       - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
       - 'php artisan event:cache'
       - 'php artisan config:cache'
-      - 'php artisan route:cache'
       - 'php artisan view:cache'
       - 'npm ci && npm run build && rm -rf node_modules'
     deploy:
