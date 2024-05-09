@@ -3,7 +3,7 @@
 
         <h2 class="text-2xl mb-5">自分の素材</h2>
 
-        <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="p-6 my-3 bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <table class="table-auto w-full">
                 <thead>
                     <tr class="border-b-2 border-indigo-500">
@@ -44,6 +44,9 @@
             </table>
 
         </div>
-        {{ $materials->links() }}
+
+        <div class="flex justify-center">
+            {{ $materials->links() }}
+        </div>
     </div>
 </div>

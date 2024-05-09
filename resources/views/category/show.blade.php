@@ -51,7 +51,9 @@
                         <livewire:material.item :material="$material"></livewire:material.item>
                     @endforeach
                 </div>
+            </div>
 
+            <div class="flex justify-center">
                 {{ $materials->links() }}
             </div>
 

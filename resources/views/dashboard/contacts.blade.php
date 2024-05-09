@@ -42,7 +42,9 @@
                 <div class="p-3">お問い合わせはありません。</div>
             @endforelse
 
-            {{ $contacts->links() }}
+            <div class="flex justify-center">
+                {{ $contacts->links() }}
+            </div>
         </div>
     </div>
 </x-app-layout>
