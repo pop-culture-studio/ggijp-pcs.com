@@ -15,7 +15,7 @@ class MaterialsController extends Controller
      */
     public function __invoke(Request $request): View
     {
-        $materials = Material::latest()->simplePaginate();
+        $materials = Material::latest()->paginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
     }
