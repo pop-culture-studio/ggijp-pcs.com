@@ -24,7 +24,7 @@ class MaterialController extends Controller
     {
         $materials = Material::keywordSearch($request->query('q'))
                              ->latest('id')
-                             ->simplePaginate()
+                             ->paginate()
                              ->withQueryString();
 
         return view('material.index')->with(compact('materials'));

@@ -20,7 +20,7 @@ class AuthorController extends Controller
         $materials = Material::query()
                              ->where('author', $author)
                              ->latest('id')
-                             ->simplePaginate();
+                             ->paginate();
 
         return view('author.show')->with(compact('author', 'materials'));
     }
