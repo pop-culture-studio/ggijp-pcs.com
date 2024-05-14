@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MaterialUpdated;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Models\Category;
 use App\Models\Material;
@@ -88,6 +89,10 @@ class MaterialController extends Controller
                        ]));
 
             $material->categories()->sync($cats->pluck('id'));
+
+            $material->refresh();
+
+            MaterialUpdated::dispatch($material);
         });
 
         return to_route('material.show', $material);
