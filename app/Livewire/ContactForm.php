@@ -6,19 +6,17 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\View\View;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class ContactForm extends Component
 {
+    #[Validate('required')]
     public string $name = '';
+    #[Validate('required|email')]
     public string $email = '';
+    #[Validate('required')]
     public string $body = '';
-
-    public array $rules = [
-        'name' => 'required',
-        'email' => ['required', 'email'],
-        'body' => 'required',
-    ];
 
     public function ready(Request $request): void
     {
