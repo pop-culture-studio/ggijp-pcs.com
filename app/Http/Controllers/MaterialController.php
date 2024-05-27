@@ -24,9 +24,9 @@ class MaterialController extends Controller
     public function index(Request $request): View
     {
         $materials = Material::keywordSearch($request->query('q'))
-                             ->latest('id')
-                             ->paginate()
-                             ->withQueryString();
+            ->latest('id')
+            ->paginate()
+            ->withQueryString();
 
         return view('material.index')->with(compact('materials'));
     }
@@ -78,15 +78,15 @@ class MaterialController extends Controller
             ])->save();
 
             $cats = Str::of($request->input('cat'))
-                       ->replace('/', '／')
-                       ->replace('#', '＃')
-                       ->explode(',')
-                       ->map(fn ($cat) => trim($cat))
-                       ->unique()
-                       ->reject(fn ($cat) => empty($cat))
-                       ->map(fn ($cat) => Category::firstOrCreate([
-                           'name' => $cat,
-                       ]));
+                ->replace('/', '／')
+                ->replace('#', '＃')
+                ->explode(',')
+                ->map(fn ($cat) => trim($cat))
+                ->unique()
+                ->reject(fn ($cat) => empty($cat))
+                ->map(fn ($cat) => Category::firstOrCreate([
+                    'name' => $cat,
+                ]));
 
             $material->categories()->sync($cats->pluck('id'));
 
