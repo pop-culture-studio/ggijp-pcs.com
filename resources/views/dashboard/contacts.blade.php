@@ -12,7 +12,7 @@
 
             @forelse($contacts as $contact)
 
-                <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-3 mb-3">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg p-3 mb-3">
 
                     <table class="table-auto">
                         <tr>

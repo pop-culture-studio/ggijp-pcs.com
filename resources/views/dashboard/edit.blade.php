@@ -5,7 +5,7 @@
 
             <h1 class="text-3xl"><a href="{{ route('material.show', $material) }}">{{ $material->title }}</a></h1>
 
-            <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="p-6 bg-white dark:bg-black overflow-hidden shadow-xl sm:rounded-lg">
 
                 <h2 class="text-3xl mb-5">ファイル情報の編集</h2>
 
@@ -52,8 +52,7 @@
 
                     <div class="my-2">
                         <x-label for="description" value="{{ __('説明（省略可）') }}"/>
-                        <textarea name="description" rows="4" cols="40"
-                                  class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">{{ $material->description }}</textarea>
+                        <x-textarea name="description">{{ $material->description }}</x-textarea>
                         <x-input-error for="description" class="mt-2"/>
                     </div>
 
@@ -63,7 +62,7 @@
 
                 </form>
 
-                <details class="mt-3 p-3 bg-indigo-100 rounded-md">
+                <details class="mt-3 p-3 bg-indigo-100 rounded-md dark:bg-gray-900">
                     <summary>ヘルプ</summary>
                     <ul class="list-inside list-disc">
                         <li>
@@ -78,7 +77,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-            <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="p-6 bg-white dark:bg-black overflow-hidden shadow-xl sm:rounded-lg">
 
                 <h2 class="text-3xl mb-3">サムネイル画像の登録</h2>
 
@@ -93,7 +92,7 @@
     @can('delete', $material)
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg border-2 border-red-500">
+                <div class="p-6 bg-white bg-black overflow-hidden shadow-xl sm:rounded-lg border-2 border-red-500">
                     <details>
                         <summary>非公開</summary>
                         <h2 class="text-3xl mb-2">ファイルを非公開にする</h2>

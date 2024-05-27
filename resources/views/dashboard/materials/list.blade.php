@@ -5,7 +5,7 @@
             {{ $materials->links() }}
         </div>
 
-        <div class="p-6 my-3 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="p-6 my-3 bg-white dark:bg-black overflow-hidden shadow-xl sm:rounded-lg">
             <table class="table-auto w-full">
                 <thead>
                 <tr class="border-b-2 border-indigo-500">
@@ -21,8 +21,8 @@
                 </thead>
                 <tbody>
                 @foreach ($materials as $material)
-                    <tr class="text-center odd:bg-white even:bg-gray-100 divide-x divide-solid divide-indigo-500 divide-opacity-30">
-                        <td>
+                    <tr class="text-center divide-x divide-solid divide-indigo-500 divide-opacity-30 odd:bg-white even:bg-gray-100 dark:odd:bg-gray-700 dark:even:bg-gray-800">
+                    <td>
                             {{ $material->id }}
                         </td>
                         <td>

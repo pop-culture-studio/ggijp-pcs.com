@@ -70,8 +70,7 @@
 
     <div class="my-2">
         <x-label for="description" value="{{ __('説明（省略可）') }}"/>
-        <textarea name="description" rows="4" cols="40" wire:model="description"
-                  class="mt-1 block w-full sm:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
+        <x-textarea name="description" rows="4" cols="40" wire:model="description"></x-textarea>
         <x-input-error for="description" class="mt-2"/>
     </div>
 
@@ -79,7 +78,7 @@
         {{ __('アップロード') }}
     </x-button>
 
-    <details class="mt-3 p-3 bg-indigo-100 rounded-md">
+    <details class="mt-3 p-3 bg-indigo-100 dark:bg-gray-900 rounded-md">
         <summary>ヘルプ</summary>
         <ul class="list-inside list-disc">
             <li>
