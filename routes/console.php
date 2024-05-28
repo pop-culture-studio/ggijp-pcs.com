@@ -1,23 +1,19 @@
 <?php
 
+use App\Console\Commands\UpdateCategoryMainCommand;
+use App\Console\Commands\UpdateCategorySubCommand;
+use App\Jobs\SitemapJob;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
-
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
+use Illuminate\Support\Facades\Schedule;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
 Artisan::command('sitemap', function () {
-    \App\Jobs\SitemapJob::dispatch();
-})->purpose('Create sitemap');
+    SitemapJob::dispatch();
+})->purpose('Create sitemap')->dailyAt('04:00');
+
+Schedule::command(UpdateCategoryMainCommand::class)->dailyAt('05:00');
+Schedule::command(UpdateCategorySubCommand::class)->dailyAt('06:00');

@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $materials = $request->user()
             ->materials()
             ->latest('id')
-            ->simplePaginate();
+            ->paginate();
 
         return view('dashboard.dashboard')->with(compact('materials'));
     }

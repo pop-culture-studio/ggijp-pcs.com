@@ -15,11 +15,7 @@ class MaterialsController extends Controller
      */
     public function __invoke(Request $request): View
     {
-        $this->authorize('pcs');
-
-        $materials = Material::query()
-            ->latest('id')
-            ->simplePaginate();
+        $materials = Material::latest()->paginate();
 
         return view('dashboard.materials.index')->with(compact('materials'));
     }

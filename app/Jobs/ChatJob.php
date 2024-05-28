@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Chat\Prompt;
 use App\Models\Category;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -14,6 +15,8 @@ use OpenAI\Laravel\Facades\OpenAI;
 class ChatJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    protected const MODEL = 'gpt-4-turbo';
 
     /**
      * Create a new job instance.
@@ -36,18 +39,18 @@ class ChatJob implements ShouldQueue
         $this->category->loadCount('materials');
 
         $prompt = collect([
-            $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta descriptionを一つ',
+            $this->category->materials_count.'個のフリー素材がある「'.$this->category->name.'」カテゴリーのmeta descriptionを一つ作成。',
             'カテゴリー内の素材例：'.$this->category->materials()->latest()->take(10)->pluck('title')->join(' '),
         ])->join(PHP_EOL);
 
         info($prompt);
 
-        $response = OpenAI::chat()->create([
-            'model' => 'gpt-4-turbo-preview',
-            'messages' => [
-                ['role' => 'user', 'content' => $prompt],
-            ],
-        ]);
+        $response = OpenAI::chat()->create(
+            Prompt::make(
+                system: 'あなたはフリー素材サイトの運営者です',
+                prompt: $prompt
+            )->toArray()
+        );
 
         foreach ($response->choices as $result) {
             info($result->message->content);

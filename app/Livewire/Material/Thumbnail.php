@@ -6,7 +6,7 @@ use App\Models\Material;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Validation\ValidationException;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -18,7 +18,7 @@ class Thumbnail extends Component
 
     public Material $material;
 
-    #[Rule('nullable', 'max:2048', 'image', 'mimes:jpg,jpeg,gif,png,webp')]
+    #[Validate('nullable', 'max:2048', 'image', 'mimes:jpg,jpeg,gif,png,webp')]
     public string|TemporaryUploadedFile|null $thumbnail = null;
 
     /**

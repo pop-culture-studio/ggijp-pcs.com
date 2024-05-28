@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Material;
 
+use App\Events\MaterialUpdated;
 use App\Models\Category;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -15,8 +16,8 @@ use Throwable;
 
 class Create extends Component
 {
-    use WithFileUploads;
     use AuthorizesRequests;
+    use WithFileUploads;
 
     public string|TemporaryUploadedFile|null $file = null;
 
@@ -93,6 +94,10 @@ class Create extends Component
                 ]));
 
             $material->categories()->sync($cats->pluck('id'));
+
+            $material->refresh();
+
+            MaterialUpdated::dispatch($material);
 
             session()->flash('flash.banner', $title.'をアップロードしました。');
         });

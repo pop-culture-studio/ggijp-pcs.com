@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function __invoke(Request $request): View
     {
-        $contacts = Contact::latest()->simplePaginate();
+        $contacts = Contact::latest()->paginate();
 
         return view('dashboard.contacts')->with(compact('contacts'));
     }

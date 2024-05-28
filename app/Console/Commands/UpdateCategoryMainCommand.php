@@ -6,31 +6,31 @@ use App\Jobs\ChatJob;
 use App\Models\Category;
 use Illuminate\Console\Command;
 
-class ChatCommand extends Command
+class UpdateCategoryMainCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'chatgpt';
+    protected $signature = 'cat:main';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update category description by ChatGPT';
+    protected $description = 'Update main category description';
 
     /**
      * Execute the console command.
      */
     public function handle(): void
     {
-        $ids = collect(config('pcs.category'))->pluck('id')->values()->toArray();
+        $ids = collect(config('pcs.category'))->pluck('title')->values()->toArray();
 
         $category = Category::query()
-            ->whereIntegerInRaw('id', $ids)
+            ->whereIn('name', $ids)
             ->oldest('updated_at')
             ->first();
 

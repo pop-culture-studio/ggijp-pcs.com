@@ -23,9 +23,9 @@ use function Illuminate\Events\queueable;
 class Material extends Model implements Feedable
 {
     use HasFactory;
-    use SoftDeletes;
-    use MaterialScope;
     use MaterialFeed;
+    use MaterialScope;
+    use SoftDeletes;
 
     protected $fillable = [
         'file',

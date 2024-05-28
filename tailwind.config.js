@@ -12,6 +12,13 @@ export default {
         './config/pcs.php',
     ],
 
+    // text-{{ $material->categoryColor }}などで使うカラーを必ず含める。
+    safelist: [
+        'text-indigo-500',
+        'bg-indigo-500',
+        'ring-indigo-500',
+    ],
+
     theme: {
         extend: {
             fontFamily: {
