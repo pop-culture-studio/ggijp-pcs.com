@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.316.4",
+            "version": "3.316.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2fffbb675e6af34a4a0ff42bbac04d17ab033142"
+                "reference": "1d89a733ff593e9dd18ae2bcc63ea9fe7518bd59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2fffbb675e6af34a4a0ff42bbac04d17ab033142",
-                "reference": "2fffbb675e6af34a4a0ff42bbac04d17ab033142",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1d89a733ff593e9dd18ae2bcc63ea9fe7518bd59",
+                "reference": "1d89a733ff593e9dd18ae2bcc63ea9fe7518bd59",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.316.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.316.5"
             },
-            "time": "2024-07-18T19:22:56+00:00"
+            "time": "2024-07-22T18:06:32+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -2297,16 +2297,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.4.2",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "91c24291965bd6d7c46c46a12ba7492f83b1cadf"
+                "reference": "0026475f5c9a104410ae824cb5a4d63fa3bdb1df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/91c24291965bd6d7c46c46a12ba7492f83b1cadf",
-                "reference": "91c24291965bd6d7c46c46a12ba7492f83b1cadf",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/0026475f5c9a104410ae824cb5a4d63fa3bdb1df",
+                "reference": "0026475f5c9a104410ae824cb5a4d63fa3bdb1df",
                 "shasum": ""
             },
             "require": {
@@ -2319,8 +2319,8 @@
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
-                "commonmark/cmark": "0.30.3",
-                "commonmark/commonmark.js": "0.30.0",
+                "commonmark/cmark": "0.31.0",
+                "commonmark/commonmark.js": "0.31.0",
                 "composer/package-versions-deprecated": "^1.8",
                 "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
@@ -2342,7 +2342,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.5-dev"
+                    "dev-main": "2.6-dev"
                 }
             },
             "autoload": {
@@ -2399,7 +2399,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-02T11:59:32+00:00"
+            "time": "2024-07-22T18:18:14+00:00"
         },
         {
             "name": "league/config",
@@ -2804,16 +2804,16 @@
         },
         {
             "name": "linecorp/line-bot-sdk",
-            "version": "9.9.0",
+            "version": "9.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/line/line-bot-sdk-php.git",
-                "reference": "3278acee0b895481fa7ca1605db4496078ff0b2a"
+                "reference": "4e5d4bd4d6644761dfc78132a4ce116d0063e76a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/3278acee0b895481fa7ca1605db4496078ff0b2a",
-                "reference": "3278acee0b895481fa7ca1605db4496078ff0b2a",
+                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/4e5d4bd4d6644761dfc78132a4ce116d0063e76a",
+                "reference": "4e5d4bd4d6644761dfc78132a4ce116d0063e76a",
                 "shasum": ""
             },
             "require": {
@@ -2828,7 +2828,7 @@
                 "phpmd/phpmd": "2.15.0",
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^10.2",
-                "squizlabs/php_codesniffer": "3.9.1"
+                "squizlabs/php_codesniffer": "3.10.2"
             },
             "type": "library",
             "extra": {
@@ -2895,9 +2895,9 @@
             ],
             "support": {
                 "issues": "https://github.com/line/line-bot-sdk-php/issues",
-                "source": "https://github.com/line/line-bot-sdk-php/tree/9.9.0"
+                "source": "https://github.com/line/line-bot-sdk-php/tree/9.9.1"
             },
-            "time": "2024-04-17T08:41:37+00:00"
+            "time": "2024-07-22T01:17:47+00:00"
         },
         {
             "name": "livewire/livewire",
