@@ -53,7 +53,7 @@ class Gallery extends Component
 
             $data = $zip->getFromIndex($index);
 
-            $random_path = $tmp.'/img/'.Str::random();
+            $random_path = $tmp.'/preview/'.Str::random();
 
             if (! Storage::put($random_path, $data)) {
                 continue;
